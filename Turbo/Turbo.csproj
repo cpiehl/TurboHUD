@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D11E03D7-D699-4B77-80B3-B8702E25BCC7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Turbo</RootNamespace>
+    <AssemblyName>Turbo</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Plugins\Chuzuki\Color.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugins\Chuzuki\FuckinBees.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugins\Chuzuki\RiftDensityPlugin.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugins\Chuzuki\RiftProgressionCursor.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugins\Chuzuki\RiftProgressionLabels.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugins\Chuzuki\ZeiCircleForBoss.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Plugins\Default\Actors\ChestPlugin.cs" />
+    <Compile Include="Plugins\Default\Actors\ClickableChestGizmoPlugin.cs" />
+    <Compile Include="Plugins\Default\Actors\CursedEventPlugin.cs" />
+    <Compile Include="Plugins\Default\Actors\DeadBodyPlugin.cs" />
+    <Compile Include="Plugins\Default\Actors\GlobePlugin.cs" />
+    <Compile Include="Plugins\Default\Actors\OculusPlugin.cs" />
+    <Compile Include="Plugins\Default\Actors\PortalPlugin.cs" />
+    <Compile Include="Plugins\Default\Actors\RackPlugin.cs" />
+    <Compile Include="Plugins\Default\Actors\ShrinePlugin.cs" />
+    <Compile Include="Plugins\Default\BasePlugin\BasePlugin.cs" />
+    <Compile Include="Plugins\Default\BasePlugin\ValueFormat.cs" />
+    <Compile Include="Plugins\Default\BountyTablePlugin.cs" />
+    <Compile Include="Plugins\Default\BuffLists\CheatDeathBuffFeederPlugin.cs" />
+    <Compile Include="Plugins\Default\BuffLists\ConventionOfElementsBuffListPlugin.cs" />
+    <Compile Include="Plugins\Default\BuffLists\MiniMapLeftBuffListPlugin.cs" />
+    <Compile Include="Plugins\Default\BuffLists\MiniMapRightBuffListPlugin.cs" />
+    <Compile Include="Plugins\Default\BuffLists\Painter\BuffPainter.cs" />
+    <Compile Include="Plugins\Default\BuffLists\Painter\BuffPaintInfo.cs" />
+    <Compile Include="Plugins\Default\BuffLists\Painter\BuffRule.cs" />
+    <Compile Include="Plugins\Default\BuffLists\Painter\BuffRuleCalculator.cs" />
+    <Compile Include="Plugins\Default\BuffLists\PlayerBottomBuffListPlugin.cs" />
+    <Compile Include="Plugins\Default\BuffLists\PlayerLeftBuffListPlugin.cs" />
+    <Compile Include="Plugins\Default\BuffLists\PlayerRightBuffListPlugin.cs" />
+    <Compile Include="Plugins\Default\BuffLists\PlayerTopBuffListPlugin.cs" />
+    <Compile Include="Plugins\Default\BuffLists\TopLeftBuffListPlugin.cs" />
+    <Compile Include="Plugins\Default\BuffLists\TopRightBuffListPlugin.cs" />
+    <Compile Include="Plugins\Default\CooldownSoundPlayer\CoolDownRule.cs" />
+    <Compile Include="Plugins\Default\CooldownSoundPlayer\CooldownSoundPlayerPlugin.cs" />
+    <Compile Include="Plugins\Default\DamageBonusPlugin.cs" />
+    <Compile Include="Plugins\Default\DebugPlugin.cs" />
+    <Compile Include="Plugins\Default\Decorators\AbstractMapDecoratorWithRadius.cs" />
+    <Compile Include="Plugins\Default\Decorators\GroundCircleDecorator.cs" />
+    <Compile Include="Plugins\Default\Decorators\GroundLabelDecorator.cs" />
+    <Compile Include="Plugins\Default\Decorators\GroundLabelDecoratorPainterPlugin.cs" />
+    <Compile Include="Plugins\Default\Decorators\GroundShapeDecorator.cs" />
+    <Compile Include="Plugins\Default\Decorators\GroundTimerDecorator.cs" />
+    <Compile Include="Plugins\Default\Decorators\IWorldDecorator.cs" />
+    <Compile Include="Plugins\Default\Decorators\IWorldDecoratorWithRadius.cs" />
+    <Compile Include="Plugins\Default\Decorators\MapLabelDecorator.cs" />
+    <Compile Include="Plugins\Default\Decorators\MapShapeDecorator.cs" />
+    <Compile Include="Plugins\Default\Decorators\MapTextureDecorator.cs" />
+    <Compile Include="Plugins\Default\Decorators\TopLabelDecorator.cs" />
+    <Compile Include="Plugins\Default\Decorators\TopLabelWithTitleDecorator.cs" />
+    <Compile Include="Plugins\Default\Decorators\WorldDecoratorCollection.cs" />
+    <Compile Include="Plugins\Default\ExperienceOverBarPlugin.cs" />
+    <Compile Include="Plugins\Default\Extensions\LinqExtensions.cs" />
+    <Compile Include="Plugins\Default\Faders\IFader.cs" />
+    <Compile Include="Plugins\Default\Faders\StandardFader.cs" />
+    <Compile Include="Plugins\Default\GameInfoPlugin.cs" />
+    <Compile Include="Plugins\Default\Inventory\BloodShardPlugin.cs" />
+    <Compile Include="Plugins\Default\Inventory\InventoryAndStashPlugin.cs" />
+    <Compile Include="Plugins\Default\Inventory\InventoryFreeSpacePlugin.cs" />
+    <Compile Include="Plugins\Default\Inventory\InventoryKanaiCubedItemsPlugin.cs" />
+    <Compile Include="Plugins\Default\Inventory\InventoryMaterialCountPlugin.cs" />
+    <Compile Include="Plugins\Default\Inventory\StashPreviewPlugin.cs" />
+    <Compile Include="Plugins\Default\Inventory\StashUsedSpacePlugin.cs" />
+    <Compile Include="Plugins\Default\ItemRenderers\IItemRenderer.cs" />
+    <Compile Include="Plugins\Default\ItemRenderers\StandardItemRenderer.cs" />
+    <Compile Include="Plugins\Default\Items\CosmeticItemsPlugin.cs" />
+    <Compile Include="Plugins\Default\Items\HoveredItemInfoPlugin.cs" />
+    <Compile Include="Plugins\Default\Items\ItemsPlugin.cs" />
+    <Compile Include="Plugins\Default\Items\PickupRangePlugin.cs" />
+    <Compile Include="Plugins\Default\LabelLists\AttributeLabelListPlugin.cs" />
+    <Compile Include="Plugins\Default\LabelLists\TopExperienceStatistics.cs" />
+    <Compile Include="Plugins\Default\LabelLists\TopLabelList\AbstractTopLabelList.cs" />
+    <Compile Include="Plugins\Default\LabelLists\TopLabelList\HorizontalTopLabelList.cs" />
+    <Compile Include="Plugins\Default\LabelLists\TopLabelList\VerticalTopLabelList.cs" />
+    <Compile Include="Plugins\Default\Minimap\MarkerPlugin.cs" />
+    <Compile Include="Plugins\Default\Minimap\SceneHintPlugin.cs" />
+    <Compile Include="Plugins\Default\Monsters\DangerousMonsterPlugin.cs" />
+    <Compile Include="Plugins\Default\Monsters\EliteMonsterAffixPlugin.cs" />
+    <Compile Include="Plugins\Default\Monsters\EliteMonsterSkillPlugin.cs" />
+    <Compile Include="Plugins\Default\Monsters\ExplosiveMonsterPlugin.cs" />
+    <Compile Include="Plugins\Default\Monsters\GoblinPlugin.cs" />
+    <Compile Include="Plugins\Default\Monsters\MonsterPackPlugin.cs" />
+    <Compile Include="Plugins\Default\Monsters\MonsterRiftProgressionColoringPlugin.cs" />
+    <Compile Include="Plugins\Default\Monsters\StandardMonsterPlugin.cs" />
+    <Compile Include="Plugins\Default\Monsters\TopMonsterHealthBarPlugin.cs" />
+    <Compile Include="Plugins\Default\NetworkLatencyPlugin.cs" />
+    <Compile Include="Plugins\Default\NotifyAtRiftPercentagePlugin.cs" />
+    <Compile Include="Plugins\Default\ParagonCapturePlugin.cs" />
+    <Compile Include="Plugins\Default\Players\BannerPlugin.cs" />
+    <Compile Include="Plugins\Default\Players\HeadStonePlugin.cs" />
+    <Compile Include="Plugins\Default\Players\MultiplayerExperienceRangePlugin.cs" />
+    <Compile Include="Plugins\Default\Players\OtherPlayersPlugin.cs" />
+    <Compile Include="Plugins\Default\Players\PlayerSkillPlugin.cs" />
+    <Compile Include="Plugins\Default\Players\SkillRangeHelperPlugin.cs" />
+    <Compile Include="Plugins\Default\PortraitBottomStatsPlugin.cs" />
+    <Compile Include="Plugins\Default\RadiusTransformators\IRadiusTransformator.cs" />
+    <Compile Include="Plugins\Default\RadiusTransformators\StandardPingRadiusTransformator.cs" />
+    <Compile Include="Plugins\Default\ResourceOverGlobePlugin.cs" />
+    <Compile Include="Plugins\Default\RiftPlugin.cs" />
+    <Compile Include="Plugins\Default\RotationTransformators\CircularRotationTransformator.cs" />
+    <Compile Include="Plugins\Default\RotationTransformators\IRotationTransformator.cs" />
+    <Compile Include="Plugins\Default\ShapePainters\CircleShapePainter.cs" />
+    <Compile Include="Plugins\Default\ShapePainters\CrossShapePainter.cs" />
+    <Compile Include="Plugins\Default\ShapePainters\DoorShapePainter.cs" />
+    <Compile Include="Plugins\Default\ShapePainters\IShapePainter.cs" />
+    <Compile Include="Plugins\Default\ShapePainters\LineFromMeShapePainter.cs" />
+    <Compile Include="Plugins\Default\ShapePainters\PlusShapePainter.cs" />
+    <Compile Include="Plugins\Default\ShapePainters\RectangleShapePainter.cs" />
+    <Compile Include="Plugins\Default\ShapePainters\RotatingTriangleShapePainter.cs" />
+    <Compile Include="Plugins\Default\ShapePainters\TriangleShapePainter.cs" />
+    <Compile Include="Plugins\Default\ShapePainters\WellShapePainter.cs" />
+    <Compile Include="Plugins\Default\SkillBars\OriginalHealthPotionSkillPlugin.cs" />
+    <Compile Include="Plugins\Default\SkillBars\OriginalSkillBarPlugin.cs" />
+    <Compile Include="Plugins\Default\SkillBars\Painter\SkillPainter.cs" />
+    <Compile Include="Plugins\Default\SkillBars\UiHiddenPortraitSkillBarPlugin.cs" />
+    <Compile Include="Plugins\Default\WaypointQuestsPlugin.cs" />
+    <Compile Include="Plugins\Default\WorldShapePainters\IWorldShapePainter.cs" />
+    <Compile Include="Plugins\Default\WorldShapePainters\WorldStarShapePainter.cs" />
+    <Compile Include="interfaces\controllers\IController.cs" />
+    <Compile Include="interfaces\controllers\IGameController.cs" />
+    <Compile Include="interfaces\controllers\IInputController.cs" />
+    <Compile Include="interfaces\controllers\IInventoryController.cs" />
+    <Compile Include="interfaces\controllers\IQueueController.cs" />
+    <Compile Include="interfaces\controllers\IRenderController.cs" />
+    <Compile Include="interfaces\controllers\ISceneRevealController.cs" />
+    <Compile Include="interfaces\controllers\ISnoController.cs" />
+    <Compile Include="interfaces\controllers\ISoundController.cs" />
+    <Compile Include="interfaces\controllers\IStatController.cs" />
+    <Compile Include="interfaces\controllers\ITextLogController.cs" />
+    <Compile Include="interfaces\controllers\ITextureController.cs" />
+    <Compile Include="interfaces\controllers\ITimeController.cs" />
+    <Compile Include="interfaces\controllers\ITrackerController.cs" />
+    <Compile Include="interfaces\controllers\sno\IAttributeList.cs" />
+    <Compile Include="interfaces\controllers\sno\ISnoItemList.cs" />
+    <Compile Include="interfaces\controllers\sno\ISnoPowerList.cs" />
+    <Compile Include="interfaces\controllers\sno\ISnoQuestList.cs" />
+    <Compile Include="interfaces\data\actor\IActor.cs" />
+    <Compile Include="interfaces\data\actor\IClickableActor.cs" />
+    <Compile Include="interfaces\data\actor\IHeadStone.cs" />
+    <Compile Include="interfaces\data\actor\IMonster.cs" />
+    <Compile Include="interfaces\data\actor\IPortal.cs" />
+    <Compile Include="interfaces\data\actor\IShrine.cs" />
+    <Compile Include="interfaces\data\actor\ITownBanner.cs" />
+    <Compile Include="interfaces\data\IBanner.cs" />
+    <Compile Include="interfaces\data\IBuff.cs" />
+    <Compile Include="interfaces\data\IHero.cs" />
+    <Compile Include="interfaces\data\IHeroClassDefinition.cs" />
+    <Compile Include="interfaces\data\IMarker.cs" />
+    <Compile Include="interfaces\data\IMonsterPack.cs" />
+    <Compile Include="interfaces\data\IQuest.cs" />
+    <Compile Include="interfaces\data\IScene.cs" />
+    <Compile Include="interfaces\data\ISceneHint.cs" />
+    <Compile Include="interfaces\data\ISkillEffect.cs" />
+    <Compile Include="interfaces\data\ISkillEffectRule.cs" />
+    <Compile Include="interfaces\data\IStatTracker.cs" />
+    <Compile Include="interfaces\data\IStatTrackerCore.cs" />
+    <Compile Include="interfaces\data\item\IItem.cs" />
+    <Compile Include="interfaces\data\item\IItemPerfection.cs" />
+    <Compile Include="interfaces\data\item\IItemStat.cs" />
+    <Compile Include="interfaces\data\IWaypoint.cs" />
+    <Compile Include="interfaces\data\player\IPlayer.cs" />
+    <Compile Include="interfaces\data\player\IPlayerArmorySet.cs" />
+    <Compile Include="interfaces\data\player\IPlayerDamageInfo.cs" />
+    <Compile Include="interfaces\data\player\IPlayerDefenseInfo.cs" />
+    <Compile Include="interfaces\data\player\IPlayerMaterialInfo.cs" />
+    <Compile Include="interfaces\data\player\IPlayerOffenseInfo.cs" />
+    <Compile Include="interfaces\data\player\IPlayerPowerInfo.cs" />
+    <Compile Include="interfaces\data\player\IPlayerSkill.cs" />
+    <Compile Include="interfaces\data\player\IPlayerStatInfo.cs" />
+    <Compile Include="interfaces\data\player\powers\IBarbarianPowerInfo.cs" />
+    <Compile Include="interfaces\data\player\powers\ICrusaderPowerInfo.cs" />
+    <Compile Include="interfaces\data\player\powers\IDemonHunterPowerInfo.cs" />
+    <Compile Include="interfaces\data\player\powers\ILegendaryGemInfo.cs" />
+    <Compile Include="interfaces\data\player\powers\ILegendaryPowerInfo.cs" />
+    <Compile Include="interfaces\data\player\powers\IMonkPowerInfo.cs" />
+    <Compile Include="interfaces\data\player\powers\INecromancerPowerInfo.cs" />
+    <Compile Include="interfaces\data\player\powers\IWitchDoctorPowerInfo.cs" />
+    <Compile Include="interfaces\data\player\powers\IWizardPowerInfo.cs" />
+    <Compile Include="interfaces\enums\ActionKey.cs" />
+    <Compile Include="interfaces\enums\ActorKind.cs" />
+    <Compile Include="interfaces\enums\ActorRarity.cs" />
+    <Compile Include="interfaces\enums\ActorType.cs" />
+    <Compile Include="interfaces\enums\AnimationState.cs" />
+    <Compile Include="interfaces\enums\AreaType.cs" />
+    <Compile Include="interfaces\enums\AttributeValueType.cs" />
+    <Compile Include="interfaces\enums\BountyAct.cs" />
+    <Compile Include="interfaces\enums\BountyType.cs" />
+    <Compile Include="interfaces\enums\GameDifficulty.cs" />
+    <Compile Include="interfaces\enums\GizmoType.cs" />
+    <Compile Include="interfaces\enums\HeroClass.cs" />
+    <Compile Include="interfaces\enums\ItemCraftQuality.cs" />
+    <Compile Include="interfaces\enums\ItemKeepDecision.cs" />
+    <Compile Include="interfaces\enums\ItemKind.cs" />
+    <Compile Include="interfaces\enums\ItemLocation.cs" />
+    <Compile Include="interfaces\enums\ItemQuality.cs" />
+    <Compile Include="interfaces\enums\MapMode.cs" />
+    <Compile Include="interfaces\enums\MonsterAffix.cs" />
+    <Compile Include="interfaces\enums\MonsterPriority.cs" />
+    <Compile Include="interfaces\enums\PowerResourceCostType.cs" />
+    <Compile Include="interfaces\enums\QuestEventType.cs" />
+    <Compile Include="interfaces\enums\QuestState.cs" />
+    <Compile Include="interfaces\enums\QuestType.cs" />
+    <Compile Include="interfaces\enums\ShrineType.cs" />
+    <Compile Include="interfaces\enums\SkillEffectType.cs" />
+    <Compile Include="interfaces\enums\SpecialArea.cs" />
+    <Compile Include="interfaces\IAfterCollectHandler.cs" />
+    <Compile Include="interfaces\IBeforeRenderHandler.cs" />
+    <Compile Include="interfaces\ICustomizer.cs" />
+    <Compile Include="interfaces\IInGameTopPainter.cs" />
+    <Compile Include="interfaces\IInGameWorldPainter.cs" />
+    <Compile Include="interfaces\IItemIdentifiedHandler.cs" />
+    <Compile Include="interfaces\IItemKeepDecisionHandler.cs" />
+    <Compile Include="interfaces\IItemLocationChangedHandler.cs" />
+    <Compile Include="interfaces\IItemPickedHandler.cs" />
+    <Compile Include="interfaces\IKeyEventHandler.cs" />
+    <Compile Include="interfaces\ILootGeneratedHandler.cs" />
+    <Compile Include="interfaces\IMonsterKilledHandler.cs" />
+    <Compile Include="interfaces\INewAreaHandler.cs" />
+    <Compile Include="interfaces\input\IKeyEvent.cs" />
+    <Compile Include="interfaces\IPlugin.cs" />
+    <Compile Include="interfaces\IPortalFoundHandler.cs" />
+    <Compile Include="interfaces\ISkillCooldownHandler.cs" />
+    <Compile Include="interfaces\resources\IBrush.cs" />
+    <Compile Include="interfaces\resources\IFont.cs" />
+    <Compile Include="interfaces\resources\IPerfCounter.cs" />
+    <Compile Include="interfaces\resources\IScreenCoordinate.cs" />
+    <Compile Include="interfaces\resources\ITexture.cs" />
+    <Compile Include="interfaces\resources\ITransparent.cs" />
+    <Compile Include="interfaces\resources\ITransparentCollection.cs" />
+    <Compile Include="interfaces\resources\IUiElement.cs" />
+    <Compile Include="interfaces\resources\IWatch.cs" />
+    <Compile Include="interfaces\resources\IWindow.cs" />
+    <Compile Include="interfaces\resources\IWorldCoordinate.cs" />
+    <Compile Include="interfaces\sno\IAttribute.cs" />
+    <Compile Include="interfaces\sno\IAttributeProcessor.cs" />
+    <Compile Include="interfaces\sno\ISnoAct.cs" />
+    <Compile Include="interfaces\sno\ISnoActor.cs" />
+    <Compile Include="interfaces\sno\ISnoArea.cs" />
+    <Compile Include="interfaces\sno\ISnoItem.cs" />
+    <Compile Include="interfaces\sno\ISnoItemAffix.cs" />
+    <Compile Include="interfaces\sno\ISnoItemAffixGroup.cs" />
+    <Compile Include="interfaces\sno\ISnoItemAffixGroupLink.cs" />
+    <Compile Include="interfaces\sno\ISnoItemMod.cs" />
+    <Compile Include="interfaces\sno\ISnoItemType.cs" />
+    <Compile Include="interfaces\sno\ISnoMonster.cs" />
+    <Compile Include="interfaces\sno\ISnoMonsterAffix.cs" />
+    <Compile Include="interfaces\sno\ISnoPower.cs" />
+    <Compile Include="interfaces\sno\ISnoQuest.cs" />
+    <Compile Include="interfaces\sno\ISnoQuestStep.cs" />
+    <Compile Include="interfaces\sno\ISnoScene.cs" />
+    <Compile Include="interfaces\sno\ISnoSocketedEffect.cs" />
+    <Compile Include="interfaces\sno\ISnoWorld.cs" />
+    <Compile Include="interfaces\sno\SnoPowerIcon.cs" />
+    <Compile Include="mocks\DirectWrite\TextLayout.cs" />
+    <Compile Include="mocks\PathGeometry.cs" />
+    <Compile Include="mocks\SharpDX\Direct2D1.cs" />
+    <Compile Include="mocks\SharpDX\DirectInput.cs" />
+    <Compile Include="mocks\SharpDX\RectangleF.cs" />
+    <Content Include="Plugins\One\ShardsOnKadala.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>robocopy "$(OutDir)Plugins" "C:\Users\Charles\Downloads\TurboHUD" *.cs /MIR</PostBuildEvent>
+  </PropertyGroup>
+</Project>
