@@ -29,7 +29,55 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Infinity.Collections">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\Infinity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Infinity.Concurrency">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\Infinity.Concurrency.dll</HintPath>
+    </Reference>
+    <Reference Include="Infinity.Streams">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\Infinity.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="Infinity.WinAPI">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\Infinity.WinAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct2D1">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\SharpDX.Direct2D1.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\SharpDX.Direct3D11.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DirectInput">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\SharpDX.DirectInput.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGI">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\SharpDX.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Mathematics">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\SharpDX.Mathematics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -40,26 +88,45 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Turbo.Collector">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\Turbo.Collector.dll</HintPath>
+    </Reference>
+    <Reference Include="Turbo.Memory">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\Turbo.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Turbo.Shared">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\Turbo.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Turbo.SNO">
+      <HintPath>..\..\..\..\Downloads\TurboHUD\Turbo.SNO.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Plugins\Chuzuki\Color.cs">
+    <Compile Include="Plugins\Chuzuki\Arc.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Plugins\Chuzuki\FuckinBees.cs">
+    </Compile>
+    <Compile Include="Plugins\Chuzuki\Color.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Plugins\Chuzuki\RiftDensityPlugin.cs">
+    </Compile>
+    <Compile Include="Plugins\Chuzuki\FuckinBees.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Plugins\Chuzuki\RiftProgressionCursor.cs">
+    </Compile>
+    <Compile Include="Plugins\Chuzuki\RiftDensityPlugin.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Plugins\Chuzuki\RiftProgressionLabels.cs">
+    </Compile>
+    <Compile Include="Plugins\Chuzuki\RiftProgressionCursor.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Plugins\Chuzuki\ZeiCircleForBoss.cs">
+    </Compile>
+    <Compile Include="Plugins\Chuzuki\RiftProgressionLabels.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Compile>
+    <Compile Include="Plugins\Chuzuki\SkillSlotArc.cs" />
+    <Compile Include="Plugins\Chuzuki\ZeiCircleForBoss.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Plugins\Chuzuki\ThornyCrusader.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Plugins\Default\Actors\ChestPlugin.cs" />
     <Compile Include="Plugins\Default\Actors\ClickableChestGizmoPlugin.cs" />
     <Compile Include="Plugins\Default\Actors\CursedEventPlugin.cs" />
@@ -306,14 +373,9 @@
     <Compile Include="interfaces\sno\ISnoSocketedEffect.cs" />
     <Compile Include="interfaces\sno\ISnoWorld.cs" />
     <Compile Include="interfaces\sno\SnoPowerIcon.cs" />
-    <Compile Include="mocks\DirectWrite\TextLayout.cs" />
-    <Compile Include="mocks\PathGeometry.cs" />
-    <Compile Include="mocks\SharpDX\Direct2D1.cs" />
-    <Compile Include="mocks\SharpDX\DirectInput.cs" />
-    <Compile Include="mocks\SharpDX\RectangleF.cs" />
-    <Content Include="Plugins\One\ShardsOnKadala.cs">
+    <Compile Include="Plugins\One\ShardsOnKadala.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -322,6 +384,7 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>robocopy "$(OutDir)Plugins" "C:\Users\Charles\Downloads\TurboHUD" *.cs /MIR</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
