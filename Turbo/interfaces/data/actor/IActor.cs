@@ -43,7 +43,7 @@
 
         // valid only for gold
         uint Amount { get; }
-        
+
         int CreatedAtInGameTick { get; }
 
         IWatch LastSpeak { get; set; } // null by default to spare memory

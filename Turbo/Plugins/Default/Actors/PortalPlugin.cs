@@ -1,15 +1,13 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class PortalPlugin : BasePlugin, IInGameWorldPainter
-	{
-
+    {
         public WorldDecoratorCollection Decorator { get; set; }
 
         public PortalPlugin()
-		{
+        {
             Enabled = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -31,15 +29,13 @@ namespace Turbo.Plugins.Default
                 );
         }
 
-		public void PaintWorld(WorldLayer layer)
-		{
+        public void PaintWorld(WorldLayer layer)
+        {
             var portals = Hud.Game.Portals;
             foreach (var portal in portals)
-			{
+            {
                 Decorator.Paint(layer, null, portal.FloorCoordinate, portal.TargetArea.NameLocalized ?? "unknown portal");
-			}
+            }
         }
-
     }
-
 }

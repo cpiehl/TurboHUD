@@ -1,20 +1,18 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Turbo.Plugins.Default
 {
-
     // this is not a plugin, just a helper class to display a circle on the ground
     public class GroundCircleDecorator : IWorldDecoratorWithRadius
     {
-
         public bool Enabled { get; set; }
-        public WorldLayer Layer { get; private set; }
-        public IController Hud { get; private set; }
+        public WorldLayer Layer { get; } = WorldLayer.Ground;
+        public IController Hud { get; }
 
         public IBrush Brush { get; set; }
-        public bool HasShadow { get; set; }
-        private IBrush _shadowBrush;
+        public bool HasShadow { get; set; } = true;
+        private readonly IBrush _shadowBrush;
 
         public float Radius { get; set; }
         public IRadiusTransformator RadiusTransformator { get; set; }
@@ -22,16 +20,16 @@ namespace Turbo.Plugins.Default
         public GroundCircleDecorator(IController hud)
         {
             Enabled = true;
-            Layer = WorldLayer.Ground;
             Hud = hud;
             _shadowBrush = Hud.Render.CreateBrush(96, 0, 0, 0, 1);
-            HasShadow = true;
         }
 
         public void Paint(IActor actor, IWorldCoordinate coord, string text)
         {
-            if (!Enabled) return;
-            if (Brush == null) return;
+            if (!Enabled)
+                return;
+            if (Brush == null)
+                return;
 
             var radius = Radius;
             if (radius == -1)
@@ -40,7 +38,10 @@ namespace Turbo.Plugins.Default
                 {
                     radius = Math.Min(actor.RadiusBottom, 20);
                 }
-                else return;
+                else
+                {
+                    return;
+                }
             }
 
             if (RadiusTransformator != null)
@@ -65,7 +66,5 @@ namespace Turbo.Plugins.Default
             yield return Brush;
             yield return _shadowBrush;
         }
-
     }
-
 }

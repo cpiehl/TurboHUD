@@ -1,7 +1,6 @@
 ﻿namespace Turbo.Plugins
 {
-
-    public enum ActionKey: int
+    public enum ActionKey : int
     {
         LeftSkill = 0,
         RightSkill = 1,
@@ -21,5 +20,4 @@
         ParagonWindow = 1000,
         Unknown = int.MaxValue,
     }
-
 }

@@ -1,10 +1,8 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class RectangleShapePainter : IShapePainter
     {
-
-        public IController Hud { get; private set; }
+        public IController Hud { get; }
 
         public RectangleShapePainter(IController hud)
         {
@@ -18,9 +16,8 @@ namespace Turbo.Plugins.Default
                 shadowBrush.StrokeWidth = brush.StrokeWidth + 1;
                 shadowBrush.DrawRectangle(x - radius, y - radius, radius * 2.0f, radius * 2.0f);
             }
+
             brush.DrawRectangle(x - radius, y - radius, radius * 2.0f, radius * 2.0f);
         }
-
     }
-
 }

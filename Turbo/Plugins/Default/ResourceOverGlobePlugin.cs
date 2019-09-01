@@ -1,11 +1,9 @@
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace Turbo.Plugins.Default
 {
-
     public class ResourceOverGlobePlugin : BasePlugin, IInGameTopPainter
-	{
-
+    {
         public TopLabelDecorator HealthDecorator { get; set; }
         public TopLabelDecorator HealingPosDecorator { get; set; }
         public TopLabelDecorator HealingNegDecorator { get; set; }
@@ -29,9 +27,9 @@ namespace Turbo.Plugins.Default
         public TopLabelDecorator EssenceRegenDecorator { get; set; }
 
         public ResourceOverGlobePlugin()
-		{
+        {
             Enabled = true; // .NET Framework does not contains CompilerServices for C# 6
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -160,25 +158,28 @@ namespace Turbo.Plugins.Default
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (Hud.Render.UiHidden) return;
-            if (clipState != ClipState.BeforeClip) return;
-            if ((Hud.Game.MapMode == MapMode.WaypointMap) || (Hud.Game.MapMode == MapMode.ActMap) || (Hud.Game.MapMode == MapMode.Map)) return;
+            if (Hud.Render.UiHidden)
+                return;
+            if (clipState != ClipState.BeforeClip)
+                return;
+            if ((Hud.Game.MapMode == MapMode.WaypointMap) || (Hud.Game.MapMode == MapMode.ActMap) || (Hud.Game.MapMode == MapMode.Map))
+                return;
 
             var uiRect = Hud.Render.GetUiElement("Root.NormalLayer.game_dialog_backgroundScreenPC.game_progressBar_healthBall").Rectangle;
 
             var glowTexture = Hud.Texture.GetTexture(1981524232);
-            glowTexture.Draw(uiRect.Left + uiRect.Width * 0.6f - uiRect.Height * 0.4f, uiRect.Top + uiRect.Height * 0.32f - uiRect.Height * 0.4f, uiRect.Height * 0.8f, uiRect.Height * 0.8f, opacityMultiplier: 0.7f);
+            glowTexture.Draw(uiRect.Left + (uiRect.Width * 0.6f) - (uiRect.Height * 0.4f), uiRect.Top + (uiRect.Height * 0.32f) - (uiRect.Height * 0.4f), uiRect.Height * 0.8f, uiRect.Height * 0.8f, opacityMultiplier: 0.7f);
 
-            HealthDecorator.Paint(uiRect.Left + uiRect.Width * 0.2f, uiRect.Top + uiRect.Height * 0.26f, uiRect.Width * 0.8f, uiRect.Height * 0.15f, HorizontalAlign.Center);
+            HealthDecorator.Paint(uiRect.Left + (uiRect.Width * 0.2f), uiRect.Top + (uiRect.Height * 0.26f), uiRect.Width * 0.8f, uiRect.Height * 0.15f, HorizontalAlign.Center);
 
             if (Hud.Game.Me.Defense.CurrentEffectiveHealingPercent != 0)
             {
-                (Hud.Game.Me.Defense.CurrentEffectiveHealingPercent > 0 ? HealingPosDecorator : HealingNegDecorator).Paint(uiRect.Left + uiRect.Width * 0.2f, uiRect.Top + uiRect.Height * 0.42f, uiRect.Width * 0.8f, uiRect.Height * 0.1f, HorizontalAlign.Center);
+                (Hud.Game.Me.Defense.CurrentEffectiveHealingPercent > 0 ? HealingPosDecorator : HealingNegDecorator).Paint(uiRect.Left + (uiRect.Width * 0.2f), uiRect.Top + (uiRect.Height * 0.42f), uiRect.Width * 0.8f, uiRect.Height * 0.1f, HorizontalAlign.Center);
             }
 
             if (Hud.Game.Me.Defense.CurShield > 0)
             {
-                ShieldDecorator.Paint(uiRect.Left + uiRect.Width * 0.2f, uiRect.Top + uiRect.Height * 0.66f, uiRect.Width * 0.63f, uiRect.Height * 0.12f, HorizontalAlign.Right);
+                ShieldDecorator.Paint(uiRect.Left + (uiRect.Width * 0.2f), uiRect.Top + (uiRect.Height * 0.66f), uiRect.Width * 0.63f, uiRect.Height * 0.12f, HorizontalAlign.Right);
             }
 
             uiRect = Hud.Render.GetUiElement("Root.NormalLayer.game_dialog_backgroundScreenPC.game_progressBar_manaBall").Rectangle;
@@ -186,38 +187,36 @@ namespace Turbo.Plugins.Default
             switch (Hud.Game.Me.HeroClassDefinition.HeroClass)
             {
                 case HeroClass.Barbarian:
-                    FuryValueDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.30f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
-                    FuryRegenDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.43f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    FuryValueDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.30f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    FuryRegenDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.43f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
                     break;
                 case HeroClass.Crusader:
-                    WrathValueDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.30f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
-                    WrathRegenDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.43f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    WrathValueDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.30f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    WrathRegenDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.43f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
                     break;
                 case HeroClass.DemonHunter:
-                    HatredValueDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.30f, uiRect.Width * 0.5f, uiRect.Height * 0.15f, HorizontalAlign.Center);
-                    DisciplineValueDecorator.Paint(uiRect.Left + uiRect.Width * 0.5f, uiRect.Top + uiRect.Height * 0.30f, uiRect.Width * 0.5f, uiRect.Height * 0.15f, HorizontalAlign.Center);
-                    HatredRegenDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.43f, uiRect.Width * 0.5f, uiRect.Height * 0.15f, HorizontalAlign.Center);
-                    DisciplineRegenDecorator.Paint(uiRect.Left + uiRect.Width * 0.5f, uiRect.Top + uiRect.Height * 0.43f, uiRect.Width * 0.5f, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    HatredValueDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.30f), uiRect.Width * 0.5f, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    DisciplineValueDecorator.Paint(uiRect.Left + (uiRect.Width * 0.5f), uiRect.Top + (uiRect.Height * 0.30f), uiRect.Width * 0.5f, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    HatredRegenDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.43f), uiRect.Width * 0.5f, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    DisciplineRegenDecorator.Paint(uiRect.Left + (uiRect.Width * 0.5f), uiRect.Top + (uiRect.Height * 0.43f), uiRect.Width * 0.5f, uiRect.Height * 0.15f, HorizontalAlign.Center);
                     break;
                 case HeroClass.Monk:
-                    SpiritValueDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.30f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
-                    SpiritRegenDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.43f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    SpiritValueDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.30f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    SpiritRegenDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.43f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
                     break;
                 case HeroClass.Necromancer:
-                    EssenceValueDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.30f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
-                    EssenceRegenDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.43f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    EssenceValueDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.30f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    EssenceRegenDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.43f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
                     break;
                 case HeroClass.WitchDoctor:
-                    ManaValueDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.30f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
-                    ManaRegenDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.43f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    ManaValueDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.30f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    ManaRegenDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.43f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
                     break;
                 case HeroClass.Wizard:
-                    ArcaneValueDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.30f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
-                    ArcaneRegenDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.43f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    ArcaneValueDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.30f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    ArcaneRegenDecorator.Paint(uiRect.Left, uiRect.Top + (uiRect.Height * 0.43f), uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
                     break;
             }
         }
-
     }
-
 }

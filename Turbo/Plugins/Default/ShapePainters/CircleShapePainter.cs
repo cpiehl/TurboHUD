@@ -1,10 +1,8 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class CircleShapePainter : IShapePainter
     {
-
-        public IController Hud { get; private set; }
+        public IController Hud { get; }
 
         public CircleShapePainter(IController hud)
         {
@@ -18,9 +16,8 @@ namespace Turbo.Plugins.Default
                 shadowBrush.StrokeWidth = brush.StrokeWidth + 1;
                 shadowBrush.DrawEllipse(x, y, radius, radius);
             }
+
             brush.DrawEllipse(x, y, radius, radius);
         }
-
     }
-
 }

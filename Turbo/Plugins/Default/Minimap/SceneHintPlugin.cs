@@ -1,15 +1,13 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class SceneHintPlugin : BasePlugin, IInGameWorldPainter
-	{
-
+    {
         public WorldDecoratorCollection Decorator { get; set; }
 
         public SceneHintPlugin()
-		{
+        {
             Enabled = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -24,16 +22,14 @@ namespace Turbo.Plugins.Default
                 );
         }
 
-		public void PaintWorld(WorldLayer layer)
-		{
+        public void PaintWorld(WorldLayer layer)
+        {
             var sceneHints = Hud.Game.SceneHints;
             foreach (var sceneHint in sceneHints)
-			{
+            {
                 Decorator.ToggleDecorators<GroundLabelDecorator>(!sceneHint.FloorCoordinate.IsOnScreen()); // do not display ground labels when the actor is on the screen
                 Decorator.Paint(layer, null, sceneHint.FloorCoordinate, sceneHint.Hint);
-			}
+            }
         }
-
     }
-
 }

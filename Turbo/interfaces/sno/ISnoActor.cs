@@ -2,7 +2,7 @@
 {
     public interface ISnoActor
     {
-        uint Sno { get; }
+        ActorSnoEnum Sno { get; }
         ActorKind Kind { get; }
         ActorType Type { get; }
         string Code { get; }

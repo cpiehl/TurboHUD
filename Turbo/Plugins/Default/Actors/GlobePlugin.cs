@@ -1,18 +1,16 @@
-using System.Linq;
+﻿using System.Linq;
 
 namespace Turbo.Plugins.Default
 {
-
     public class GlobePlugin : BasePlugin, IInGameWorldPainter
-	{
-
+    {
         public WorldDecoratorCollection PowerGlobeDecorator { get; set; }
         public WorldDecoratorCollection RiftOrbDecorator { get; set; }
 
         public GlobePlugin()
-		{
+        {
             Enabled = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -49,14 +47,14 @@ namespace Turbo.Plugins.Default
                 );
         }
 
-		public void PaintWorld(WorldLayer layer)
-		{
+        public void PaintWorld(WorldLayer layer)
+        {
             var actors = Hud.Game.Actors.Where(x => x.SnoActor.Kind == ActorKind.PowerGlobe);
             foreach (var actor in actors)
-			{
+            {
                 PowerGlobeDecorator.ToggleDecorators<GroundLabelDecorator>(!actor.IsOnScreen); // do not display ground labels when the actor is on the screen
                 PowerGlobeDecorator.Paint(layer, actor, actor.FloorCoordinate, "power globe");
-			}
+            }
 
             actors = Hud.Game.Actors.Where(x => x.SnoActor.Kind == ActorKind.RiftOrb);
             foreach (var actor in actors)
@@ -65,7 +63,5 @@ namespace Turbo.Plugins.Default
                 RiftOrbDecorator.Paint(layer, actor, actor.FloorCoordinate, "rift orb");
             }
         }
-
     }
-
 }

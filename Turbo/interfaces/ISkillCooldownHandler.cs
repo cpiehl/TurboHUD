@@ -7,5 +7,4 @@
         /// </summary>
         void OnCooldown(IPlayerSkill playerSkill, bool expired);
     }
-
 }

@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum ItemQuality : byte
     {
         Inferior = 0,
@@ -14,5 +13,4 @@
         Rare6 = 8,
         Legendary = 9
     }
-
 }

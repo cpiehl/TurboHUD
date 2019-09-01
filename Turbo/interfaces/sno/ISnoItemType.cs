@@ -8,6 +8,6 @@
         string NameLocalized { get; }
         string NameEnglish { get; }
 
-        ISnoItemType ParentSnoType { get; }       
+        ISnoItemType ParentSnoType { get; }
     }
 }

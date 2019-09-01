@@ -1,14 +1,12 @@
-using System;
+﻿using System;
 using System.Globalization;
 
 namespace Turbo.Plugins.Default
 {
-
     public class DamageBonusPlugin : BasePlugin, IInGameTopPainter
     {
-
-        public bool ShowInTown { get; set; }
-        public bool ShowOutOfTown { get; set; }
+        public bool ShowInTown { get; set; } = true;
+        public bool ShowOutOfTown { get; set; } = false;
         public TopLabelDecorator PhysicalDecorator { get; set; }
         public TopLabelDecorator FireDecorator { get; set; }
         public TopLabelDecorator LightningDecorator { get; set; }
@@ -26,9 +24,6 @@ namespace Turbo.Plugins.Default
         public override void Load(IController hud)
         {
             base.Load(hud);
-
-            ShowInTown = true;
-            ShowOutOfTown = false;
 
             PhysicalDecorator = new TopLabelDecorator(Hud)
             {
@@ -105,31 +100,34 @@ namespace Turbo.Plugins.Default
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (Hud.Render.UiHidden) return;
-            if (clipState != ClipState.BeforeClip) return;
-            if ((Hud.Game.MapMode == MapMode.WaypointMap) || (Hud.Game.MapMode == MapMode.ActMap) || (Hud.Game.MapMode == MapMode.Map)) return;
+            if (Hud.Render.UiHidden)
+                return;
+            if (clipState != ClipState.BeforeClip)
+                return;
+            if ((Hud.Game.MapMode == MapMode.WaypointMap) || (Hud.Game.MapMode == MapMode.ActMap) || (Hud.Game.MapMode == MapMode.Map))
+                return;
 
-            if (!ShowInTown && Hud.Game.IsInTown) return;
-            if (!ShowOutOfTown && !Hud.Game.IsInTown) return;
+            if (!ShowInTown && Hud.Game.IsInTown)
+                return;
+            if (!ShowOutOfTown && !Hud.Game.IsInTown)
+                return;
 
             var uiRect = Hud.Render.InGameBottomHudUiElement.Rectangle;
 
             var w = Hud.Window.Size.Height * 0.017f;
             var h = Hud.Window.Size.Height * 0.014f;
 
-            var x = uiRect.Left + uiRect.Width * 0.09f;
+            var x = uiRect.Left + (uiRect.Width * 0.09f);
             var y = uiRect.Bottom - h - (Hud.Window.Size.Height / 600);
 
-            EliteDecorator.Paint(x + w * 0, y, w, h, HorizontalAlign.Center);
-            PhysicalDecorator.Paint(x + w * 1, y, w, h, HorizontalAlign.Center);
-            FireDecorator.Paint(x + w * 2, y, w, h, HorizontalAlign.Center);
-            LightningDecorator.Paint(x + w * 3, y, w, h, HorizontalAlign.Center);
-            ColdDecorator.Paint(x + w * 4, y, w, h, HorizontalAlign.Center);
-            PoisonDecorator.Paint(x + w * 5, y, w, h, HorizontalAlign.Center);
-            ArcaneDecorator.Paint(x + w * 6, y, w, h, HorizontalAlign.Center);
-            HolyDecorator.Paint(x + w * 7, y, w, h, HorizontalAlign.Center);
+            EliteDecorator.Paint(x + (w * 0), y, w, h, HorizontalAlign.Center);
+            PhysicalDecorator.Paint(x + (w * 1), y, w, h, HorizontalAlign.Center);
+            FireDecorator.Paint(x + (w * 2), y, w, h, HorizontalAlign.Center);
+            LightningDecorator.Paint(x + (w * 3), y, w, h, HorizontalAlign.Center);
+            ColdDecorator.Paint(x + (w * 4), y, w, h, HorizontalAlign.Center);
+            PoisonDecorator.Paint(x + (w * 5), y, w, h, HorizontalAlign.Center);
+            ArcaneDecorator.Paint(x + (w * 6), y, w, h, HorizontalAlign.Center);
+            HolyDecorator.Paint(x + (w * 7), y, w, h, HorizontalAlign.Center);
         }
-
     }
-
 }

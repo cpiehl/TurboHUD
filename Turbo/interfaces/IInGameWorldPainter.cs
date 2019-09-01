@@ -7,5 +7,4 @@
         /// </summary>
         void PaintWorld(WorldLayer layer);
     }
-
 }

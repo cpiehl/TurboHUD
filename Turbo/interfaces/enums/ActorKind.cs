@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum ActorKind
     {
         None = 0,
@@ -29,5 +28,4 @@
         QuestActivate = 24,
         KanaiCube = 25,
     }
-
 }

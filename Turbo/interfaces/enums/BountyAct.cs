@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum BountyAct
     {
         None = -1,
@@ -12,5 +11,4 @@
         OpenWorld = 3000,
         Test = 1000
     }
-
 }

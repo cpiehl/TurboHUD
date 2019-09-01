@@ -2,10 +2,8 @@
 
 namespace Turbo.Plugins
 {
-
     public interface IGameController
     {
-
         GameDifficulty GameDifficulty { get; }
         long CurrentRealTimeMilliseconds { get; }
         int CurrentGameTick { get; }
@@ -21,6 +19,7 @@ namespace Turbo.Plugins
         double RiftPercentage { get; } // same as CurrentQuestProgress / MaxQuestProgress * 100.0d;
         int CurrentTimedEventStartTick { get; }
         int CurrentTimedEventEndTick { get; }
+        int CurrentTimedEventEndTickMod { get; }
 
         double AverageLatency { get; }
         double CurrentLatency { get; }
@@ -86,5 +85,4 @@ namespace Turbo.Plugins
         IStatTracker CurrentHeroTodayOnCurrentDifficulty { get; }
 
     }
-
 }

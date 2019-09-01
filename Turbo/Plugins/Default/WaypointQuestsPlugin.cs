@@ -1,23 +1,21 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Turbo.Plugins.Default
 {
-
     public class WaypointQuestsPlugin : BasePlugin, ITransparentCollection, ITransparent, IInGameTopPainter
     {
         public IFont BountyNameNormalFont { get; set; }
         public IFont BountyNameHighlightedFont { get; set; }
 
-        public List<ISnoQuest> BountiesToHighlight { get; private set; }
+        public List<ISnoQuest> BountiesToHighlight { get; } = new List<ISnoQuest>();
 
         public float Opacity { get; set; }
 
         public WaypointQuestsPlugin()
         {
             Enabled = true;
-            BountiesToHighlight = new List<ISnoQuest>();
         }
 
         public override void Load(IController hud)
@@ -42,12 +40,16 @@ namespace Turbo.Plugins.Default
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (Hud.Render.UiHidden) return;
-            if (clipState != ClipState.AfterClip) return;
-            if (!Hud.Render.WorldMapUiElement.Visible || Hud.Render.ActMapUiElement.Visible) return;
+            if (Hud.Render.UiHidden)
+                return;
+            if (clipState != ClipState.AfterClip)
+                return;
+            if (!Hud.Render.WorldMapUiElement.Visible || Hud.Render.ActMapUiElement.Visible)
+                return;
 
             var mapCurrentAct = Hud.Game.ActMapCurrentAct;
-            if (mapCurrentAct == BountyAct.None) return;
+            if (mapCurrentAct == BountyAct.None)
+                return;
 
             var w = 220 * Hud.Window.HeightUiRatio;
             var h = 100 * Hud.Window.HeightUiRatio;
@@ -57,16 +59,15 @@ namespace Turbo.Plugins.Default
                 var quest = Hud.Game.Bounties.FirstOrDefault(x => x.SnoQuest.BountySnoArea == waypoint.TargetSnoArea);
                 if ((quest != null) && quest.State != QuestState.completed)
                 {
-                    var x = Hud.Render.WorldMapUiElement.Rectangle.X + waypoint.CoordinateOnMapUiElement.X * Hud.Window.HeightUiRatio;
-                    var y = Hud.Render.WorldMapUiElement.Rectangle.Y + waypoint.CoordinateOnMapUiElement.Y * Hud.Window.HeightUiRatio;
+                    var x = Hud.Render.WorldMapUiElement.Rectangle.X + (waypoint.CoordinateOnMapUiElement.X * Hud.Window.HeightUiRatio);
+                    var y = Hud.Render.WorldMapUiElement.Rectangle.Y + (waypoint.CoordinateOnMapUiElement.Y * Hud.Window.HeightUiRatio);
 
                     var font = BountiesToHighlight.Contains(quest.SnoQuest) ? BountyNameHighlightedFont : BountyNameNormalFont;
 
                     var layout = font.GetTextLayout(quest.SnoQuest.NameLocalized);
-                    font.DrawText(layout, x + (w - layout.Metrics.Width) / 2, y + (float)Math.Ceiling(h * 0.32f));
+                    font.DrawText(layout, x + ((w - layout.Metrics.Width) / 2), y + (float)Math.Ceiling(h * 0.32f));
                 }
             }
-
         }
 
         public IEnumerable<ITransparent> GetTransparents()
@@ -75,7 +76,5 @@ namespace Turbo.Plugins.Default
             yield return BountyNameHighlightedFont;
             yield return this;
         }
-
     }
-
 }

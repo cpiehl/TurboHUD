@@ -2,7 +2,6 @@
 
 namespace Turbo.Plugins
 {
-
     public interface IAttribute
     {
         uint GetId(uint modifier);
@@ -16,5 +15,4 @@ namespace Turbo.Plugins
 
         int GetModLowestOrderIndex(int mod);
     }
-
 }

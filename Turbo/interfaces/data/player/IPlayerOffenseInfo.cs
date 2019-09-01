@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace Turbo.Plugins
 {
-
     public interface IPlayerOffenseInfo
     {
-
         float AttackSpeedPets { get; set; }
         float AttackSpeedPercent { get; set; }
         float WeaponSpeedMainHand { get; set; }
@@ -64,7 +62,5 @@ namespace Turbo.Plugins
         float BonusToArcane { get; }
         float BonusToHoly { get; }
         float BonusToElites { get; }
-
     }
-
 }

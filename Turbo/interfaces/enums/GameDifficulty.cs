@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum GameDifficulty
     {
         unknown = -1,
@@ -21,6 +20,8 @@
         t11 = 14,
         t12 = 15,
         t13 = 16,
+        t14 = 17,
+        t15 = 18,
+        t16 = 19,
     }
-
 }

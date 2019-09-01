@@ -1,9 +1,7 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface IBarbarianPowerInfo
     {
-
         IPlayerSkill AncientSpear { get; } // 377453 - Ancient Spear
         IPlayerSkill Avalanche { get; } // 353447 - Avalanche
         IPlayerSkill Bash { get; } // 79242 - Bash
@@ -47,5 +45,4 @@
         ISnoPower Unforgiving { get; } // 205300 - Unforgiving
         ISnoPower WeaponsMaster { get; } // 206147 - Weapons Master
     }
-
 }

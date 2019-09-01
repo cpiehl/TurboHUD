@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum ActorType
     {
         Invalid = 0,
@@ -16,5 +15,4 @@
         Projectile = 10,
         CustomBrain = 11
     }
-
 }

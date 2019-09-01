@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface ISceneRevealController
     {
         bool MinimapEnabled { get; set; }
@@ -14,5 +13,4 @@
         bool DisplaySceneBorder { get; set; }
         System.Drawing.Pen SceneBorderPen { get; set; }
     }
-
 }

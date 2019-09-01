@@ -1,6 +1,6 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-    public interface IWorldDecorator: ITransparentCollection
+    public interface IWorldDecorator : ITransparentCollection
     {
         bool Enabled { get; set; }
         WorldLayer Layer { get; }

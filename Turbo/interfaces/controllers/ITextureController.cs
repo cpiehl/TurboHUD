@@ -1,11 +1,9 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface ITextureController
     {
-
         ITexture GetTexture(string name);
-        ITexture GetTexture(uint id);
+        ITexture GetTexture(uint id); // this is not the same as texture sno!
 
         ITexture GetItemBackgroundTexture(IItem item);
         ITexture GetItemTexture(ISnoItem snoItem);
@@ -34,5 +32,4 @@
         ITexture InventorySetBackgroundSmall { get; }
         ITexture InventorySetBackgroundLarge { get; }
     }
-
 }

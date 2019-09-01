@@ -2,7 +2,6 @@
 
 namespace Turbo.Plugins
 {
-
     public enum WorldLayer { Ground, Map }
     public enum ClipState { BeforeClip, Inventory, AfterClip }
 

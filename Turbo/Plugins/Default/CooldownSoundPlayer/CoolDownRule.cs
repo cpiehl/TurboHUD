@@ -2,11 +2,9 @@
 
 namespace Turbo.Plugins.Default
 {
-
     public class CoolDownRule
     {
-
-        public ISnoPower SnoPower { get; private set; }
+        public ISnoPower SnoPower { get; }
         public SoundPlayer SoundPlayer { get; private set; }
 
         public CoolDownRule(ISnoPower snoPower, SoundPlayer soundPlayer)
@@ -20,7 +18,5 @@ namespace Turbo.Plugins.Default
             SoundPlayer.Dispose();
             SoundPlayer = null;
         }
-
     }
-
 }

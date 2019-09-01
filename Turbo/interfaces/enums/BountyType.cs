@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum BountyType
     {
         None = -1,
@@ -10,5 +9,4 @@
         ClearDungeon = 3,
         SpecialEvent = 4,
     }
-
 }

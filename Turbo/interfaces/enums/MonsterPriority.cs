@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum MonsterPriority
     {
         none,
@@ -11,5 +10,4 @@
         keywarden,
         boss
     }
-
 }

@@ -1,9 +1,7 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface IPlayerStatInfo
     {
-
         float ResourceMaxArcane { get; set; }
         float ResourceMaxSpirit { get; set; }
         float ResourceMaxFury { get; set; }
@@ -66,5 +64,4 @@
         float ExperienceOnKillBonus { get; }
         float PickupRange { get; set; }
     }
-
 }

@@ -2,10 +2,8 @@
 
 namespace Turbo.Plugins
 {
-
     public interface IPlayerPowerInfo
     {
-
         IPlayerSkill HealthPotionSkill { get; }
         IEnumerable<IPlayerSkill> UsedSkills { get; } // Returns all used skills, in no particular order. No elements can be null.
         IEnumerable<IPlayerSkill> CurrentSkills { get; } // Returns all used skills, in no particular order. No elements can be null. If override is enabled (archon) then only the overridden skills are returned.
@@ -39,5 +37,4 @@ namespace Turbo.Plugins
         bool Stunned { get; set; }
         bool CantMove { get; } // = Frozen || Rooted || Stunned
     }
-
 }

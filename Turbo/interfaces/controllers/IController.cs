@@ -22,7 +22,7 @@ namespace Turbo.Plugins
 
         string MyBattleTag { get; }
         IEnumerable<IHero> AccountHeroes { get; }
-        
+
         T GetPlugin<T>() where T : IPlugin;
         void RunOnPlugin<T>(Action<T> action) where T : IPlugin;
         void TogglePlugin<T>(bool enabled) where T : IPlugin;

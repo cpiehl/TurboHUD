@@ -2,9 +2,8 @@
 
 namespace Turbo.Plugins
 {
-    public interface IPlayer: IActor
+    public interface IPlayer : IActor
     {
-        uint ActorId { get; } // deprecated
         bool IsMe { get; }
         bool IsInGame { get; }
         IHeadStone HeadStone { get; }
@@ -37,7 +36,7 @@ namespace Turbo.Plugins
         uint CurrentLevelNormal { get; }
         uint CurrentLevelNormalCap { get; }
         uint CurrentLevelParagon { get; }
-        float CurrentLevelParagonFloat { get; }
+        double CurrentLevelParagonDouble { get; }
 
         IPlayerOffenseInfo Offense { get; }
         IPlayerStatInfo Stats { get; }
@@ -59,6 +58,7 @@ namespace Turbo.Plugins
         IWatch LastDied { get; }
         bool IsDeadSafeCheck { get; }
 
+        AnimSnoEnum Animation { get; }
         AcdAnimationState AnimationState { get; }
 
         long ParagonTotalExp { get; }

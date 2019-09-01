@@ -1,9 +1,7 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface ICrusaderPowerInfo
     {
-
         IPlayerSkill AkaratsChampion { get; } // 269032 - Akarat's Champion
         IPlayerSkill BlessedHammer { get; } // 266766 - Blessed Hammer
         IPlayerSkill BlessedShield { get; } // 266951 - Blessed Shield
@@ -49,5 +47,4 @@
         ISnoPower Vigilant { get; } // 310626 - Vigilant
         ISnoPower Wrathful { get; } // 310775 - Wrathful
     }
-
 }

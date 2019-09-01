@@ -1,17 +1,15 @@
-using System.Linq;
+﻿using System.Linq;
 
 namespace Turbo.Plugins.Default
 {
-
     public class RackPlugin : BasePlugin, IInGameWorldPainter
-	{
-
+    {
         public WorldDecoratorCollection Decorator { get; set; }
 
-		public RackPlugin()
-		{
+        public RackPlugin()
+        {
             Enabled = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -27,10 +25,11 @@ namespace Turbo.Plugins.Default
                 }
                 );
         }
-		
+
         public void PaintWorld(WorldLayer layer)
         {
-            if (Hud.Game.IsInTown) return;
+            if (Hud.Game.IsInTown)
+                return;
 
             var weaponRacks = Hud.Game.Actors.Where(x => !x.IsDisabled && !x.IsOperated && x.SnoActor.Kind == ActorKind.WeaponRack);
             foreach (var actor in weaponRacks)
@@ -44,7 +43,5 @@ namespace Turbo.Plugins.Default
                 Decorator.Paint(layer, actor, actor.FloorCoordinate, null);
             }
         }
-
     }
-
 }

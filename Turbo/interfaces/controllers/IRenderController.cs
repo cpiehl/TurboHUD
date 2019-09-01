@@ -1,9 +1,8 @@
-﻿using SharpDX.Direct2D1;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SharpDX.Direct2D1;
 
 namespace Turbo.Plugins
 {
-
     public interface IRenderController
     {
         // Setting this to false disables HUD's rendering. IBeforeRenderHandler.BeforeRender implementations are called regardless of rendering is enabled.
@@ -47,5 +46,4 @@ namespace Turbo.Plugins
 
         void CaptureScreenToFile(string subFolder, string fileName);
     }
-
 }

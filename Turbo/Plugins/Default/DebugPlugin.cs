@@ -1,21 +1,19 @@
-using System;
+﻿using System;
 using System.Globalization;
 using System.Linq;
 
 namespace Turbo.Plugins.Default
 {
     public class DebugPlugin : BasePlugin, IInGameTopPainter
-	{
+    {
         public IFont PluginPerfFont { get; set; }
         public TopLabelDecorator RenderTimeDecorator { get; set; }
         public TopLabelDecorator MemoryUsageDecorator { get; set; }
-        public bool PluginPerformanceCountersEnabled { get; set; }
+        public bool PluginPerformanceCountersEnabled { get; set; } = false;
 
         public DebugPlugin()
-		{
+        {
             Enabled = false;
-            PluginPerformanceCountersEnabled = false;
-
         }
 
         public override void Load(IController hud)
@@ -39,12 +37,10 @@ namespace Turbo.Plugins.Default
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (clipState != ClipState.AfterClip) return;
+            if (clipState != ClipState.AfterClip)
+                return;
 
-            var text = Hud.Stat.RenderPerfCounter.LastValue.ToString("F0") + " (" + Hud.Stat.RenderPerfCounter.LastCount.ToString("F0") + " FPS)";
             RenderTimeDecorator.Paint(Hud.Window.Size.Width * 0.92f, Hud.Window.Size.Height * 0.0000f, Hud.Window.Size.Width * 0.08f, Hud.Window.Size.Height * 0.01f, HorizontalAlign.Right);
-
-            text = (GC.GetTotalMemory(false) / 1024.0 / 1024.0).ToString("F0") + " MB";
             MemoryUsageDecorator.Paint(Hud.Window.Size.Width * 0.84f, Hud.Window.Size.Height * 0.0000f, Hud.Window.Size.Width * 0.08f, Hud.Window.Size.Height * 0.01f, HorizontalAlign.Right);
 
             if (PluginPerformanceCountersEnabled)
@@ -55,7 +51,7 @@ namespace Turbo.Plugins.Default
 
         private void PaintPluginPerformanceCounters()
         {
-            var startXcoord = Hud.Game.Me.PortraitUiElement.Rectangle.Right + Hud.Game.Me.PortraitUiElement.Rectangle.Width * 0.3f;
+            var startXcoord = Hud.Game.Me.PortraitUiElement.Rectangle.Right + (Hud.Game.Me.PortraitUiElement.Rectangle.Width * 0.3f);
             var yCoord = Hud.Game.Me.PortraitUiElement.Rectangle.Top;
             var nameColumnWidth = Hud.Game.Me.PortraitUiElement.Rectangle.Width * 4;
             var perfColumnWidth = Hud.Game.Me.PortraitUiElement.Rectangle.Width * 3;
@@ -67,7 +63,7 @@ namespace Turbo.Plugins.Default
             {
                 PluginPerfFont.DrawText(pluginNameLayout, startXcoord, yCoord);
 
-                var text = "ACTION = " + " CPU_TIME/SEC (CALLS/SEC)";
+                var text = "ACTION =  CPU_TIME/SEC (CALLS/SEC)";
                 using (var layout = PluginPerfFont.GetTextLayoutManualDispose(text))
                 {
                     PluginPerfFont.DrawText(layout, startXcoord + nameColumnWidth, yCoord);
@@ -79,7 +75,8 @@ namespace Turbo.Plugins.Default
             foreach (var plugin in plugins)
             {
                 var counters = plugin.PerformanceCounters.Where(x => x.Value.LastCount > 0);
-                if (!counters.Any()) continue;
+                if (!counters.Any())
+                    continue;
 
                 pluginNameText = plugin.GetType().FullName;
                 using (var pluginNameLayout = PluginPerfFont.GetTextLayoutManualDispose(pluginNameText))

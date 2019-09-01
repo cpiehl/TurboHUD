@@ -1,16 +1,13 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 
 namespace Turbo.Plugins.Default
 {
-
     public class AttributeLabelListPlugin : BasePlugin, IInGameTopPainter
     {
-
         public HorizontalTopLabelList LabelList { get; private set; }
 
         public AttributeLabelListPlugin()
-            : base()
         {
             Enabled = true;
         }
@@ -22,27 +19,28 @@ namespace Turbo.Plugins.Default
             var expandedHintFont = Hud.Render.CreateFont("tahoma", 7, 255, 200, 200, 200, false, false, true);
             var expandedHintWidthMultiplier = 3;
 
-            LabelList = new HorizontalTopLabelList(hud);
-
-            LabelList.LeftFunc = () =>
+            LabelList = new HorizontalTopLabelList(hud)
             {
-                var ui = Hud.Render.InGameBottomHudUiElement;
-                return ui.Rectangle.Left + ui.Rectangle.Width * 0.267f;
-            };
-            LabelList.TopFunc = () =>
-            {
-                var ui = Hud.Render.InGameBottomHudUiElement;
-                return ui.Rectangle.Top + ui.Rectangle.Height * 0.318f;
-            };
-            LabelList.WidthFunc = () =>
-            {
-                var ui = Hud.Render.InGameBottomHudUiElement;
-                return Hud.Window.Size.Height * 0.0621f;
-            };
-            LabelList.HeightFunc = () =>
-            {
-                var ui = Hud.Render.InGameBottomHudUiElement;
-                return Hud.Window.Size.Height * 0.025f;
+                LeftFunc = () =>
+                {
+                    var ui = Hud.Render.InGameBottomHudUiElement;
+                    return ui.Rectangle.Left + (ui.Rectangle.Width * 0.267f);
+                },
+                TopFunc = () =>
+                {
+                    var ui = Hud.Render.InGameBottomHudUiElement;
+                    return ui.Rectangle.Top + (ui.Rectangle.Height * 0.318f);
+                },
+                WidthFunc = () =>
+                {
+                    var ui = Hud.Render.InGameBottomHudUiElement;
+                    return Hud.Window.Size.Height * 0.0621f;
+                },
+                HeightFunc = () =>
+                {
+                    var ui = Hud.Render.InGameBottomHudUiElement;
+                    return Hud.Window.Size.Height * 0.025f;
+                }
             };
 
             LabelList.LabelDecorators.Add(new TopLabelDecorator(Hud)
@@ -235,12 +233,12 @@ namespace Turbo.Plugins.Default
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (clipState != ClipState.BeforeClip) return;
-            if ((Hud.Game.MapMode == MapMode.WaypointMap) || (Hud.Game.MapMode == MapMode.ActMap) || (Hud.Game.MapMode == MapMode.Map)) return;
+            if (clipState != ClipState.BeforeClip)
+                return;
+            if ((Hud.Game.MapMode == MapMode.WaypointMap) || (Hud.Game.MapMode == MapMode.ActMap) || (Hud.Game.MapMode == MapMode.Map))
+                return;
 
             LabelList.Paint();
         }
-
     }
-
 }

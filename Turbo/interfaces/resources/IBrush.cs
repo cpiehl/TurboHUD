@@ -1,6 +1,6 @@
 ﻿namespace Turbo.Plugins
 {
-    public interface IBrush: ITransparent
+    public interface IBrush : ITransparent
     {
         void DrawEllipse(float x1, float y1, float r1, float r2, float strokeWidthCorrection = 0);
         void DrawLine(float x1, float y1, float x2, float y2, float strokeWidthCorrection = 0);
@@ -15,7 +15,7 @@
         void DrawWorldEllipse(float radius, int sectionCount, float x, float y, float z);
         void DrawWorldPlus(float radius, float x, float y, float z);
         void DrawGeometry(SharpDX.Direct2D1.Geometry geometry);
-        
+
         float StrokeWidth { get; set; }
         SharpDX.Direct2D1.StrokeStyle StrokeStyle { get; }
         float RealStrokeWidth { get; }

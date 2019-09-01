@@ -7,5 +7,4 @@
         /// </summary>
         void OnItemIdentified(IItem item);
     }
-
 }

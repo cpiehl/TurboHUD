@@ -1,6 +1,6 @@
 ﻿namespace Turbo.Plugins
 {
-    public interface IClickableActor: IActor
+    public interface IClickableActor : IActor
     {
         IWatch FirstClicked { get; }
         IWatch LastClicked { get; }

@@ -1,28 +1,24 @@
-using System;
+﻿using System;
 
 namespace Turbo.Plugins.Default
 {
-
     public class WorldStarShapePainter : IWorldShapePainter
     {
-
-        public IController Hud { get; private set; }
-        public int VerticeCount { get; set; }
-        public int VerticeJump { get; set; }
+        public IController Hud { get; }
+        public int VerticeCount { get; set; } = 3;
+        public int VerticeJump { get; set; } = 1;
 
         public WorldStarShapePainter(IController hud)
         {
             Hud = hud;
-            VerticeCount = 3;
-            VerticeJump = 1;
         }
 
         public static IWorldShapePainter NewTriangle(IController hud)
         {
             return new WorldStarShapePainter(hud)
             {
-                 VerticeCount = 3,
-                 VerticeJump = 1,
+                VerticeCount = 3,
+                VerticeJump = 1,
             };
         }
 
@@ -121,16 +117,14 @@ namespace Turbo.Plugins.Default
         private void Paint(float x, float y, float z, float radius, float rotation, IBrush brush)
         {
             var angleStep = 360f / VerticeCount;
-            for (int i = 0; i < VerticeCount; i++)
+            for (var i = 0; i < VerticeCount; i++)
             {
-                var sx = radius * (float)Math.Cos(((i + 0) * angleStep + rotation) * Math.PI / 180f);
-                var sy = radius * (float)Math.Sin(((i + 0) * angleStep + rotation) * Math.PI / 180f);
-                var ex = radius * (float)Math.Cos(((i + VerticeJump) * angleStep + rotation) * Math.PI / 180f);
-                var ey = radius * (float)Math.Sin(((i + VerticeJump) * angleStep + rotation) * Math.PI / 180f);
+                var sx = radius * (float)Math.Cos((((i + 0) * angleStep) + rotation) * Math.PI / 180f);
+                var sy = radius * (float)Math.Sin((((i + 0) * angleStep) + rotation) * Math.PI / 180f);
+                var ex = radius * (float)Math.Cos((((i + VerticeJump) * angleStep) + rotation) * Math.PI / 180f);
+                var ey = radius * (float)Math.Sin((((i + VerticeJump) * angleStep) + rotation) * Math.PI / 180f);
                 brush.DrawLineWorld(x + sx, y + sy, z, x + ex, y + ey, z);
             }
         }
-
     }
-
 }

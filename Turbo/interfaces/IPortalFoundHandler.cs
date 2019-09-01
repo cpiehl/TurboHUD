@@ -7,5 +7,4 @@
         /// </summary>
         void OnPortalFound(IPortal portal);
     }
-
 }

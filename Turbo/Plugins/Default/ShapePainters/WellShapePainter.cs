@@ -1,10 +1,8 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class WellShapePainter : IShapePainter
     {
-
-        public IController Hud { get; private set; }
+        public IController Hud { get; }
 
         public WellShapePainter(IController hud)
         {
@@ -20,11 +18,10 @@ namespace Turbo.Plugins.Default
                 shadowBrush.DrawLine(x - radius, y, x + radius, y);
                 shadowBrush.DrawLine(x, y - radius, x, y + radius);
             }
+
             brush.DrawRectangle(x - radius, y - radius, radius * 2.0f, radius * 2.0f);
             brush.DrawLine(x - radius, y, x + radius, y);
             brush.DrawLine(x, y - radius, x, y + radius);
         }
-
     }
-
 }

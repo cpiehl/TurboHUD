@@ -7,5 +7,4 @@
         /// </summary>
         void OnItemPicked(IItem item);
     }
-
 }

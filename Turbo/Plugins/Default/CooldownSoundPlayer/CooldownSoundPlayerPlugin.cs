@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -6,15 +6,12 @@ namespace Turbo.Plugins.Default
 {
     public class CooldownSoundPlayerPlugin : BasePlugin, ISkillCooldownHandler
     {
-
-        public bool EnableOnlyWhenIngameSoundIsEnabled { get; set; }
-        public Dictionary<ISnoPower, CoolDownRule> CoolDownRules { get; private set; }
+        public bool EnableOnlyWhenIngameSoundIsEnabled { get; set; } = true;
+        public Dictionary<ISnoPower, CoolDownRule> CoolDownRules { get; } = new Dictionary<ISnoPower, CoolDownRule>();
 
         public CooldownSoundPlayerPlugin()
         {
             Enabled = true;
-            EnableOnlyWhenIngameSoundIsEnabled = true;
-            CoolDownRules = new Dictionary<ISnoPower, CoolDownRule>();
         }
 
         public override void Load(IController hud)
@@ -26,7 +23,8 @@ namespace Turbo.Plugins.Default
 
         public void RemoveRule(ISnoPower snoPower)
         {
-            if (!CoolDownRules.ContainsKey(snoPower)) return;
+            if (!CoolDownRules.ContainsKey(snoPower))
+                return;
 
             var rule = CoolDownRules[snoPower];
             rule.DisposeSoundPlayer();
@@ -48,13 +46,17 @@ namespace Turbo.Plugins.Default
 
         public void OnCooldown(IPlayerSkill playerSkill, bool expired)
         {
-            if (!expired) return;
-            if (playerSkill.Player != Hud.Game.Me) return;
-            if (EnableOnlyWhenIngameSoundIsEnabled && !Hud.Sound.IsIngameSoundEnabled) return;
+            if (!expired)
+                return;
+            if (playerSkill.Player != Hud.Game.Me)
+                return;
+            if (EnableOnlyWhenIngameSoundIsEnabled && !Hud.Sound.IsIngameSoundEnabled)
+                return;
 
-            CoolDownRule rule = null;
-            if (!CoolDownRules.TryGetValue(playerSkill.CurrentSnoPower, out rule)) return;
-            if (rule == null) return;
+            if (!CoolDownRules.TryGetValue(playerSkill.CurrentSnoPower, out var rule))
+                return;
+            if (rule == null)
+                return;
 
             ThreadPool.QueueUserWorkItem(state =>
             {

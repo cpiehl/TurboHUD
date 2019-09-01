@@ -1,9 +1,7 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface IWizardPowerInfo
     {
-
         IPlayerSkill ArcaneOrb { get; } // 30668 - Arcane Orb
         IPlayerSkill ArcaneTorrent { get; } // 134456 - Arcane Torrent
         IPlayerSkill Archon { get; } // 134872 - Archon
@@ -64,5 +62,4 @@
         ISnoPower UnstableAnomaly { get; } // 208474 - Unstable Anomaly
         ISnoPower UnwaveringWill { get; } // 298038 - Unwavering Will
     }
-
 }

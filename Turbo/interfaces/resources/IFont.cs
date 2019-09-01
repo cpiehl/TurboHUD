@@ -2,8 +2,7 @@
 
 namespace Turbo.Plugins
 {
-
-    public interface IFont: ITransparent
+    public interface IFont : ITransparent
     {
         int MaxHeight { get; set; }
         int MaxWidth { get; set; }
@@ -26,5 +25,4 @@ namespace Turbo.Plugins
         void SetMaxSize(int maxWidth, int maxHeight);
         void SetShadowBrush(int a, int r, int g, int b, bool heavy);
     }
-
 }

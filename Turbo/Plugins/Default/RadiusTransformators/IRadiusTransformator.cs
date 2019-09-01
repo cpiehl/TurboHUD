@@ -1,4 +1,4 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
     public interface IRadiusTransformator
     {

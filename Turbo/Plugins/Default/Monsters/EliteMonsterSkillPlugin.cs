@@ -1,9 +1,7 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class EliteMonsterSkillPlugin : BasePlugin, IInGameWorldPainter
-	{
-
+    {
         public WorldDecoratorCollection FrozenBallDecorator { get; set; }
         public WorldDecoratorCollection MoltenDecorator { get; set; }
         public WorldDecoratorCollection MoltenExplosionDecorator { get; set; }
@@ -16,9 +14,9 @@ namespace Turbo.Plugins.Default
         public WorldDecoratorCollection FrozenPulseDecorator { get; set; }
 
         public EliteMonsterSkillPlugin()
-		{
+        {
             Enabled = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -139,49 +137,46 @@ namespace Turbo.Plugins.Default
 
         public void PaintWorld(WorldLayer layer)
         {
-            var actors = Hud.Game.Actors;
-            foreach (var actor in actors)
+            foreach (var actor in Hud.Game.Actors)
             {
                 switch (actor.SnoActor.Sno)
                 {
-                    case 223675:
+                    case ActorSnoEnum._monsteraffix_frozen_iceclusters:
                         FrozenBallDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 4803:
+                    case ActorSnoEnum._monsteraffix_molten_deathstart_proxy:
                         MoltenExplosionDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 4804:
-                    case 224225:
-                    case 247987:
+                    case ActorSnoEnum._monsteraffix_molten_deathexplosion_proxy:
+                    case ActorSnoEnum._monsteraffix_molten_firering:
+                        // case 247987:
                         MoltenDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 84608:
+                    case ActorSnoEnum._monsteraffix_desecrator_damage_aoe:
                         DesecratorDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 341512:
+                    case ActorSnoEnum._x1_monsteraffix_thunderstorm_impact:
                         ThunderstormDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 108869:
-                    case 3865:
+                    case ActorSnoEnum._monsteraffix_plagued_endcloud:
+                    case ActorSnoEnum._creepmobarm:
                         PlaguedDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 93837:
+                    case ActorSnoEnum._gluttony_gascloud_proxy:
                         GhomDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 219702:
-                    case 221225:
+                    case ActorSnoEnum._monsteraffix_arcaneenchanted_petsweep:
+                    case ActorSnoEnum._monsteraffix_arcaneenchanted_petsweep_reverse:
                         ArcaneDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 257306:
+                    case ActorSnoEnum._arcaneenchanteddummy_spawn:
                         ArcaneSpawnDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 349774:
+                    case ActorSnoEnum._x1_monsteraffix_frozenpulse_monster:
                         FrozenPulseDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
                 }
             }
         }
-
     }
-
 }

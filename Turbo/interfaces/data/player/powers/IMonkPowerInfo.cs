@@ -1,9 +1,7 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface IMonkPowerInfo
     {
-
         IPlayerSkill BlindingFlash { get; } // 136954 - Blinding Flash
         IPlayerSkill BreathOfHeaven { get; } // 69130 - Breath of Heaven
         IPlayerSkill CripplingWave { get; } // 96311 - Crippling Wave
@@ -49,5 +47,4 @@
         ISnoPower Transcendence { get; } // 209250 - Transcendence
         ISnoPower Unity { get; } // 368899 - Unity
     }
-
 }

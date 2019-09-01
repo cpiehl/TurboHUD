@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface IPlayerSkill
     {
         IPlayer Player { get; }
@@ -33,5 +32,4 @@
         IBuff Buff { get; }
 
         int Charges { get; }    }
-
 }

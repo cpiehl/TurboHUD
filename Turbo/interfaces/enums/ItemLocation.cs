@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum ItemLocation : int
     {
         Floor = -1,
@@ -23,10 +22,10 @@
         Gold = 16,
         MerchantAvaibleItemsForPurchase = 17,
         Merchant = 18,
-        InSocket = 19,
-        Unknown1 = 20,
-        Unknown2 = 21,
-        Unknown3 = 22,
+        PtrVendor = 19,
+        InSocket = 20,
+        Unknown1 = 21,
+        Unknown2 = 22,
         PetRightHand = 23,
         PetLeftHand = 24,
         PetSpecial = 25,
@@ -35,5 +34,4 @@
         PetLeftRing = 28,
         VendorToken = 1000
     }
-
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace Turbo.Plugins
 {
-
     public interface IQueueItem
     {
         DateTime QueuedOn { get; }
@@ -11,9 +10,8 @@ namespace Turbo.Plugins
     }
 
     public interface IQueueController
-	{
+    {
         void AddItem(IQueueItem item);
         IEnumerable<T> GetItems<T>() where T : IQueueItem;
     }
-
 }

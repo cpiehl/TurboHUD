@@ -1,8 +1,7 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
     public class CheatDeathBuffFeederPlugin : BasePlugin, IInGameTopPainter
     {
-
         public IBrush BorderBrush { get; set; }
         public IBrush FillBrush { get; set; }
 
@@ -34,8 +33,10 @@ namespace Turbo.Plugins.Default
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (Hud.Render.UiHidden) return;
-            if (clipState != ClipState.BeforeClip) return;
+            if (Hud.Render.UiHidden)
+                return;
+            if (clipState != ClipState.BeforeClip)
+                return;
 
             RuleList.CalculatePaintInfo(Hud.Game.Me);
             if (RuleList.PaintInfoList.Count > 0)
@@ -46,7 +47,5 @@ namespace Turbo.Plugins.Default
                 BorderBrush.DrawRectangleGridFit(uiMinimapRect.X, uiMinimapRect.Y, uiMinimapRect.Width, uiMinimapRect.Height);
             }
         }
-
     }
-
 }

@@ -1,24 +1,20 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Turbo.Plugins.Default
 {
-
     public class BuffRuleCalculator
     {
+        public IController Hud { get; }
 
-        public IController Hud { get; private set; }
-
-        public List<BuffRule> Rules { get; private set; }
-        public List<BuffPaintInfo> PaintInfoList { get; private set; }
+        public List<BuffRule> Rules { get; } = new List<BuffRule>();
+        public List<BuffPaintInfo> PaintInfoList { get; } = new List<BuffPaintInfo>();
 
         public float SizeMultiplier { get; set; }
 
         public BuffRuleCalculator(IController hud)
         {
             Hud = hud;
-            Rules = new List<BuffRule>();
-            PaintInfoList = new List<BuffPaintInfo>();
         }
 
         public void CalculatePaintInfo(IPlayer player)
@@ -43,48 +39,41 @@ namespace Turbo.Plugins.Default
             }
         }
 
-        public float StandardIconSize
-        {
-            get
-            {
-                return 55f / 1200.0f * Hud.Window.Size.Height * SizeMultiplier;
-            }
-        }
-
-        public float StandardIconSpacing
-        {
-            get
-            {
-                return 3.0f / 1200.0f * Hud.Window.Size.Height * SizeMultiplier;
-            }
-        }
+        public float StandardIconSize => 55f / 1200.0f * Hud.Window.Size.Height * SizeMultiplier;
+        public float StandardIconSpacing => 3.0f / 1200.0f * Hud.Window.Size.Height * SizeMultiplier;
 
         private void GetPaintInfo(IPlayer player, List<BuffPaintInfo> container, BuffRule rule, float iconSize)
         {
             var buff = player.Powers.GetBuff(rule.PowerSno);
-            if (buff == null || !buff.Active)
+            if (buff?.Active != true)
             {
                 return;
             }
 
-            for (int iconIndex = 0; iconIndex < buff.TimeLeftSeconds.Length; iconIndex++)
+            for (var iconIndex = 0; iconIndex < buff.TimeLeftSeconds.Length; iconIndex++)
             {
                 var timeLeft = buff.TimeLeftSeconds[iconIndex];
-                if (timeLeft < 0) timeLeft = 0;
+                if (timeLeft < 0)
+                    timeLeft = 0;
 
-                if ((rule.IconIndex != null) && (iconIndex != rule.IconIndex.Value)) continue;
-                if ((rule.NoIconIndex != null) && (iconIndex == rule.IconIndex.Value)) continue;
-                if (buff.IconCounts[iconIndex] < rule.MinimumIconCount) continue;
+                if ((rule.IconIndex != null) && (iconIndex != rule.IconIndex.Value))
+                    continue;
+                if ((rule.NoIconIndex != null) && (iconIndex == rule.IconIndex.Value))
+                    continue;
+                if (buff.IconCounts[iconIndex] < rule.MinimumIconCount)
+                    continue;
 
                 var stacks = rule.ShowStacks ? buff.IconCounts[iconIndex] : -1;
-                if (!rule.ShowTimeLeft) timeLeft = 0;
+                if (!rule.ShowTimeLeft)
+                    timeLeft = 0;
 
                 var icon = buff.SnoPower.Icons[iconIndex];
 
                 if (!icon.MergesTooltip || !rule.AllowInGameMergeRules)
                 {
                     var id = (buff.SnoPower.Sno << 32) + (uint)iconIndex;
-                    if (container.Any(x => x.Id == id)) return;
+                    if (container.Any(x => x.Id == id))
+                        return;
 
                     var info = new BuffPaintInfo()
                     {
@@ -96,17 +85,13 @@ namespace Turbo.Plugins.Default
                         Stacks = stacks,
                         Rule = rule,
                     };
-                    if (info.Rule != null && info.Rule.UseLegendaryItemTexture != null)
+                    if (info.Rule?.UseLegendaryItemTexture != null)
                     {
-                        if (info.Rule.UseLegendaryItemTexture.ItemHeight == 1)
-                        {
-                            info.BackgroundTexture = info.Rule.UseLegendaryItemTexture.SetItemBonusesSno == uint.MaxValue ? Hud.Texture.InventoryLegendaryBackgroundSmall : Hud.Texture.InventorySetBackgroundSmall;
-                        }
-                        else
-                        {
-                            info.BackgroundTexture = info.Rule.UseLegendaryItemTexture.SetItemBonusesSno == uint.MaxValue ? Hud.Texture.InventoryLegendaryBackgroundLarge : Hud.Texture.InventorySetBackgroundLarge;
-                        }
+                        info.BackgroundTexture = info.Rule.UseLegendaryItemTexture.ItemHeight == 1
+                            ? info.Rule.UseLegendaryItemTexture.SetItemBonusesSno == uint.MaxValue ? Hud.Texture.InventoryLegendaryBackgroundSmall : Hud.Texture.InventorySetBackgroundSmall
+                            : info.Rule.UseLegendaryItemTexture.SetItemBonusesSno == uint.MaxValue ? Hud.Texture.InventoryLegendaryBackgroundLarge : Hud.Texture.InventorySetBackgroundLarge;
                     }
+
                     info.Texture = GetIconTexture(info);
                     info.Size = iconSize * rule.IconSizeMultiplier;
                     if (info.Texture != null)
@@ -117,7 +102,7 @@ namespace Turbo.Plugins.Default
                 else
                 {
                     var id = (buff.SnoPower.Sno << 32) + icon.MergesTooltipIndex;
-                    var info = container.FirstOrDefault(x => x.Id == id);
+                    var info = container.Find(x => x.Id == id);
                     if (info != null)
                     {
                         info.Icons.Add(icon);
@@ -128,7 +113,7 @@ namespace Turbo.Plugins.Default
 
         private ITexture GetIconTexture(BuffPaintInfo info)
         {
-            uint textureId = 0;
+            uint textureId;
             if (info.Rule != null)
             {
                 if (info.Rule.UseLegendaryItemTexture != null)
@@ -137,17 +122,15 @@ namespace Turbo.Plugins.Default
                 }
 
                 textureId = info.SnoPower.NormalIconTextureId;
-                if (!info.Rule.UsePowersTexture && info.Icons[0].Exists && (info.Icons[0].TextureId != 0)) textureId = info.Icons[0].TextureId;
+                if (!info.Rule.UsePowersTexture && info.Icons[0].Exists && (info.Icons[0].TextureId != 0))
+                    textureId = info.Icons[0].TextureId;
             }
             else
             {
                 textureId = info.Icons[0].TextureId;
             }
-            if (textureId <= 0) return null;
 
-            return Hud.Texture.GetTexture(textureId);
+            return textureId <= 0 ? null : Hud.Texture.GetTexture(textureId);
         }
-
     }
-
 }

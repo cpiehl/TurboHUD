@@ -8,5 +8,4 @@
         /// </summary>
         void AfterCollect();
     }
-
 }

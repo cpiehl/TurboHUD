@@ -1,17 +1,15 @@
-using System.Linq;
+﻿using System.Linq;
 
 namespace Turbo.Plugins.Default
 {
-
     public class OculusPlugin : BasePlugin, IInGameWorldPainter
-	{
-
+    {
         public WorldDecoratorCollection Decorator { get; set; }
 
-		public OculusPlugin()
-		{
+        public OculusPlugin()
+        {
             Enabled = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -37,18 +35,17 @@ namespace Turbo.Plugins.Default
                 }
                 );
         }
-		
+
         public void PaintWorld(WorldLayer layer)
         {
-            if (Hud.Game.IsInTown) return;
+            if (Hud.Game.IsInTown)
+                return;
 
-            var actors = Hud.Game.Actors.Where(x => x.SnoActor.Sno == 4176 && x.GetAttributeValueAsInt(Hud.Sno.Attributes.Power_Buff_1_Visual_Effect_None, Hud.Sno.SnoPowers.OculusRing.Sno) == 1);
+            var actors = Hud.Game.Actors.Where(x => x.SnoActor.Sno == ActorSnoEnum._generic_proxy && x.GetAttributeValueAsInt(Hud.Sno.Attributes.Power_Buff_1_Visual_Effect_None, Hud.Sno.SnoPowers.OculusRing.Sno) == 1);
             foreach (var actor in actors)
             {
                 Decorator.Paint(layer, actor, actor.FloorCoordinate, null);
             }
         }
-
     }
-
 }

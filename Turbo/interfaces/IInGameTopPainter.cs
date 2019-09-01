@@ -7,5 +7,4 @@
         /// </summary>
         void PaintTopInGame(ClipState clipState);
     }
-
 }

@@ -1,19 +1,16 @@
-using System.Linq;
+﻿using System.Linq;
 
 namespace Turbo.Plugins.Default
 {
-
-    public class ClickableChestGizmoPlugin: BasePlugin, IInGameWorldPainter
-	{
-
+    public class ClickableChestGizmoPlugin : BasePlugin, IInGameWorldPainter
+    {
         public WorldDecoratorCollection Decorator { get; set; }
-        public bool PaintOnlyWhenHarringtonWaistguardIsActive { get; set; }
+        public bool PaintOnlyWhenHarringtonWaistguardIsActive { get; set; } = true;
 
-		public ClickableChestGizmoPlugin()
-		{
+        public ClickableChestGizmoPlugin()
+        {
             Enabled = false;
-            PaintOnlyWhenHarringtonWaistguardIsActive = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -36,18 +33,17 @@ namespace Turbo.Plugins.Default
                 }
                 );
         }
-		
-		public void PaintWorld(WorldLayer layer)
-		{
-            if (PaintOnlyWhenHarringtonWaistguardIsActive && !Hud.Game.Me.Powers.BuffIsActive(318881, 0)) return;
+
+        public void PaintWorld(WorldLayer layer)
+        {
+            if (PaintOnlyWhenHarringtonWaistguardIsActive && !Hud.Game.Me.Powers.BuffIsActive(318881, 0))
+                return;
 
             var actors = Hud.Game.Actors.Where(x => !x.IsDisabled && !x.IsOperated && x.GizmoType == GizmoType.Chest);
             foreach (var actor in actors)
-			{
+            {
                 Decorator.Paint(layer, actor, actor.FloorCoordinate, null);
-			}
-		}
-
+            }
+        }
     }
-
 }

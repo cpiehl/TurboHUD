@@ -1,23 +1,18 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public abstract class AbstractMapDecoratorWithRadius
     {
-
         public bool Enabled { get; set; }
-        public WorldLayer Layer { get; private set; }
-        public IController Hud { get; private set; }
+        public WorldLayer Layer { get; } = WorldLayer.Map;
+        public IController Hud { get; }
 
-        public float Radius { get; set; }
+        public float Radius { get; set; } = 1.0f;
         public IRadiusTransformator RadiusTransformator { get; set; }
 
-        public AbstractMapDecoratorWithRadius(IController hud)
+        protected AbstractMapDecoratorWithRadius(IController hud)
         {
             Enabled = true;
-            Layer = WorldLayer.Map;
             Hud = hud;
-
-            Radius = 1.0f;
         }
 
         public void CalculateCoordinateAndRadius(IWorldCoordinate coord, out float mapX, out float mapY, out float radius)
@@ -31,7 +26,5 @@ namespace Turbo.Plugins.Default
                 radius = RadiusTransformator.TransformRadius(radius);
             }
         }
-
     }
-
 }

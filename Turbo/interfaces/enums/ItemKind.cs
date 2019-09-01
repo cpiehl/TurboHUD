@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum ItemKind
     {
         loot,
@@ -14,5 +13,4 @@
         goldcoin,
         book
     }
-
 }

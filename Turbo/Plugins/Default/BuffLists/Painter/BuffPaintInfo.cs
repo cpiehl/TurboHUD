@@ -1,8 +1,7 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Turbo.Plugins.Default
 {
-
     public class BuffPaintInfo
     {
         public uint Id { get; set; }
@@ -18,5 +17,4 @@ namespace Turbo.Plugins.Default
         public float Size { get; set; }
         public bool? TimeLeftNumbersOverride { get; set; }
     }
-
 }

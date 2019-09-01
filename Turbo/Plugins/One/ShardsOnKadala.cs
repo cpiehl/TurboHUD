@@ -38,7 +38,7 @@ namespace Turbo.Plugins.One
         public void PaintWorld(WorldLayer layer)
         {
             if (!Hud.Game.IsInTown) return;
-            var kadalaPos = Hud.Game.Actors.Where(x => x.SnoActor.Sno == 361241 && x.IsOnScreen);
+            var kadalaPos = Hud.Game.Actors.Where(x => x.SnoActor.Sno == ActorSnoEnum._x1_randomitemnpc && x.IsOnScreen);
             var maxShards = 500 + (Hud.Game.Me.HighestSoloRiftLevel * 10);
             var actualShards = Hud.Game.Me.Materials.BloodShard;
             kadalaText = "" + actualShards + "/" + maxShards;

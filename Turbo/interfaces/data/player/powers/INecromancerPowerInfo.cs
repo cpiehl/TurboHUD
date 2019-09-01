@@ -1,9 +1,7 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface INecromancerPowerInfo
     {
-
         IPlayerSkill ArmyOfTheDead { get; } // 460358 - Army of the Dead
         IPlayerSkill BloodRush { get; } // 454090 - Blood Rush
         IPlayerSkill BoneArmor { get; } // 466857 - Bone Armor
@@ -31,12 +29,15 @@
         ISnoPower BonePrison { get; } // 472965 - Bone Prison
         ISnoPower CommanderOfTheRisenDead { get; } // 472962 - Commander of the Risen Dead
         ISnoPower DarkReaping { get; } // 470812 - Dark Reaping
+        ISnoPower DecrepifyPassiveEffect { get; } // 471738 - Decrepify
         ISnoPower DrawLife { get; } // 465264 - Draw Life
         ISnoPower EternalTorment { get; } // 472795 - Eternal Torment
         ISnoPower ExtendedServitude { get; } // 464994 - Extended Servitude
         ISnoPower FinalService { get; } // 465952 - Final Service
+        ISnoPower FrailtyPassiveEffect { get; } // 471845 - Frailty
         ISnoPower FueledByDeath { get; } // 465917 - Fueled by Death
         ISnoPower GrislyTribute { get; } // 473019 - Grisly Tribute
+        ISnoPower LeechPassiveEffect { get; } // 471869 - Leech
         ISnoPower LifeFromDeath { get; } // 465703 - Life from Death
         ISnoPower OverwhelmingEssence { get; } // 470764 - Overwhelming Essence
         ISnoPower RathmasShield { get; } // 472910 - Rathma's Shield
@@ -46,5 +47,4 @@
         ISnoPower StandAlone { get; } // 470725 - Stand Alone
         ISnoPower SwiftHarvesting { get; } // 470805 - Swift Harvesting
     }
-
 }

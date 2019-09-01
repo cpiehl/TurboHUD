@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum ShrineType
     {
         BlessedShrine,
@@ -18,5 +17,4 @@
         BanditShrine,
         HealingWell
     }
-
 }

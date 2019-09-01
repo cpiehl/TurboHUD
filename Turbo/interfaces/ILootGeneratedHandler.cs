@@ -7,5 +7,4 @@
         /// </summary>
         void OnLootGenerated(IItem item, bool gambled);
     }
-
 }

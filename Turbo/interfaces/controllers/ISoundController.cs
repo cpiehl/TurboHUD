@@ -15,7 +15,7 @@ namespace Turbo.Plugins
         int IngameMasterVolume { get; }
         int IngameEffectsVolume { get; }
 
-        VolumeMode VolumeMode { get; set; } // default VolumeMode.AutoMaster
+        VolumeMode VolumeMode { get; set; } // default VolumeMode.AutoMasterAndEffects
 
         // used when Mode == AutoMaster or Mode == AutoMasterAndEffects
         // AutoMaster final volume is calculated by this: (IngameMasterVolume / 100) * VolumeMultiplier

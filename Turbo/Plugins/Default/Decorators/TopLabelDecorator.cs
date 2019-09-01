@@ -1,22 +1,20 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Turbo.Plugins.Default
 {
-
     public delegate string StringGeneratorFunc();
 
     public enum HorizontalAlign { Left, Center, Right }
 
     // this is not a plugin, just a helper class to display fixed sized labels on the screen
-    public class TopLabelDecorator: ITransparentCollection
+    public class TopLabelDecorator : ITransparentCollection
     {
-
         public bool Enabled { get; set; }
-        public IController Hud { get; set; }
+        public IController Hud { get; }
 
         public IFont TextFont { get; set; }
         public IFont ExpandedHintFont { get; set; }
-        public float ExpandedHintWidthMultiplier { get; set; }
+        public float ExpandedHintWidthMultiplier { get; set; } = 1;
 
         // Option #1: Use brushes for background and border
         public IBrush BackgroundBrush { get; set; }
@@ -25,13 +23,13 @@ namespace Turbo.Plugins.Default
         // Option #2: Use textures for background
         public ITexture BackgroundTexture1 { get; set; }
         public ITexture BackgroundTexture2 { get; set; }
-        public float BackgroundTextureOpacity1 { get; set; }
-        public float BackgroundTextureOpacity2 { get; set; }
+        public float BackgroundTextureOpacity1 { get; set; } = 1.0f;
+        public float BackgroundTextureOpacity2 { get; set; } = 1.0f;
 
         public StringGeneratorFunc TextFunc { get; set; }
         public StringGeneratorFunc HintFunc { get; set; }
 
-        public bool HideBackgroundWhenTextIsEmpty { get; set; }
+        public bool HideBackgroundWhenTextIsEmpty { get; set; } = false;
 
         public List<TopLabelDecorator> ExpandUpLabels { get; set; }
         public List<TopLabelDecorator> ExpandDownLabels { get; set; }
@@ -42,26 +40,25 @@ namespace Turbo.Plugins.Default
         {
             Enabled = true;
             Hud = hud;
-            BackgroundTextureOpacity1 = 1.0f;
-            BackgroundTextureOpacity2 = 1.0f;
-            HideBackgroundWhenTextIsEmpty = false;
-            ExpandedHintWidthMultiplier = 1;
         }
 
         public void Paint(float x, float y, float w, float h, HorizontalAlign align)
         {
-            if (!Enabled) return;
-            if (TextFont == null) return;
+            if (!Enabled)
+                return;
+            if (TextFont == null)
+                return;
 
-            var text = TextFunc != null ? TextFunc.Invoke() : null;
-            var hint = HintFunc != null ? HintFunc.Invoke() : null;
+            var text = TextFunc?.Invoke();
+            var hint = HintFunc?.Invoke();
 
-            if (string.IsNullOrEmpty(text) && HideBackgroundWhenTextIsEmpty) return;
+            if (string.IsNullOrEmpty(text) && HideBackgroundWhenTextIsEmpty)
+                return;
 
             if (Hud.Window.CursorInsideRect(x, y, w, h))
             {
                 var expanded = false;
-                if (ExpandUpLabels != null && ExpandUpLabels.Count > 0)
+                if (ExpandUpLabels?.Count > 0)
                 {
                     var ly = y - h;
                     foreach (var label in ExpandUpLabels)
@@ -71,9 +68,11 @@ namespace Turbo.Plugins.Default
                         ly -= h;
                         expanded = true;
                     }
-                    this.PaintExpandedHint(x + w, y, w * 3, h, HorizontalAlign.Center);
+
+                    PaintExpandedHint(x + w, y, w * 3, h, HorizontalAlign.Center);
                 }
-                if (ExpandDownLabels != null && ExpandDownLabels.Count > 0)
+
+                if (ExpandDownLabels?.Count > 0)
                 {
                     var ly = y + h;
                     foreach (var label in ExpandDownLabels)
@@ -83,9 +82,11 @@ namespace Turbo.Plugins.Default
                         ly += h;
                         expanded = true;
                     }
-                    this.PaintExpandedHint(x + w, y, w * 3, h, HorizontalAlign.Center);
+
+                    PaintExpandedHint(x + w, y, w * 3, h, HorizontalAlign.Center);
                 }
-                if (ExpandRightLabels != null && ExpandRightLabels.Count > 0)
+
+                if (ExpandRightLabels?.Count > 0)
                 {
                     var lx = x + w;
                     foreach (var label in ExpandRightLabels)
@@ -95,7 +96,8 @@ namespace Turbo.Plugins.Default
                         expanded = true;
                     }
                 }
-                if (ExpandLeftLabels != null && ExpandLeftLabels.Count > 0)
+
+                if (ExpandLeftLabels?.Count > 0)
                 {
                     var lx = x - w;
                     foreach (var label in ExpandLeftLabels)
@@ -115,20 +117,11 @@ namespace Turbo.Plugins.Default
                 }
             }
 
-            if (BackgroundTexture1 != null)
-            {
-                BackgroundTexture1.Draw(x, y, w, h, BackgroundTextureOpacity1);
-            }
+            BackgroundTexture1?.Draw(x, y, w, h, BackgroundTextureOpacity1);
 
-            if (BackgroundTexture2 != null)
-            {
-                BackgroundTexture2.Draw(x, y, w, h, BackgroundTextureOpacity2);
-            }
+            BackgroundTexture2?.Draw(x, y, w, h, BackgroundTextureOpacity2);
 
-            if (BackgroundBrush != null)
-            {
-                BackgroundBrush.DrawRectangle(x, y, w, h);
-            }
+            BackgroundBrush?.DrawRectangle(x, y, w, h);
 
             if (!string.IsNullOrEmpty(text))
             {
@@ -136,64 +129,52 @@ namespace Turbo.Plugins.Default
                 switch (align)
                 {
                     case HorizontalAlign.Left:
-                        TextFont.DrawText(layout, x, y + (h - layout.Metrics.Height) / 2);
+                        TextFont.DrawText(layout, x, y + ((h - layout.Metrics.Height) / 2));
                         break;
                     case HorizontalAlign.Center:
-                        TextFont.DrawText(layout, x + (w - layout.Metrics.Width) / 2, y + (h - layout.Metrics.Height) / 2);
+                        TextFont.DrawText(layout, x + ((w - layout.Metrics.Width) / 2), y + ((h - layout.Metrics.Height) / 2));
                         break;
                     case HorizontalAlign.Right:
-                        TextFont.DrawText(layout, x + w - layout.Metrics.Width, y + (h - layout.Metrics.Height) / 2);
+                        TextFont.DrawText(layout, x + w - layout.Metrics.Width, y + ((h - layout.Metrics.Height) / 2));
                         break;
                 }
             }
 
-            if (BorderBrush != null)
-            {
-                BorderBrush.DrawRectangle(x, y, w, h);
-            }
+            BorderBrush?.DrawRectangle(x, y, w, h);
         }
 
         public void PaintExpandedHint(float x, float y, float w, float h, HorizontalAlign align)
         {
-            if (!Enabled) return;
-            if (ExpandedHintFont == null) return;
+            if (!Enabled)
+                return;
+            if (ExpandedHintFont == null)
+                return;
 
-            var hint = HintFunc != null ? HintFunc.Invoke() : null;
-            if (string.IsNullOrEmpty(hint)) return;
+            var hint = HintFunc?.Invoke();
+            if (string.IsNullOrEmpty(hint))
+                return;
 
-            if (BackgroundTexture1 != null)
-            {
-                BackgroundTexture1.Draw(x, y, w, h, BackgroundTextureOpacity1);
-            }
+            BackgroundTexture1?.Draw(x, y, w, h, BackgroundTextureOpacity1);
 
-            if (BackgroundTexture2 != null)
-            {
-                BackgroundTexture2.Draw(x, y, w, h, BackgroundTextureOpacity2);
-            }
+            BackgroundTexture2?.Draw(x, y, w, h, BackgroundTextureOpacity2);
 
-            if (BackgroundBrush != null)
-            {
-                BackgroundBrush.DrawRectangle(x, y, w, h);
-            }
+            BackgroundBrush?.DrawRectangle(x, y, w, h);
 
             var layout = ExpandedHintFont.GetTextLayout(hint);
             switch (align)
             {
                 case HorizontalAlign.Left:
-                    ExpandedHintFont.DrawText(layout, x, y + (h - layout.Metrics.Height) / 2);
+                    ExpandedHintFont.DrawText(layout, x, y + ((h - layout.Metrics.Height) / 2));
                     break;
                 case HorizontalAlign.Center:
-                    ExpandedHintFont.DrawText(layout, x + (w - layout.Metrics.Width) / 2, y + (h - layout.Metrics.Height) / 2);
+                    ExpandedHintFont.DrawText(layout, x + ((w - layout.Metrics.Width) / 2), y + ((h - layout.Metrics.Height) / 2));
                     break;
                 case HorizontalAlign.Right:
-                    ExpandedHintFont.DrawText(layout, x + w - layout.Metrics.Width, y + (h - layout.Metrics.Height) / 2);
+                    ExpandedHintFont.DrawText(layout, x + w - layout.Metrics.Width, y + ((h - layout.Metrics.Height) / 2));
                     break;
             }
 
-            if (BorderBrush != null)
-            {
-                BorderBrush.DrawRectangle(x, y, w, h);
-            }
+            BorderBrush?.DrawRectangle(x, y, w, h);
         }
 
         public IEnumerable<ITransparent> GetTransparents()
@@ -203,7 +184,5 @@ namespace Turbo.Plugins.Default
             yield return BackgroundTexture1;
             yield return BackgroundTexture2;
         }
-
     }
-
 }

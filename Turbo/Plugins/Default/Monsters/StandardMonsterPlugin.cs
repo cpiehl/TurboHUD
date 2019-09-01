@@ -1,9 +1,7 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class StandardMonsterPlugin : BasePlugin, IInGameWorldPainter
-	{
-
+    {
         public WorldDecoratorCollection TrashDecorator { get; set; }
         public WorldDecoratorCollection InvisibleDecorator { get; set; }
         public WorldDecoratorCollection EliteChampionDecorator { get; set; }
@@ -13,12 +11,11 @@ namespace Turbo.Plugins.Default
         public WorldDecoratorCollection KeywardenDecorator { get; set; }
         public WorldDecoratorCollection BossDecorator { get; set; }
 
-        public bool HideOnIllusions { get; set; }
+        public bool HideOnIllusions { get; set; } = true;
 
         public StandardMonsterPlugin()
-		{
+        {
             Enabled = true;
-            HideOnIllusions = true;
         }
 
         public override void Load(IController hud)
@@ -133,7 +130,8 @@ namespace Turbo.Plugins.Default
             var monsters = Hud.Game.AliveMonsters;
             foreach (var monster in monsters)
             {
-                if (HideOnIllusions && (monster.SummonerAcdDynamicId != 0) && (monster.Rarity == ActorRarity.RareMinion)) continue;
+                if (HideOnIllusions && (monster.SummonerAcdDynamicId != 0) && (monster.Rarity == ActorRarity.RareMinion))
+                    continue;
 
                 // trash
                 if (!inRift && !monster.Invisible && !monster.IsElite && (monster.SnoMonster.Priority != MonsterPriority.goblin) && (monster.SnoMonster.Priority != MonsterPriority.boss) && (monster.SnoMonster.Priority != MonsterPriority.keywarden))
@@ -150,14 +148,17 @@ namespace Turbo.Plugins.Default
                 {
                     EliteChampionDecorator.Paint(layer, monster, monster.FloorCoordinate, monster.SnoMonster.NameLocalized);
                 }
+
                 if (monster.Rarity == ActorRarity.RareMinion)
                 {
                     EliteMinionDecorator.Paint(layer, monster, monster.FloorCoordinate, monster.SnoMonster.NameLocalized);
                 }
+
                 if (monster.Rarity == ActorRarity.Rare)
                 {
                     EliteLeaderDecorator.Paint(layer, monster, monster.FloorCoordinate, monster.SnoMonster.NameLocalized);
                 }
+
                 if ((monster.Rarity == ActorRarity.Unique) && (monster.SnoMonster.Priority < MonsterPriority.keywarden))
                 {
                     EliteUniqueDecorator.Paint(layer, monster, monster.FloorCoordinate, monster.SnoMonster.NameLocalized);
@@ -174,7 +175,5 @@ namespace Turbo.Plugins.Default
                 }
             }
         }
-
     }
-
 }

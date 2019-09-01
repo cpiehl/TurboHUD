@@ -1,20 +1,18 @@
-using System.Linq;
+﻿using System.Linq;
 
 namespace Turbo.Plugins.Default
 {
-
     public class ShrinePlugin : BasePlugin, IInGameWorldPainter
-	{
-
+    {
         public WorldDecoratorCollection AllShrineDecorator { get; set; }
         public WorldDecoratorCollection HealingWellDecorator { get; set; }
         public WorldDecoratorCollection PoolOfReflectionDecorator { get; set; }
         public WorldDecoratorCollection PossibleRiftPylonDecorator { get; set; }
 
         public ShrinePlugin()
-		{
+        {
             Enabled = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -83,14 +81,14 @@ namespace Turbo.Plugins.Default
                 );
         }
 
-		public void PaintWorld(WorldLayer layer)
-		{
+        public void PaintWorld(WorldLayer layer)
+        {
             var shrines = Hud.Game.Shrines.Where(x => !x.IsDisabled && !x.IsOperated && (x.Type != ShrineType.HealingWell) && (x.Type != ShrineType.PoolOfReflection));
             foreach (var actor in shrines)
-			{
+            {
                 AllShrineDecorator.ToggleDecorators<GroundLabelDecorator>(!actor.IsOnScreen); // do not display ground labels when the actor is on the screen
                 AllShrineDecorator.Paint(layer, actor, actor.FloorCoordinate, actor.SnoActor.NameLocalized);
-			}
+            }
 
             var healingWells = Hud.Game.Shrines.Where(x => !x.IsDisabled && !x.IsOperated && (x.Type == ShrineType.HealingWell));
             foreach (var actor in healingWells)
@@ -106,13 +104,11 @@ namespace Turbo.Plugins.Default
                 PoolOfReflectionDecorator.Paint(layer, actor, actor.FloorCoordinate, actor.SnoActor.NameLocalized);
             }
 
-            var riftPylonSpawnPoints = Hud.Game.Actors.Where(x => x.SnoActor.Sno == 428690);
+            var riftPylonSpawnPoints = Hud.Game.Actors.Where(x => x.SnoActor.Sno == ActorSnoEnum._markerlocation_tieredriftpylon);
             foreach (var actor in riftPylonSpawnPoints)
             {
                 PossibleRiftPylonDecorator.Paint(layer, actor, actor.FloorCoordinate, "pylon?");
             }
         }
-
     }
-
 }

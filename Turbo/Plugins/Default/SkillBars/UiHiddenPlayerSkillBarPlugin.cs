@@ -1,13 +1,11 @@
-using SharpDX;
+﻿using SharpDX;
 
 namespace Turbo.Plugins.Default
 {
-
     public class UiHiddenPlayerSkillBarPlugin : BasePlugin, IInGameTopPainter
     {
-
         public SkillPainter SkillPainter { get; set; }
-        public float Ratio { get; set; }
+        public float Ratio { get; set; } = 0.55f;
 
         public UiHiddenPlayerSkillBarPlugin()
         {
@@ -25,13 +23,14 @@ namespace Turbo.Plugins.Default
                 EnableDetailedDpsHint = false,
                 CooldownFont = Hud.Render.CreateFont("arial", 8, 255, 255, 255, 255, true, false, 255, 0, 0, 0, true),
             };
-            Ratio = 0.55f;
         }
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (!Hud.Render.UiHidden) return;
-            if (clipState != ClipState.BeforeClip) return;
+            if (!Hud.Render.UiHidden)
+                return;
+            if (clipState != ClipState.BeforeClip)
+                return;
 
             var size = 55f / 1200.0f * Hud.Window.Size.Height * Ratio;
 
@@ -42,8 +41,8 @@ namespace Turbo.Plugins.Default
                 {
                     var index = skill.Key <= ActionKey.RightSkill ? (int)skill.Key + 4 : (int)skill.Key - 2;
 
-                    var x = portraitRect.Right + size * index;
-                    var y = portraitRect.Top + portraitRect.Height * 0.21f;
+                    var x = portraitRect.Right + (size * index);
+                    var y = portraitRect.Top + (portraitRect.Height * 0.21f);
 
                     var rect = new RectangleF(x, y, size, size);
 
@@ -51,7 +50,5 @@ namespace Turbo.Plugins.Default
                 }
             }
         }
-
     }
-
 }

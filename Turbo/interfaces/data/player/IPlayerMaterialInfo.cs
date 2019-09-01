@@ -1,9 +1,7 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface IPlayerMaterialInfo
     {
-
         long Gold { get; }
         long BloodShard { get; }
         long BNetStore { get; }
@@ -25,6 +23,6 @@
         long IdolOfTerror { get; }
         long LeoricsRegret { get; }
 
+        long GreaterRiftKeystone { get; }
     }
-
 }

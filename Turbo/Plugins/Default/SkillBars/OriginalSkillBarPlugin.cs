@@ -1,12 +1,10 @@
+﻿using System;
 using SharpDX;
-using System;
 
 namespace Turbo.Plugins.Default
 {
-
     public class OriginalSkillBarPlugin : BasePlugin, IInGameTopPainter
     {
-
         public SkillPainter SkillPainter { get; set; }
 
         public OriginalSkillBarPlugin()
@@ -28,9 +26,12 @@ namespace Turbo.Plugins.Default
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (Hud.Render.UiHidden) return;
-            if (clipState != ClipState.BeforeClip) return;
-            if ((Hud.Game.MapMode == MapMode.WaypointMap) || (Hud.Game.MapMode == MapMode.ActMap) || (Hud.Game.MapMode == MapMode.Map)) return;
+            if (Hud.Render.UiHidden)
+                return;
+            if (clipState != ClipState.BeforeClip)
+                return;
+            if ((Hud.Game.MapMode == MapMode.WaypointMap) || (Hud.Game.MapMode == MapMode.ActMap) || (Hud.Game.MapMode == MapMode.Map))
+                return;
 
             var uiSkill1 = Hud.Render.GetPlayerSkillUiElement(ActionKey.Skill1);
 
@@ -43,7 +44,5 @@ namespace Turbo.Plugins.Default
                 SkillPainter.Paint(skill, rect);
             }
         }
-
     }
-
 }

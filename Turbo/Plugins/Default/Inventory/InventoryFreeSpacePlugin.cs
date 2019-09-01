@@ -1,19 +1,17 @@
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace Turbo.Plugins.Default
 {
-
     public class InventoryFreeSpacePlugin : BasePlugin, IInGameTopPainter
-	{
-
+    {
         public TopLabelDecorator RedDecorator { get; set; }
         public TopLabelDecorator YellowDecorator { get; set; }
         public TopLabelDecorator GreenDecorator { get; set; }
 
-		public InventoryFreeSpacePlugin()
-		{
+        public InventoryFreeSpacePlugin()
+        {
             Enabled = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -55,18 +53,19 @@ namespace Turbo.Plugins.Default
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (Hud.Render.UiHidden) return;
-            if (clipState != ClipState.BeforeClip) return;
-            if ((Hud.Game.MapMode == MapMode.WaypointMap) || (Hud.Game.MapMode == MapMode.ActMap) || (Hud.Game.MapMode == MapMode.Map)) return;
+            if (Hud.Render.UiHidden)
+                return;
+            if (clipState != ClipState.BeforeClip)
+                return;
+            if ((Hud.Game.MapMode == MapMode.WaypointMap) || (Hud.Game.MapMode == MapMode.ActMap) || (Hud.Game.MapMode == MapMode.Map))
+                return;
 
             var uiRect = Hud.Render.InGameBottomHudUiElement.Rectangle;
 
             var freeSpace = Hud.Game.Me.InventorySpaceTotal - Hud.Game.InventorySpaceUsed;
 
             var decorator = freeSpace < 2 ? RedDecorator : freeSpace < 20 ? YellowDecorator : GreenDecorator;
-            decorator.Paint(uiRect.Left + uiRect.Width * 0.645f, uiRect.Top + uiRect.Height * 0.88f, uiRect.Width * 0.019f, uiRect.Height * 0.12f, HorizontalAlign.Center);
+            decorator.Paint(uiRect.Left + (uiRect.Width * 0.645f), uiRect.Top + (uiRect.Height * 0.88f), uiRect.Width * 0.019f, uiRect.Height * 0.12f, HorizontalAlign.Center);
         }
-
     }
-
 }

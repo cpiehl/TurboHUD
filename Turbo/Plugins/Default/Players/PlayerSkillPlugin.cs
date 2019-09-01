@@ -1,9 +1,7 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class PlayerSkillPlugin : BasePlugin, IInGameWorldPainter
     {
-
         public WorldDecoratorCollection HydraDecorator { get; set; }
         public WorldDecoratorCollection SentryDecorator { get; set; }
         public WorldDecoratorCollection SentryWithCustomEngineeringDecorator { get; set; }
@@ -273,21 +271,21 @@ namespace Turbo.Plugins.Default
                 {
                     switch (actor.SnoActor.Sno)
                     {
-                        case 81230: // light
-                        case 81232: // arcane
-                        case 325807:
-                        case 83024:
+                        case ActorSnoEnum._wizard_hydrahead_lightning_3: // light
+                        case ActorSnoEnum._wizard_hydrahead_arcane_3: // arcane
+                        case ActorSnoEnum._wizard_hydrahead_fire2_1:
+                        case ActorSnoEnum._wizard_hydrahead_frost_2:
                             HydraDecorator.Paint(layer, actor, actor.FloorCoordinate.Offset(2f, 2f, 0), null);
                             break;
-                        case 83959: // mammoth
+                        case ActorSnoEnum._wizard_hydrahead_big: // mammoth
                             HydraDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                             break;
-                        case 141402:
-                        case 150025:
-                        case 150024:
-                        case 168815:
-                        case 150026:
-                        case 150027:
+                        case ActorSnoEnum._dh_sentry:
+                        case ActorSnoEnum._dh_sentry_addsmissiles:
+                        case ActorSnoEnum._dh_sentry_addsduration:
+                        case ActorSnoEnum._dh_sentry_tether:
+                        case ActorSnoEnum._dh_sentry_addsheals:
+                        case ActorSnoEnum._dh_sentry_addsshield:
                             if (!Hud.Game.Me.Powers.BuffIsActive(208610, 0))
                             {
                                 SentryDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
@@ -296,16 +294,17 @@ namespace Turbo.Plugins.Default
                             {
                                 SentryWithCustomEngineeringDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                             }
+
                             break;
-                        case 341426:
-                        case 341411:
-                        case 341381:
-                        case 341396:
-                        case 341441:
+                        case ActorSnoEnum._x1_wizard_blackhole_cosmicgate_proxy:
+                        case ActorSnoEnum._x1_wizard_blackhole_eventhorizon_proxy:
+                        case ActorSnoEnum._x1_wizard_blackhole_supermassive_proxy:
+                        case ActorSnoEnum._x1_wizard_blackhole_absolutezero_proxy:
+                        case ActorSnoEnum._x1_wizard_blackhole_spellsteal_proxy:
                             BlackHoleDecorator.Paint(layer, actor, actor.FloorCoordinate.Offset(0, 0, 5.2f), null);
                             break;
-                        case 107705:
-                        case 106584:
+                        case ActorSnoEnum._witchdoctor_spiritwalk_dummy_female:
+                        case ActorSnoEnum._witchdoctor_spiritwalk_dummy:
                             {
                                 var skill = Hud.Game.Me.Powers.UsedWitchDoctorPowers.SpiritWalk;
                                 if (skill != null)
@@ -320,12 +319,13 @@ namespace Turbo.Plugins.Default
                                     }
                                 }
                             }
+
                             break;
-                        case 117574:
-                        case 182276:
-                        case 182278:
-                        case 182271:
-                        case 182283:
+                        case ActorSnoEnum._witchdoctor_bigbadvoodoo_fetish:
+                        case ActorSnoEnum._witchdoctor_bigbadvoodoo_fetish_blue:
+                        case ActorSnoEnum._witchdoctor_bigbadvoodoo_fetish_purple:
+                        case ActorSnoEnum._witchdoctor_bigbadvoodoo_fetish_red:
+                        case ActorSnoEnum._witchdoctor_bigbadvoodoo_fetish_yellow:
                             {
                                 var skill = Hud.Game.Me.Powers.UsedWitchDoctorPowers.BigBadVoodoo;
                                 if (skill != null)
@@ -340,32 +340,32 @@ namespace Turbo.Plugins.Default
                                     }
                                 }
                             }
+
                             break;
                     }
                 }
+
                 switch (actor.SnoActor.Sno)
                 {
-                    case 357846:
+                    case ActorSnoEnum._x1_wd_piranha_tornado_proxy:
                         PiranhadoDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 149848:
+                    case ActorSnoEnum._monk_innersanctuaryrune_duration_proxy:
                         InnerSanctuarySanctifiedGroundDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 320136:
-                    case 319583:
-                    case 319337:
+                    case ActorSnoEnum._x1_monk_innersanctuaryrune_forbidden_proxy:
+                    case ActorSnoEnum._x1_monk_innersanctuaryrune_intervene_proxy:
+                    case ActorSnoEnum._x1_monk_innersanctuary_proxy:
                         InnerSanctuaryDefaultDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 320135:
+                    case ActorSnoEnum._x1_monk_innersanctuaryrune_healing_proxy:
                         InnerSanctuarySafeHavenDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
-                    case 319776:
+                    case ActorSnoEnum._x1_monk_innersanctuaryrune_protect_proxy:
                         InnerSanctuaryTempleOfProtecteionDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
                         break;
                 }
             }
         }
-
     }
-
 }

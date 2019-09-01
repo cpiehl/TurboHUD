@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum QuestEventType
     {
         None = -1,
@@ -10,5 +9,4 @@
         Zapper = 3,
         GoblinHunt = 4,
     }
-
 }

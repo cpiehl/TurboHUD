@@ -7,5 +7,4 @@
         /// </summary>
         void OnMonsterKilled(IMonster monster);
     }
-
 }

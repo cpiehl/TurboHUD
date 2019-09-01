@@ -2,7 +2,6 @@
 
 namespace Turbo.Plugins
 {
-
     public interface ILegendaryGemInfo
     {
         IEnumerable<IBuff> AllBuffs();
@@ -31,6 +30,8 @@ namespace Turbo.Plugins
         IBuff IceblinkSecondary { get; } // 428356
         IBuff InvigoratingGemstonePrimary { get; } // 403465
         IBuff InvigoratingGemstoneSecondary { get; } // 403624
+        IBuff LegacyOfDreamsPrimary { get; } // 483319
+        IBuff LegacyOfDreamsSecondary { get; } // 483320
         IBuff MirinaeTeardropOfTheStarweaverPrimary { get; } // 403463
         IBuff MirinaeTeardropOfTheStarweaverSecondary { get; } // 403620
         IBuff MoltenWildebeestsGizzardPrimary { get; } // 428031
@@ -52,5 +53,4 @@ namespace Turbo.Plugins
         IBuff ZeisStoneOfVengeancePrimary { get; } // 403468
         IBuff ZeisStoneOfVengeanceSecondary { get; } // 403727
     }
-
 }

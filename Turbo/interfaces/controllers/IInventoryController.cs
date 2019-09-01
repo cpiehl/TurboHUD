@@ -2,7 +2,6 @@
 
 namespace Turbo.Plugins
 {
-
     public interface IInventoryController
     {
         int MaxStashPageCount { get; } // 2
@@ -11,7 +10,6 @@ namespace Turbo.Plugins
         int SelectedStashTabIndex { get; }
         int HoveredStashTabIndex { get; }
         int GetStashTabUsedSpace(int pageIndex, int tabIndex);
-
         IEnumerable<IItem> ItemsInStash { get; }
         IEnumerable<IItem> ItemsInInventory { get; }
 
@@ -35,5 +33,4 @@ namespace Turbo.Plugins
         IUiElement GetHoveredItemTopUiElement();
         IItem HoveredItem { get; }
     }
-
 }

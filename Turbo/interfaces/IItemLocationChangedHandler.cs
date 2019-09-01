@@ -7,5 +7,4 @@
         /// </summary>
         void OnItemLocationChanged(IItem item, ItemLocation from, ItemLocation to);
     }
-
 }

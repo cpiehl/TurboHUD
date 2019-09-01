@@ -1,11 +1,10 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Turbo.Plugins.Default
 {
     public class MonsterPackPlugin : BasePlugin, IInGameWorldPainter
     {
-
         //
         // this plugin is work-in-progress and will be finished in a later release
         //
@@ -31,13 +30,12 @@ namespace Turbo.Plugins.Default
 
         public Dictionary<MonsterAffix, int> Priorities { get; private set; }
 
-        public bool HideOnIllusions { get; set; }
+        public bool HideOnIllusions { get; set; } = true;
 
         public MonsterPackPlugin()
         {
             Enabled = false;
             Order = 20000;
-            HideOnIllusions = true;
         }
 
         public override void Load(IController hud)
@@ -76,7 +74,6 @@ namespace Turbo.Plugins.Default
                 { MonsterAffix.Vortex, 0 },
                 { MonsterAffix.Wormhole, 0 } };
 
-
             ChampionPackLineBrush = Hud.Render.CreateBrush(255, 125, 175, 240, -1.5f);
             ChampionPackNameFont = Hud.Render.CreateFont("tahoma", 9.0f, 255, 125, 175, 240, true, false, 255, 0, 0, 0, true);
             RarePackLineBrush = Hud.Render.CreateBrush(255, 240, 175, 125, -1.5f);
@@ -105,151 +102,200 @@ namespace Turbo.Plugins.Default
             var importantBorderBrush = Hud.Render.CreateBrush(128, 0, 0, 0, 2);
             var importantLabelFont = Hud.Render.CreateFont("tahoma", 6f, 255, 255, 255, 255, true, false, false);
 
-            AffixDecorators = new Dictionary<MonsterAffix, GroundLabelDecorator>();
-            AffixDecorators.Add(MonsterAffix.Arcane, new GroundLabelDecorator(Hud)
+            AffixDecorators = new Dictionary<MonsterAffix, GroundLabelDecorator>
             {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 120, 0, 120, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Desecrator, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 170, 50, 0, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Electrified, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 40, 40, 240, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Frozen, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 0, 0, 120, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.FrozenPulse, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 0, 0, 120, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Jailer, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 120, 0, 120, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Juggernaut, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 200, 0, 0, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Molten, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 170, 50, 0, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Mortar, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 170, 50, 0, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Orbiter, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 40, 40, 240, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Plagued, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 0, 120, 0, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Poison, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 0, 120, 0, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Reflect, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 120, 50, 0, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Thunderstorm, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 40, 40, 240, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
-            AffixDecorators.Add(MonsterAffix.Waller, new GroundLabelDecorator(Hud)
-            {
-                BorderBrush = importantBorderBrush,
-                TextFont = importantLabelFont,
-                BackgroundBrush = Hud.Render.CreateBrush(255, 50, 50, 50, 0),
-                ForceOnScreen = false,
-                CenterBaseLine = false,
-            });
+                {
+                    MonsterAffix.Arcane,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 120, 0, 120, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Desecrator,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 170, 50, 0, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Electrified,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 40, 40, 240, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Frozen,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 0, 0, 120, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.FrozenPulse,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 0, 0, 120, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Jailer,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 120, 0, 120, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Juggernaut,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 200, 0, 0, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Molten,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 170, 50, 0, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Mortar,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 170, 50, 0, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Orbiter,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 40, 40, 240, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Plagued,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 0, 120, 0, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Poison,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 0, 120, 0, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Reflect,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 120, 50, 0, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Thunderstorm,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 40, 40, 240, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
+                {
+                    MonsterAffix.Waller,
+                    new GroundLabelDecorator(Hud)
+                    {
+                        BorderBrush = importantBorderBrush,
+                        TextFont = importantLabelFont,
+                        BackgroundBrush = Hud.Render.CreateBrush(255, 50, 50, 50, 0),
+                        ForceOnScreen = false,
+                        CenterBaseLine = false,
+                    }
+                },
 
-            AffixDecorators.Add(MonsterAffix.ExtraHealth, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.HealthLink, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Fast, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.FireChains, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Knockback, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Nightmarish, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Illusionist, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Shielding, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Teleporter, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Vampiric, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Vortex, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Wormhole, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Avenger, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.Horde, WeakDecorator);
-            AffixDecorators.Add(MonsterAffix.MissileDampening, WeakDecorator);
+                { MonsterAffix.ExtraHealth, WeakDecorator },
+                { MonsterAffix.HealthLink, WeakDecorator },
+                { MonsterAffix.Fast, WeakDecorator },
+                { MonsterAffix.FireChains, WeakDecorator },
+                { MonsterAffix.Knockback, WeakDecorator },
+                { MonsterAffix.Nightmarish, WeakDecorator },
+                { MonsterAffix.Illusionist, WeakDecorator },
+                { MonsterAffix.Shielding, WeakDecorator },
+                { MonsterAffix.Teleporter, WeakDecorator },
+                { MonsterAffix.Vampiric, WeakDecorator },
+                { MonsterAffix.Vortex, WeakDecorator },
+                { MonsterAffix.Wormhole, WeakDecorator },
+                { MonsterAffix.Avenger, WeakDecorator },
+                { MonsterAffix.Horde, WeakDecorator },
+                { MonsterAffix.MissileDampening, WeakDecorator }
+            };
         }
 
         public void PaintWorld(WorldLayer layer)
         {
-            if (layer != WorldLayer.Ground) return;
+            if (layer != WorldLayer.Ground)
+                return;
 
             var packs = Hud.Game.MonsterPacks;
-            if (!packs.Any()) return;
+            if (!packs.Any())
+                return;
 
             var padding = 6.0f * Hud.Window.Size.Height / 1200f;
 
@@ -260,12 +306,14 @@ namespace Turbo.Plugins.Default
             foreach (var pack in packs)
             {
                 var alive = !HideOnIllusions ? pack.MonstersAlive.ToList() : pack.MonstersAlive.Where(x => (x.SummonerAcdDynamicId == 0) || (x.Rarity != ActorRarity.RareMinion)).ToList();
-                if (alive.Count == 0) continue;
+                if (alive.Count == 0)
+                    continue;
 
                 alive.Sort((a, b) =>
                 {
                     var r = a.Rarity.CompareTo(b.Rarity);
-                    if (r == 0) r = -a.MaxHealth.CompareTo(b.MaxHealth);
+                    if (r == 0)
+                        r = -a.MaxHealth.CompareTo(b.MaxHealth);
                     return r;
                 });
 
@@ -288,6 +336,7 @@ namespace Turbo.Plugins.Default
                         n++;
                     }
                 }
+
                 center.Set(center.X / n, center.Y / n, center.Z / n);
 
                 var centerScreenCoordinate = center.ToScreenCoordinate(false);
@@ -300,10 +349,11 @@ namespace Turbo.Plugins.Default
                     {
                         PaintFloorLines(alive, ChampionPackLineBrush);
                     }
+
                     if (ChampionPackNameFont != null)
                     {
                         var layout = ChampionPackNameFont.GetTextLayout(pack.LeadSnoMonster.NameLocalized);
-                        ChampionPackNameFont.DrawText(layout, centerScreenCoordinate.X - layout.Metrics.Width / 2, y);
+                        ChampionPackNameFont.DrawText(layout, centerScreenCoordinate.X - (layout.Metrics.Width / 2), y);
                         y += layout.Metrics.Height + padding;
                     }
                 }
@@ -313,10 +363,11 @@ namespace Turbo.Plugins.Default
                     {
                         PaintFloorLines(alive, RarePackLineBrush);
                     }
+
                     if (RarePackNameFont != null)
                     {
                         var layout = RarePackNameFont.GetTextLayout(pack.LeadSnoMonster.NameLocalized);
-                        RarePackNameFont.DrawText(layout, centerScreenCoordinate.X - layout.Metrics.Width / 2, y);
+                        RarePackNameFont.DrawText(layout, centerScreenCoordinate.X - (layout.Metrics.Width / 2), y);
                         y += layout.Metrics.Height + padding;
                     }
                 }
@@ -328,15 +379,10 @@ namespace Turbo.Plugins.Default
 
                 foreach (var snoMonsterAffix in snoMonsterAffixList)
                 {
-                    GroundLabelDecorator decorator;
-                    if (!AffixDecorators.TryGetValue(snoMonsterAffix.Affix, out decorator)) continue;
+                    if (!AffixDecorators.TryGetValue(snoMonsterAffix.Affix, out var decorator))
+                        continue;
 
-                    string affixName = null;
-                    if (CustomAffixNames.ContainsKey(snoMonsterAffix.Affix))
-                    {
-                        affixName = CustomAffixNames[snoMonsterAffix.Affix];
-                    }
-                    else affixName = snoMonsterAffix.NameLocalized;
+                    var affixName = CustomAffixNames.ContainsKey(snoMonsterAffix.Affix) ? CustomAffixNames[snoMonsterAffix.Affix] : snoMonsterAffix.NameLocalized;
 
                     if (decoHeight == 0.0f)
                     {
@@ -348,28 +394,28 @@ namespace Turbo.Plugins.Default
                     decorator.Paint(null, center, affixName);
                 }
 
-                y += decoHeight + padding / 2;
+                y += decoHeight + (padding / 2);
 
                 foreach (var monster in alive)
                 {
                     var curW = (float)(middleBarWidth / maxHealth * monster.CurHealth);
                     var maxW = (float)(middleBarWidth / maxHealth * monster.MaxHealth);
 
-                    HealthBackgroundMax.DrawRectangleGridFit(centerScreenCoordinate.X - maxW / 2, y, maxW, middleBarHeight);
+                    HealthBackgroundMax.DrawRectangleGridFit(centerScreenCoordinate.X - (maxW / 2), y, maxW, middleBarHeight);
                     switch (monster.Rarity)
                     {
                         case ActorRarity.Champion:
-                            HealthBackgroundChampionRemaining.DrawRectangleGridFit(centerScreenCoordinate.X - maxW / 2, y, curW, middleBarHeight);
+                            HealthBackgroundChampionRemaining.DrawRectangleGridFit(centerScreenCoordinate.X - (maxW / 2), y, curW, middleBarHeight);
                             break;
                         case ActorRarity.Rare:
-                            HealthBackgroundRareRemaining.DrawRectangleGridFit(centerScreenCoordinate.X - maxW / 2, y, curW, middleBarHeight);
+                            HealthBackgroundRareRemaining.DrawRectangleGridFit(centerScreenCoordinate.X - (maxW / 2), y, curW, middleBarHeight);
                             break;
                         case ActorRarity.RareMinion:
-                            HealthBackgroundRareMinionRemaining.DrawRectangleGridFit(centerScreenCoordinate.X - maxW / 2, y, curW, middleBarHeight);
+                            HealthBackgroundRareMinionRemaining.DrawRectangleGridFit(centerScreenCoordinate.X - (maxW / 2), y, curW, middleBarHeight);
                             break;
                     }
 
-                    HealthBorder.DrawRectangleGridFit(centerScreenCoordinate.X - maxW / 2, y, maxW, middleBarHeight);
+                    HealthBorder.DrawRectangleGridFit(centerScreenCoordinate.X - (maxW / 2), y, maxW, middleBarHeight);
 
                     y += middleBarHeight;
                 }
@@ -378,20 +424,22 @@ namespace Turbo.Plugins.Default
 
         private void PaintFloorLines(IEnumerable<IMonster> monsters, IBrush brush)
         {
-            var lastCenter = Hud.Game.Me.FloorCoordinate;
             var list = new List<IMonster>(monsters);
             IMonster nearest = null;
             foreach (var monster in list)
             {
-                if (nearest == null || monster.CentralXyDistanceToMe < nearest.CentralXyDistanceToMe) nearest = monster;
+                if (nearest == null || monster.CentralXyDistanceToMe < nearest.CentralXyDistanceToMe)
+                    nearest = monster;
             }
+
             list.Remove(nearest);
             while (list.Count > 0)
             {
                 IMonster nextNearest = null;
                 foreach (var monster in list)
                 {
-                    if (nextNearest == null || monster.FloorCoordinate.XYDistanceTo(nearest.FloorCoordinate) < nextNearest.FloorCoordinate.XYDistanceTo(nearest.FloorCoordinate)) nextNearest = monster;
+                    if (nextNearest == null || monster.FloorCoordinate.XYDistanceTo(nearest.FloorCoordinate) < nextNearest.FloorCoordinate.XYDistanceTo(nearest.FloorCoordinate))
+                        nextNearest = monster;
                 }
 
                 brush.DrawLineWorld(nearest.FloorCoordinate, nextNearest.FloorCoordinate);
@@ -399,7 +447,5 @@ namespace Turbo.Plugins.Default
                 list.Remove(nextNearest);
             }
         }
-
     }
-
 }

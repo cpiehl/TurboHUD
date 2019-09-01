@@ -2,7 +2,7 @@
 {
     public interface IStatTrackerCore
     {
-        long GainedExperience { get; }
+        double GainedExperience { get; }
         long GainedGold { get; }
         long MonsterKill { get; }
         long EliteKill { get; }
@@ -16,10 +16,10 @@
         long DropGold { get; }
         long DropBloodShard { get; }
         long Death { get; }
-        long DamageDealtAll { get; }
-        long DamageDealtCrit { get; }
-        long DamageTaken { get; }
-        long Healing { get; }
+        double DamageDealtAll { get; }
+        double DamageDealtCrit { get; }
+        double DamageTaken { get; }
+        double Healing { get; }
         double WalkYards { get; }
 
         long ElapsedMilliseconds { get; }

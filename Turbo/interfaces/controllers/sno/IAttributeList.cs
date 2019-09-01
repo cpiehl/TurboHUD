@@ -1,9 +1,7 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface IAttributeList
     {
-
         IAttribute Axe_Bad_Data { get; }
         IAttribute Attribute_Timer { get; }
         IAttribute Attribute_Pool { get; }
@@ -1470,6 +1468,7 @@
         IAttribute Weekly_Challenge_Reward_Icon { get; }
         IAttribute Item_Was_Touched_By_Armory { get; }
         IAttribute Item_Was_Touched_By_Armory_Last_Game { get; }
+        IAttribute Has_Nfp_Device { get; }
+        IAttribute ReceivedPrimalWhenUnlocking { get; }
     }
-
 }

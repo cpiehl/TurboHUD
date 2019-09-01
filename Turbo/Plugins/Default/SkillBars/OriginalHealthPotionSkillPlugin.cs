@@ -1,13 +1,11 @@
+﻿using System;
 using SharpDX;
-using System;
 
 namespace Turbo.Plugins.Default
 {
-
     public class OriginalHealthPotionSkillPlugin : BasePlugin, IInGameTopPainter
     {
-
-        public SkillPainter Decorator { get; set; }
+        public SkillPainter SkillPainter { get; set; }
 
         public OriginalHealthPotionSkillPlugin()
         {
@@ -18,7 +16,7 @@ namespace Turbo.Plugins.Default
         {
             base.Load(hud);
 
-            Decorator = new SkillPainter(Hud, true)
+            SkillPainter = new SkillPainter(Hud, true)
             {
                 TextureOpacity = 0.0f,
                 EnableSkillDpsBar = true,
@@ -28,15 +26,15 @@ namespace Turbo.Plugins.Default
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (Hud.Render.UiHidden) return;
-            if (clipState != ClipState.BeforeClip) return;
+            if (Hud.Render.UiHidden)
+                return;
+            if (clipState != ClipState.BeforeClip)
+                return;
 
             var ui = Hud.Render.GetPlayerSkillUiElement(ActionKey.Heal);
             var rect = new RectangleF((float)Math.Round(ui.Rectangle.X) + 0.5f, (float)Math.Round(ui.Rectangle.Y) + 0.5f, (float)Math.Round(ui.Rectangle.Width), (float)Math.Round(ui.Rectangle.Height));
 
-            Decorator.Paint(Hud.Game.Me.Powers.HealthPotionSkill, rect);
+            SkillPainter.Paint(Hud.Game.Me.Powers.HealthPotionSkill, rect);
         }
-
     }
-
 }

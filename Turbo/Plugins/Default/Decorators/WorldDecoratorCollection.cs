@@ -1,17 +1,19 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Turbo.Plugins.Default
 {
-
-    public class WorldDecoratorCollection: ITransparentCollection
+    public class WorldDecoratorCollection : ITransparentCollection
     {
         public bool Enabled { get; set; }
-        public List<IWorldDecorator> Decorators { get; private set; }
+        public List<IWorldDecorator> Decorators { get; } = new List<IWorldDecorator>();
 
         public WorldDecoratorCollection(params IWorldDecorator[] decorators)
         {
             Enabled = true;
-            Decorators = new List<IWorldDecorator>(decorators);
+            if (decorators?.Length > 0)
+            {
+                Decorators.AddRange(decorators);
+            }
         }
 
         public void Add(IWorldDecorator decorator)
@@ -21,7 +23,8 @@ namespace Turbo.Plugins.Default
 
         public void Paint(WorldLayer layer, IActor actor, IWorldCoordinate coord, string text)
         {
-            if (!Enabled) return;
+            if (!Enabled)
+                return;
             foreach (var decorator in Decorators)
             {
                 if (decorator.Enabled && (decorator.Layer == layer))
@@ -31,7 +34,7 @@ namespace Turbo.Plugins.Default
             }
         }
 
-        public void ToggleDecorators<T>(bool enabled) where T: IWorldDecorator
+        public void ToggleDecorators<T>(bool enabled) where T : IWorldDecorator
         {
             foreach (var decorator in Decorators)
             {
@@ -42,13 +45,13 @@ namespace Turbo.Plugins.Default
             }
         }
 
-        public IEnumerable<T> GetDecorators<T>() where T: IWorldDecorator
+        public IEnumerable<T> GetDecorators<T>() where T : IWorldDecorator
         {
             foreach (var decorator in Decorators)
             {
-                if (decorator is T)
+                if (decorator is T t)
                 {
-                    yield return (T)decorator;
+                    yield return t;
                 }
             }
         }
@@ -64,5 +67,4 @@ namespace Turbo.Plugins.Default
             }
         }
     }
-
 }

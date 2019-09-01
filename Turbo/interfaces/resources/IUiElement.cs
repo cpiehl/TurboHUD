@@ -6,6 +6,7 @@
         bool Visible { get; }
         System.Drawing.RectangleF Rectangle { get; }
         int AnimState { get; }
+        uint TextureSno { get; }
 
         float MinimapOffsetX { get; }   // specific to 'Root.NormalLayer.map_dialog_mainPage.localmap'
         float MinimapOffsetY { get; }   // specific to 'Root.NormalLayer.map_dialog_mainPage.localmap'

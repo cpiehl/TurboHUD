@@ -1,9 +1,7 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface ISnoItemList
     {
-
         ISnoItem P4_Unique_Ring_082 { get; } // 1510927202 - [Dev Only] Test Buff Ring
         ISnoItem p43_AD_LorePage2 { get; } // 3093341691 - {ph}Book of Blood{ph}
         ISnoItem p43_AD_LorePage1 { get; } // 3093341690 - {ph}Book of the Blind{ph}
@@ -47,6 +45,7 @@
         ISnoItem Unique_CruShield_104_x1 { get; } // 820607285 - Akarat's Awakening
         ISnoItem P4_Unique_Flail_2H_001 { get; } // 1692870602 - Akkhan's Addendum
         ISnoItem P4_flail2H_norm_unique_01 { get; } // 1777573174 - Akkhan's Leniency
+        ISnoItem P65_flail2H_norm_unique_01 { get; } // 3666388045 - Akkhan's Leniency
         ISnoItem P4_Unique_Bracer_103 { get; } // 3500939867 - Akkhan's Manacles
         ISnoItem Unique_Gloves_102_x1 { get; } // 614385664 - Alabaster Gloves
         ISnoItem AlbrechtsRemains { get; } // 893398919 - AlbrechtsRemains
@@ -64,6 +63,7 @@
         ISnoItem Amethyst_03 { get; } // 2883100401 - Amethyst
         ISnoItem x1_Amethyst_01 { get; } // 3446938391 - Amethyst
         ISnoItem Shoulders_004 { get; } // 365490252 - Amice
+        ISnoItem AmiiboPortalDevice { get; } // 2449244339 - amiibo Portal
         ISnoItem Amulet01 { get; } // 1682228617 - Amulet
         ISnoItem Amulet02 { get; } // 1682228618 - Amulet
         ISnoItem Amulet03 { get; } // 1682228619 - Amulet
@@ -227,11 +227,15 @@
         ISnoItem Unique_Chest_026_1xx { get; } // 547676132 - Aughild's Dominion
         ISnoItem Unique_Helm_014_104 { get; } // 2480020004 - Aughild's Peak
         ISnoItem Unique_Helm_014_1xx { get; } // 2480022448 - Aughild's Peak
+        ISnoItem P66_Unique_Shoulder_008 { get; } // 2974747246 - Aughild's Power
         ISnoItem Unique_Shoulder_008_x1 { get; } // 2335433147 - Aughild's Power
         ISnoItem Unique_Shoulder_008_104 { get; } // 4054772519 - Aughild's Reign
         ISnoItem Unique_Shoulder_008_1xx { get; } // 4054774963 - Aughild's Reign
+        ISnoItem P66_Unique_Chest_026 { get; } // 1627173631 - Aughild's Rule
         ISnoItem Unique_Chest_026_x1 { get; } // 1318103756 - Aughild's Rule
+        ISnoItem P66_Unique_Bracer_009 { get; } // 1731066136 - Aughild's Search
         ISnoItem Unique_Bracer_009_x1 { get; } // 923398885 - Aughild's Search
+        ISnoItem P66_Unique_Helm_014 { get; } // 2073210219 - Aughild's Spike
         ISnoItem Unique_Helm_014_x1 { get; } // 335455512 - Aughild's Spike
         ISnoItem Unique_Shoulder_008 { get; } // 238734035 - Aughild's Triumph
         ISnoItem Unique_Bracer_009_104 { get; } // 407314833 - Aughild's Ultimatum
@@ -249,6 +253,7 @@
         ISnoItem Axe_2H_PvP_10 { get; } // 2086071660 - Axe_2H_PvP_10
         ISnoItem Axe_2H_PvP_40 { get; } // 2086071759 - Axe_2H_PvP_40
         ISnoItem Axe_2H_PvP_70 { get; } // 2086071858 - Axe_2H_PvP_70
+        ISnoItem Cosmetic_Pet_Azmodan { get; } // 3358761128 - Az-Lo
         ISnoItem Lore_LordsofHell_Azmodan { get; } // 3886052408 - Azmodan, the Lord of Sin
         ISnoItem P3_Unique_Sword_1H_012 { get; } // 935448145 - Azurewrath
         ISnoItem Unique_Sword_1H_012 { get; } // 608242223 - Azurewrath
@@ -457,6 +462,7 @@
         ISnoItem Lore_ProudWife { get; } // 4155451270 - Bloodstained Letter
         ISnoItem P6_Unique_Scythe2H_02 { get; } // 2124238310 - Bloodtide Blade
         ISnoItem P61_Unique_Scythe2H_02 { get; } // 1346980663 - Bloodtide Blade
+        ISnoItem P65_Unique_Scythe2H_02 { get; } // 2162558139 - Bloodtide Blade
         ISnoItem CraftingReagent_Legendary_Unique_Fist_004_x1 { get; } // 1864276820 - Bloody Pincer
         ISnoItem Mace_1H_101 { get; } // 2638942207 - Bludgeon
         ISnoItem Flail_2H_202 { get; } // 3421647988 - Bludgeoning Grand Flail
@@ -490,6 +496,21 @@
         ISnoItem Pants_105 { get; } // 2782236251 - Boneweave Faulds
         ISnoItem Gloves_105 { get; } // 2761054085 - Boneweave Gauntlets
         ISnoItem ChestArmor_105 { get; } // 1612258797 - Boneweave Hauberk
+        ISnoItem BonusAct1BagT14 { get; } // 3731897587 - BonusAct1BagT14
+        ISnoItem BonusAct1BagT15 { get; } // 3731897588 - BonusAct1BagT15
+        ISnoItem BonusAct1BagT16 { get; } // 3731897589 - BonusAct1BagT16
+        ISnoItem BonusAct2BagT14 { get; } // 728398260 - BonusAct2BagT14
+        ISnoItem BonusAct2BagT15 { get; } // 728398261 - BonusAct2BagT15
+        ISnoItem BonusAct2BagT16 { get; } // 728398262 - BonusAct2BagT16
+        ISnoItem BonusAct3BagT14 { get; } // 2019866229 - BonusAct3BagT14
+        ISnoItem BonusAct3BagT15 { get; } // 2019866230 - BonusAct3BagT15
+        ISnoItem BonusAct3BagT16 { get; } // 2019866231 - BonusAct3BagT16
+        ISnoItem BonusAct4BagT14 { get; } // 3311334198 - BonusAct4BagT14
+        ISnoItem BonusAct4BagT15 { get; } // 3311334199 - BonusAct4BagT15
+        ISnoItem BonusAct4BagT16 { get; } // 3311334200 - BonusAct4BagT16
+        ISnoItem BonusAct5BagT14 { get; } // 307834871 - BonusAct5BagT14
+        ISnoItem BonusAct5BagT15 { get; } // 307834872 - BonusAct5BagT15
+        ISnoItem BonusAct5BagT16 { get; } // 307834873 - BonusAct5BagT16
         ISnoItem Bonus_Act1_Bag_1_69 { get; } // 4118361476 - Bonus Cache
         ISnoItem Bonus_Act2_Bag_1_69 { get; } // 4186162853 - Bonus Cache
         ISnoItem Bonus_Act3_Bag_1_69 { get; } // 4253964230 - Bonus Cache
@@ -616,6 +637,7 @@
         ISnoItem HealthPotionLegendary_02 { get; } // 2276259499 - Bottomless Potion of the Diamond
         ISnoItem HealthPotionLegendary_04 { get; } // 2276259501 - Bottomless Potion of the Leech
         ISnoItem HealthPotionLegendary_01 { get; } // 2276259498 - Bottomless Potion of the Tower
+        ISnoItem HealthPotionLegendary_11 { get; } // 2276259531 - Bottomless Potion of the Unfettered
         ISnoItem Unique_Polearm_101_x1 { get; } // 2346057823 - Bovine Bardiche
         ISnoItem p1_bow_norm_promo_01 { get; } // 1142135055 - Bow of the Lost Warlord
         ISnoItem Unique_Gem_020_x1 { get; } // 3250847272 - Boyarsky's Chip
@@ -689,7 +711,9 @@
         ISnoItem Staff_301 { get; } // 2179279207 - Caduceus Staff
         ISnoItem Mojo_003 { get; } // 4158150823 - Caged Horror
         ISnoItem Unique_Chest_Set_03_p2 { get; } // 258855259 - Cage of the Hellborn
+        ISnoItem P66_Unique_Pants_010 { get; } // 2358300839 - Cain's Habit
         ISnoItem Unique_Pants_010_x1 { get; } // 3521628020 - Cain's Habit
+        ISnoItem P66_Unique_Helm_012 { get; } // 2073210217 - Cain's Insight
         ISnoItem Unique_Helm_012_x1 { get; } // 335383638 - Cain's Insight
         ISnoItem Unique_Helm_012 { get; } // 1638662990 - Cain's Laurel
         ISnoItem Unique_Helm_012_104 { get; } // 2477648162 - Cain's Memory
@@ -703,8 +727,10 @@
         ISnoItem Unique_Boots_015_1xx { get; } // 3937621906 - Cain's Sandals
         ISnoItem Unique_Gloves_015_104 { get; } // 1846005615 - Cain's Scribe
         ISnoItem Unique_Gloves_015_1xx { get; } // 1846008059 - Cain's Scribe
+        ISnoItem P66_Unique_Gloves_015 { get; } // 1656121334 - Cain's Scrivener
         ISnoItem Unique_Gloves_015_x1 { get; } // 576544003 - Cain's Scrivener
         ISnoItem Unique_Boots_015 { get; } // 261789234 - Cain's Slippers
+        ISnoItem P66_Unique_Boots_015 { get; } // 1716945837 - Cain's Travelers
         ISnoItem Unique_Boots_015_x1 { get; } // 1941431482 - Cain's Travelers
         ISnoItem Unique_Gloves_015 { get; } // 880593691 - Cain's Warmers
         ISnoItem Unique_HandXBow_012 { get; } // 515789475 - Calamity
@@ -736,8 +762,11 @@
         ISnoItem Unique_Boots_017 { get; } // 261789236 - Captain Crimson's Deck Boots
         ISnoItem Unique_Belt_012_104 { get; } // 2640367587 - Captain Crimson's Satin Sash
         ISnoItem Unique_Belt_012_1xx { get; } // 2640370031 - Captain Crimson's Satin Sash
+        ISnoItem P66_Unique_Belt_012 { get; } // 4068891562 - Captain Crimson's Silk Girdle
         ISnoItem Unique_Belt_012_x1 { get; } // 1771970295 - Captain Crimson's Silk Girdle
+        ISnoItem P66_Unique_Pants_012 { get; } // 2358300841 - Captain Crimson's Thrust
         ISnoItem Unique_Pants_012_x1 { get; } // 3521699894 - Captain Crimson's Thrust
+        ISnoItem P66_Unique_Boots_017 { get; } // 1716945839 - Captain Crimson's Waders
         ISnoItem Unique_Boots_017_x1 { get; } // 1941503356 - Captain Crimson's Waders
         ISnoItem Unique_Boots_017_104 { get; } // 3939991304 - Captain Crimson's Whalers
         ISnoItem Unique_Boots_017_1xx { get; } // 3939993748 - Captain Crimson's Whalers
@@ -747,6 +776,7 @@
         ISnoItem MerchantsLedger { get; } // 2497324792 - Caravan Inventory List
         ISnoItem Cloak_104 { get; } // 40856510 - Cardinal
         ISnoItem Dye_05 { get; } // 4060770470 - Cardinal Dye
+        ISnoItem P65_Unique_VoodooMask_101_x1 { get; } // 2940147595 - Carnevil
         ISnoItem Unique_VoodooMask_101_x1 { get; } // 3493761585 - Carnevil
         ISnoItem Lore_Bestiary_CarrionBat { get; } // 2597330904 - Carrion Bat
         ISnoItem Lore_Bestiary_CarrionNest { get; } // 4107976891 - Carrion Nest
@@ -943,6 +973,7 @@
         ISnoItem Unique_Fist_008_104 { get; } // 2432859319 - Crystal Fist
         ISnoItem Unique_Fist_008_1xx { get; } // 2432861763 - Crystal Fist
         ISnoItem Unique_Fist_008_x1 { get; } // 3197337931 - Crystal Fist
+        ISnoItem Cosmetic_Pet_Chicken { get; } // 937125523 - Cucco
         ISnoItem Mace_1H_002 { get; } // 2638941119 - Cudgel
         ISnoItem Unique_Chest_Set_01_p2 { get; } // 258783385 - Cuirass of the Wastes
         ISnoItem Unique_Pants_Set_10_x1 { get; } // 827015887 - Cuisses of Akkhan
@@ -1222,6 +1253,8 @@
         ISnoItem Unique_Mace_1H_009_104 { get; } // 1889806096 - Earthshatter
         ISnoItem Unique_Mace_1H_009_1xx { get; } // 1889808540 - Earthshatter
         ISnoItem Unique_Shield_102_x1 { get; } // 200376233 - Eberli Charo
+        ISnoItem P7_Cosmetic_Wings_Promo { get; } // 2653514096 - Echoes of the Mask
+        ISnoItem P66_Unique_Mace_1H_001 { get; } // 535933551 - Echoing Fury
         ISnoItem Unique_Mace_1H_001 { get; } // 713325108 - Echoing Fury
         ISnoItem Unique_Mace_1H_001_104 { get; } // 1880318728 - Echoing Fury
         ISnoItem Unique_Mace_1H_001_1xx { get; } // 1880321172 - Echoing Fury
@@ -1536,6 +1569,7 @@
         ISnoItem Spear_002 { get; } // 4193654540 - Fuscina
         ISnoItem P3_Unique_Bracer_101 { get; } // 533836824 - Gabriel's Vambraces
         ISnoItem Mace_1H_104 { get; } // 2638942210 - Gada
+        ISnoItem p7_Cosmetic_Wings_Galactic { get; } // 546207131 - Galactic
         ISnoItem Axe_1H_206 { get; } // 1661414573 - Galraki
         ISnoItem Cosmetic_Pet_bladedsoul_01 { get; } // 2327409917 - Galthrak the Unhinged
         ISnoItem P5_Cosmetic_Pet_bladedsoul_01 { get; } // 2066480545 - Galthrak the Unhinged
@@ -1559,6 +1593,12 @@
         ISnoItem Unique_Axe_1H_003_104 { get; } // 137185714 - Genzaniku
         ISnoItem Unique_Axe_1H_003_1xx { get; } // 137188158 - Genzaniku
         ISnoItem Unique_Axe_1H_003_x1 { get; } // 785062630 - Genzaniku
+        ISnoItem p7_shoulderPads_promo_01 { get; } // 2376624096 - Gerudo Epaulette
+        ISnoItem p7_Gloves_promo_01 { get; } // 1091274466 - Gerudo Gauntlets
+        ISnoItem p7_boots_promo_01 { get; } // 4036715097 - Gerudo Greaves
+        ISnoItem p7_chestArmor_promo_01 { get; } // 164868426 - Gerudo Harness
+        ISnoItem p7_pants_promo_01 { get; } // 2784536248 - Gerudo Leg Guards
+        ISnoItem p7_Helm_promo_01 { get; } // 3690210520 - Gerudo Visage
         ISnoItem P2_Unique_Wand_002 { get; } // 1771839282 - Gesture of Orpheus
         ISnoItem Unique_Wand_002 { get; } // 161873425 - Gesture of Orpheus
         ISnoItem Unique_Wand_002_104 { get; } // 1239256421 - Gesture of Orpheus
@@ -2154,6 +2194,7 @@
         ISnoItem NecromancerTalisman_003_t2 { get; } // 2773476317 - Horrifying Cinerary
         ISnoItem cos_pennant_p4_ZodiacHorse_01 { get; } // 2644729685 - Horse
         ISnoItem HostileModePointsGlyph { get; } // 3761152958 - HostileModePointsGlyph
+        ISnoItem Debug_100DPS_Dagger { get; } // 199216263 - HOTFIXED Professional Russian's 100 DPS Dagger
         ISnoItem X1_Lore_Bestiary_WarBeastLeader { get; } // 2515991521 - Hound Pack Leader
         ISnoItem Helm_201 { get; } // 1565456760 - Hounskull
         ISnoItem Lore_Bestiary_HulkingPhasebeast { get; } // 2430713925 - Hulking Phasebeast
@@ -2286,6 +2327,7 @@
         ISnoItem FistWeapon_1H_102 { get; } // 1236606058 - Iron Fist
         ISnoItem CombatStaff_2H_301 { get; } // 1771752118 - Iron Judgement
         ISnoItem P6_Unique_Phylactery_04 { get; } // 1284610787 - Iron Rose
+        ISnoItem P65_Unique_Phylactery_04 { get; } // 65231608 - Iron Rose
         ISnoItem Scythe_1H_002_t7 { get; } // 3828235107 - Iron Scythe
         ISnoItem Cosmetic_Pet_jadeSerpent_02 { get; } // 1404174868 - Iron Serpent
         ISnoItem Unique_Boots_104_x1 { get; } // 1979345017 - Irontoe Mudsputters
@@ -2322,6 +2364,7 @@
         ISnoItem Unique_Fist_101_x1 { get; } // 3236221765 - Jawbreaker
         ISnoItem ChestArmor_103 { get; } // 1612258795 - Jazeraint Mail
         ISnoItem P61_Unique_CruShield_102_x1 { get; } // 1618957961 - Jekangbord
+        ISnoItem P65_Unique_CruShield_102_x1 { get; } // 283157133 - Jekangbord
         ISnoItem Unique_CruShield_102_x1 { get; } // 820535411 - Jekangbord
         ISnoItem WeddingRing { get; } // 4216937522 - Jelisa's Wedding Ring
         ISnoItem P3_Unique_Bracer_106 { get; } // 533836829 - Jeram's Bracers
@@ -2465,6 +2508,9 @@
         ISnoItem DoubleBountyBagAct1T11 { get; } // 152426949 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct1T12 { get; } // 152426950 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct1T13 { get; } // 152426951 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct1T14 { get; } // 152426952 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct1T15 { get; } // 152426953 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct1T16 { get; } // 152426954 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct1T2 { get; } // 3258382101 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct1T3 { get; } // 3258382102 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct1T4 { get; } // 3258382103 - Large Horadric Chest
@@ -2482,6 +2528,9 @@
         ISnoItem DoubleBountyBagAct2T11 { get; } // 152462886 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct2T12 { get; } // 152462887 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct2T13 { get; } // 152462888 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct2T14 { get; } // 152462889 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct2T15 { get; } // 152462890 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct2T16 { get; } // 152462891 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct2T2 { get; } // 3258383190 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct2T3 { get; } // 3258383191 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct2T4 { get; } // 3258383192 - Large Horadric Chest
@@ -2499,6 +2548,9 @@
         ISnoItem DoubleBountyBagAct3T11 { get; } // 152498823 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct3T12 { get; } // 152498824 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct3T13 { get; } // 152498825 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct3T14 { get; } // 152498826 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct3T15 { get; } // 152498827 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct3T16 { get; } // 152498828 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct3T2 { get; } // 3258384279 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct3T3 { get; } // 3258384280 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct3T4 { get; } // 3258384281 - Large Horadric Chest
@@ -2516,6 +2568,9 @@
         ISnoItem DoubleBountyBagAct4T11 { get; } // 152534760 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct4T12 { get; } // 152534761 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct4T13 { get; } // 152534762 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct4T14 { get; } // 152534763 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct4T15 { get; } // 152534764 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct4T16 { get; } // 152534765 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct4T2 { get; } // 3258385368 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct4T3 { get; } // 3258385369 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct4T4 { get; } // 3258385370 - Large Horadric Chest
@@ -2533,6 +2588,9 @@
         ISnoItem DoubleBountyBagAct5T11 { get; } // 152570697 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct5T12 { get; } // 152570698 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct5T13 { get; } // 152570699 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct5T14 { get; } // 152570700 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct5T15 { get; } // 152570701 - Large Horadric Chest
+        ISnoItem DoubleBountyBagAct5T16 { get; } // 152570702 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct5T2 { get; } // 3258386457 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct5T3 { get; } // 3258386458 - Large Horadric Chest
         ISnoItem DoubleBountyBagAct5T4 { get; } // 3258386459 - Large Horadric Chest
@@ -2582,6 +2640,7 @@
         ISnoItem Pants_002 { get; } // 2782235159 - Leather Pants
         ISnoItem Quiver_003 { get; } // 1539236302 - Leather Quiver
         ISnoItem P4_Unique_Shoulder_101 { get; } // 1925746096 - Lefebvre's Soliloquy
+        ISnoItem Unique_Gem_023_x1 { get; } // 3250955083 - Legacy of Dreams
         ISnoItem Lore_X1_PandExt_GreatWeapon { get; } // 4078714025 - Legend of the Great Weapon
         ISnoItem p1_SeasonTransmogPlan_01 { get; } // 2571513151 - Legends of the Conqueror Volume 1
         ISnoItem P6_Unique_Phylactery_03 { get; } // 1284610786 - Leger's Disdain
@@ -2715,6 +2774,7 @@
         ISnoItem HealthPotionMajor { get; } // 1646125768 - Major Health Potion
         ISnoItem Cosmetic_Pet_hoodednightmare_01 { get; } // 347688656 - Malfeasance
         ISnoItem P5_Cosmetic_Pet_hoodednightmare_01 { get; } // 3633241588 - Malfeasance
+        ISnoItem Cosmetic_Pet_MalGanis { get; } // 1514497706 - Mal'Ganis
         ISnoItem Mace_2H_005 { get; } // 2678076515 - Mallet
         ISnoItem Unique_Staff_006 { get; } // 300184991 - Maloth's Focus
         ISnoItem Unique_Staff_006_104 { get; } // 3028884467 - Maloth's Focus
@@ -2803,6 +2863,7 @@
         ISnoItem Lore_LordsofHell_Mephisto { get; } // 2764166135 - Mephisto, the Lord of Hatred
         ISnoItem Cosmetic_Wings_Mercy { get; } // 1335990173 - Mercy's Gaze
         ISnoItem Wings_Mercy_Console { get; } // 3478736633 - Mercy's Gaze
+        ISnoItem P66_Unique_Axe_2H_011 { get; } // 595616121 - Messerschmidt's Reaver
         ISnoItem Unique_Axe_2H_011 { get; } // 4115055774 - Messerschmidt's Reaver
         ISnoItem Unique_Axe_2H_011_104 { get; } // 241750642 - Messerschmidt's Reaver
         ISnoItem Unique_Axe_2H_011_1xx { get; } // 241753086 - Messerschmidt's Reaver
@@ -3049,6 +3110,30 @@
         ISnoItem P2_WizardSet_Scroll_Test { get; } // 1608362283 - P2_WizardSet_Scroll_Test
         ISnoItem P2_xbow_norm_unique_01 { get; } // 376423602 - P2_xbow_norm_unique_01
         ISnoItem P2_xbow_norm_unique_02 { get; } // 376423603 - P2_xbow_norm_unique_02
+        ISnoItem P264_PTRBag_Barb_Set_ImmortalKings { get; } // 2662024140 - P264_PTRBag_Barb_Set_ImmortalKings
+        ISnoItem P264_PTRBag_Barb_Set_MightoftheEarth { get; } // 299789582 - P264_PTRBag_Barb_Set_MightoftheEarth
+        ISnoItem P264_PTRBag_Barb_Set_Raekor { get; } // 2909082607 - P264_PTRBag_Barb_Set_Raekor
+        ISnoItem P264_PTRBag_Barb_Set_WrathoftheWaste { get; } // 3087409931 - P264_PTRBag_Barb_Set_WrathoftheWaste
+        ISnoItem P264_PTRBag_Crusader_Set_Akkhan { get; } // 2786757883 - P264_PTRBag_Crusader_Set_Akkhan
+        ISnoItem P264_PTRBag_Crusader_Set_Roland { get; } // 3456831981 - P264_PTRBag_Crusader_Set_Roland
+        ISnoItem P264_PTRBag_Crusader_Set_Seeker { get; } // 3483867212 - P264_PTRBag_Crusader_Set_Seeker
+        ISnoItem P264_PTRBag_Crusader_Set_Thorns { get; } // 3526927659 - P264_PTRBag_Crusader_Set_Thorns
+        ISnoItem P264_PTRBag_DemonHunter_Set_Marauder { get; } // 3132275214 - P264_PTRBag_DemonHunter_Set_Marauder
+        ISnoItem P264_PTRBag_DemonHunter_Set_Natalya { get; } // 2169651271 - P264_PTRBag_DemonHunter_Set_Natalya
+        ISnoItem P264_PTRBag_DemonHunter_Set_ShadowsMantle { get; } // 2635065335 - P264_PTRBag_DemonHunter_Set_ShadowsMantle
+        ISnoItem P264_PTRBag_DemonHunter_Set_UnhallowedEssence { get; } // 1458329462 - P264_PTRBag_DemonHunter_Set_UnhallowedEssence
+        ISnoItem P264_PTRBag_Monk_Set_Innas { get; } // 1475373570 - P264_PTRBag_Monk_Set_Innas
+        ISnoItem P264_PTRBag_Monk_Set_MonkeyKingGarb { get; } // 1352247169 - P264_PTRBag_Monk_Set_MonkeyKingGarb
+        ISnoItem P264_PTRBag_Monk_Set_RaimentofaThousandStorms { get; } // 4007340093 - P264_PTRBag_Monk_Set_RaimentofaThousandStorms
+        ISnoItem P264_PTRBag_Monk_Set_Uliana { get; } // 1909760675 - P264_PTRBag_Monk_Set_Uliana
+        ISnoItem P264_PTRBag_WitchDoctor_Set_HelltoothHarness { get; } // 156570501 - P264_PTRBag_WitchDoctor_Set_HelltoothHarness
+        ISnoItem P264_PTRBag_WitchDoctor_Set_RaimentoftheJadeHarvester { get; } // 624893292 - P264_PTRBag_WitchDoctor_Set_RaimentoftheJadeHarvester
+        ISnoItem P264_PTRBag_WitchDoctor_Set_SpiritofArachyr { get; } // 1746158008 - P264_PTRBag_WitchDoctor_Set_SpiritofArachyr
+        ISnoItem P264_PTRBag_WitchDoctor_Set_Zunimassa { get; } // 1822253305 - P264_PTRBag_WitchDoctor_Set_Zunimassa
+        ISnoItem P264_PTRBag_Wizard_Set_DelsereMagnumOpus { get; } // 4062922805 - P264_PTRBag_Wizard_Set_DelsereMagnumOpus
+        ISnoItem P264_PTRBag_Wizard_Set_Firebirds { get; } // 2950880191 - P264_PTRBag_Wizard_Set_Firebirds
+        ISnoItem P264_PTRBag_Wizard_Set_TalRashas { get; } // 4245372616 - P264_PTRBag_Wizard_Set_TalRashas
+        ISnoItem P264_PTRBag_Wizard_Set_Vyrs { get; } // 181101465 - P264_PTRBag_Wizard_Set_Vyrs
         ISnoItem P3_Unique_Helm_101 { get; } // 1417415311 - P3_Unique_Helm_101
         ISnoItem P3_Unique_Shoulder_101 { get; } // 565941039 - P3_Unique_Shoulder_101
         ISnoItem P4_flail1H_norm_unique_02 { get; } // 3608787766 - P4_flail1H_norm_unique_02
@@ -3396,7 +3481,6 @@
         ISnoItem Debug_100DPS_Sword_2H { get; } // 198260805 - Professional Russian's 100 DPS 2H Sword
         ISnoItem Debug_100DPS_Bow { get; } // 1565754085 - Professional Russian's 100 DPS Bow
         ISnoItem Debug_100DPS_HandXBow { get; } // 1144284824 - Professional Russian's 100 DPS Crossbow Pistol
-        ISnoItem Debug_100DPS_Dagger { get; } // 199216263 - Professional Russian's 100 DPS Dagger
         ISnoItem Debug_100DPS_Wand { get; } // 131016487 - Professional Russian's 100 DPS Wand
         ISnoItem Debug_Constant_Axe_1H { get; } // 3496600965 - Professional Russian's 1H Axe
         ISnoItem Debug_Constant_Mace_1H { get; } // 1134206717 - Professional Russian's 1H Mace
@@ -3435,6 +3519,18 @@
         ISnoItem Unique_Bracer_002_1xx { get; } // 399015830 - Promise of Glory
         ISnoItem Unique_Bracer_002_x1 { get; } // 923147326 - Promise of Glory
         ISnoItem CrusaderShield_006 { get; } // 4176712423 - Protector Shield
+        ISnoItem P264_PTRBag_Armor { get; } // 792617163 - PTR: Armament Pack
+        ISnoItem P265_PTRTestItems { get; } // 428787908 - PTR: Bag of Fortune
+        ISnoItem P264_PTRBag_Barb_SetsAll { get; } // 1690826136 - PTR: Barbarian Sets
+        ISnoItem P264_PTRBag_Crusader_SetsAll { get; } // 887947226 - PTR: Crusader Sets
+        ISnoItem P264_PTRBag_DemonHunter_SetsAll { get; } // 812705226 - PTR: Demon Hunter Sets
+        ISnoItem P264_PTRBag_Jewelry { get; } // 2407678220 - PTR: Jewelry Pack
+        ISnoItem P264_PTRBag_Monk_SetsAll { get; } // 3531904726 - PTR: Monk Sets
+        ISnoItem P264_PTRBag_Necromancer_SetsAll { get; } // 1040795758 - PTR: Necromancer Sets
+        ISnoItem P264_PTRBag_OffHand { get; } // 294153888 - PTR: Off-Hand Pack
+        ISnoItem P264_PTRBag_Weapons { get; } // 1991200807 - PTR: Weapons Pack
+        ISnoItem P264_PTRBag_WitchDoctor_SetsAll { get; } // 3951256235 - PTR: Witch Doctor Sets
+        ISnoItem P264_PTRBag_Wizard_SetsAll { get; } // 2479043314 - PTR: Wizard Sets
         ISnoItem P43_PTR_ItemBagTest { get; } // 3333550884 - PTR Bag of Fortune
         ISnoItem P6_PTRBag_Necro_Set_Bone { get; } // 4195414665 - PTR Set: Bones of Rathma
         ISnoItem P6_PTRBag_Necro_Set_Saint { get; } // 1029382980 - PTR Set: Grace of Inarius
@@ -3706,6 +3802,7 @@
         ISnoItem Unique_Helm_016_1xx { get; } // 2482394290 - Sage's Orbit
         ISnoItem Unique_Boots_018_x1 { get; } // 1941539293 - Sage's Passage
         ISnoItem Unique_Gloves_017_x1 { get; } // 576615877 - Sage's Purchase
+        ISnoItem P66_Unique_Belt_016 { get; } // 4068891566 - Sage's Ribbon
         ISnoItem Unique_Boots_018 { get; } // 261789237 - Sage's Seekers
         ISnoItem Unique_Helm_016 { get; } // 1638662994 - Sage's Stones
         ISnoItem Sword_1H_206 { get; } // 4024030558 - Saif
@@ -3871,6 +3968,7 @@
         ISnoItem Crossbow_101 { get; } // 181032899 - Siege Crossbow
         ISnoItem HandXbow_103 { get; } // 3931576718 - Siege Lock
         ISnoItem X1_Lore_SiegeRunes { get; } // 2967528595 - Siege Runes
+        ISnoItem Unique_Neck_Promo_01_NX1 { get; } // 3105737657 - Signet Amulet of the Blizzard
         ISnoItem Unique_Ring_Promo_01_x1 { get; } // 3683065338 - Signet Ring of the Blizzard
         ISnoItem CombatStaff_2H_202 { get; } // 1771751030 - Silambam
         ISnoItem Belt_101 { get; } // 3561137016 - Silk Sash
@@ -3890,6 +3988,7 @@
         ISnoItem WizardHat_202 { get; } // 1755623809 - Sinister Mask
         ISnoItem P4_Unique_Quiver_001 { get; } // 2204177253 - Sin Seekers
         ISnoItem P43_Unique_Quiver_001 { get; } // 1862624984 - Sin Seekers
+        ISnoItem P65_Unique_Quiver_001 { get; } // 1762168860 - Sin Seekers
         ISnoItem Unique_Quiver_002 { get; } // 3953744259 - Sin Seekers
         ISnoItem Unique_Quiver_002_104 { get; } // 3961868759 - Sin Seekers
         ISnoItem Unique_Quiver_002_1xx { get; } // 3961871203 - Sin Seekers
@@ -4017,6 +4116,7 @@
         ISnoItem VoodooMask_004 { get; } // 620034069 - Spirit Mask
         ISnoItem Unique_Amulet_008 { get; } // 412126069 - Spirit of Adventure
         ISnoItem Unique_Chest_Set_15_x1 { get; } // 260113317 - Spirit of the Earth
+        ISnoItem P66_Unique_Mojo_002 { get; } // 370939127 - Spite
         ISnoItem Unique_Mojo_002_x1 { get; } // 3333386532 - Spite
         ISnoItem ChestArmor_005 { get; } // 1612257708 - Splint Cuirass
         ISnoItem Unique_Sword_2H_014 { get; } // 647377618 - Splintered Oar
@@ -4041,6 +4141,7 @@
         ISnoItem x1_Ruby_03 { get; } // 1019190636 - Square Ruby
         ISnoItem Topaz_07 { get; } // 2058771892 - Square Topaz
         ISnoItem x1_Topaz_03 { get; } // 4267641560 - Square Topaz
+        ISnoItem P66_Unique_Amulet_010 { get; } // 1187653737 - Squirt's Necklace
         ISnoItem Unique_Amulet_010 { get; } // 412126094 - Squirt's Necklace
         ISnoItem Unique_Amulet_010_104 { get; } // 3189543266 - Squirt's Necklace
         ISnoItem Unique_Amulet_010_1xx { get; } // 3189545710 - Squirt's Necklace
@@ -4130,6 +4231,7 @@
         ISnoItem Unique_Ring_005_1xx { get; } // 3719170714 - Stolen Ring
         ISnoItem Unique_Ring_005_x1 { get; } // 3106166466 - Stolen Ring
         ISnoItem Crossbow_205 { get; } // 181033992 - Stonebow
+        ISnoItem P66_Unique_Gloves_007 { get; } // 1656121303 - Stone Gauntlets
         ISnoItem Unique_Gloves_007 { get; } // 880593660 - Stone Gauntlets
         ISnoItem Unique_Gloves_007_104 { get; } // 1809242064 - Stone Gauntlets
         ISnoItem Unique_Gloves_007_1xx { get; } // 1809244508 - Stone Gauntlets
@@ -4352,6 +4454,7 @@
         ISnoItem CultistHead { get; } // 1163171450 - The Cultist's Head
         ISnoItem Lore_X1_Westm_CultRetaliation { get; } // 831394876 - The Cult Shall Rise Again
         ISnoItem P1_CeremonialDagger_norm_unique_02 { get; } // 916911835 - The Dagger of Darts
+        ISnoItem P65_CeremonialDagger_norm_unique_02 { get; } // 4184749013 - The Dagger of Darts
         ISnoItem Dahlgur_Oasis { get; } // 1958060101 - The Dahlgur Oasis
         ISnoItem Leorics_Death { get; } // 164674838 - The Death of King Leoric
         ISnoItem P2_handXbow_norm_unique_03 { get; } // 3028300783 - The Demon's Demise
@@ -4366,6 +4469,7 @@
         ISnoItem X1_Lore_PrimeDiscovery3 { get; } // 1320763169 - The Discovery of Sanctuary, Part 3
         ISnoItem Lore_NephalemDrownedTemple { get; } // 85406869 - The Drowned Temple
         ISnoItem Unique_Amulet_104_x1 { get; } // 1566404154 - The Ess of Johan
+        ISnoItem P66_Unique_Axe_2H_003 { get; } // 595616090 - The Executioner
         ISnoItem Unique_Axe_2H_003 { get; } // 4115055743 - The Executioner
         ISnoItem Unique_Axe_2H_003_104 { get; } // 204987091 - The Executioner
         ISnoItem Unique_Axe_2H_003_1xx { get; } // 204989535 - The Executioner
@@ -4382,6 +4486,7 @@
         ISnoItem Unique_Fist_009_104 { get; } // 2434045240 - The Fist of Az'Turrasq
         ISnoItem Unique_Fist_009_1xx { get; } // 2434047684 - The Fist of Az'Turrasq
         ISnoItem Unique_Fist_009_x1 { get; } // 3197373868 - The Fist of Az'Turrasq
+        ISnoItem P66_Unique_Amulet_001 { get; } // 1187653705 - The Flavor of Time
         ISnoItem Unique_Amulet_001 { get; } // 412126062 - The Flavor of Time
         ISnoItem Unique_Amulet_001_104 { get; } // 3151593794 - The Flavor of Time
         ISnoItem Unique_Amulet_001_1xx { get; } // 3151596238 - The Flavor of Time
@@ -4455,6 +4560,7 @@
         ISnoItem Lore_x1_Bog_LastAncient { get; } // 1554177638 - The Last of the Ancients
         ISnoItem Lore_NephalemLastStand { get; } // 1604771305 - The Last Stand of the Ancients
         ISnoItem Unique_SpiritStone_101_x1 { get; } // 674715443 - The Laws of Seph
+        ISnoItem NX_Transmog_01 { get; } // 1364866960 - The Legend of Ganondorf
         ISnoItem JewelerBackstory { get; } // 1221720352 - The Legend of Zei the Trickster
         ISnoItem Cosmetic_Wings_angel_twoTone_purple { get; } // 2840660586 - The Light of Heaven
         ISnoItem X1_Lore_LostAngelNew { get; } // 1390356236 - The Lost Warrior
@@ -4724,6 +4830,7 @@
         ISnoItem VoodooMask_001 { get; } // 620034066 - Tribal Mask
         ISnoItem VoodooMask_205 { get; } // 620036248 - Tribal Mask
         ISnoItem Polearm_301 { get; } // 2957207043 - Trident
+        ISnoItem Cosmetic_PortraitFrame_Triforce { get; } // 4140821779 - Triforce
         ISnoItem Mace_1H_204 { get; } // 2638943299 - Tripyor
         ISnoItem Polearm_302 { get; } // 2957207044 - Trishula
         ISnoItem Lore_FieldsofMisery { get; } // 1814333430 - Tristram Fields
@@ -4948,6 +5055,7 @@
         ISnoItem Cosmetic_Wings_SetDngn_Mastery { get; } // 2036418836 - Wings of Mastery
         ISnoItem Cosmetic_Wings_Seraphim_02 { get; } // 550271607 - Wings of Northern Skies
         ISnoItem Cosmetic_Wings_bfly_05 { get; } // 1905890382 - Wings of Semyaz
+        ISnoItem p7_Cosmetic_Wings_Diablo { get; } // 1185806158 - Wings of Terror
         ISnoItem Cosmetic_Wings_Illidan { get; } // 2590476058 - Wings of the Betrayer
         ISnoItem P6_Cosmetic_Wings_Necro { get; } // 726768249 - Wings of the Crypt Guardian
         ISnoItem Console_Wings_SetDngn_Basic { get; } // 224691469 - Wings of the Dedicated
@@ -4987,6 +5095,7 @@
         ISnoItem Unique_Dagger_010_x1_210 { get; } // 4229791434 - Wizardspike
         ISnoItem Unique_BarbBelt_103_x1 { get; } // 963238639 - Wodir Harness
         ISnoItem P41_Unique_Xbow_102 { get; } // 2785544700 - Wojahnni Assaulter
+        ISnoItem P65_Unique_Xbow_102 { get; } // 3449542210 - Wojahnni Assaulter
         ISnoItem Unique_Xbow_102_x1 { get; } // 4159955184 - Wojahnni Assaulter
         ISnoItem Unique_Bracer_001 { get; } // 955538485 - Wondrous Deflectors
         ISnoItem Unique_Bracer_001_104 { get; } // 397827465 - Wondrous Deflectors
@@ -5066,6 +5175,7 @@
         ISnoItem Bow_103 { get; } // 2203464315 - Yumi
         ISnoItem CrusaderShield_103 { get; } // 4176713509 - Zakara Heater
         ISnoItem ZakarumTotem { get; } // 437221476 - ZakarumTotem
+        ISnoItem Cosmetic_PortraitFrame_BFA { get; } // 3526887646 - Zandalari
         ISnoItem Cosmetic_Pet_crawlingHand_01 { get; } // 3620943088 - Zayl's Loss
         ISnoItem Unique_Boots_Set_12_x1 { get; } // 3494284114 - Zeal of the Invoker
         ISnoItem CrusaderShield_203 { get; } // 4176714598 - Zealous Protector
@@ -5109,5 +5219,4 @@
         ISnoItem Unique_VoodooMask_007_1xx { get; } // 2340555310 - Zunimassa's Vision
         ISnoItem Unique_VoodooMask_007_x1 { get; } // 3454841814 - Zunimassa's Vision
     }
-
 }

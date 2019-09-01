@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum ItemCraftQuality : byte
     {
         Inferior = 0,
@@ -17,5 +16,4 @@
         Set = 11,
         None = 255
     }
-
 }

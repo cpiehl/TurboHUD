@@ -1,15 +1,13 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class MarkerPlugin : BasePlugin, IInGameWorldPainter
-	{
-
+    {
         public WorldDecoratorCollection Decorator { get; set; }
 
         public MarkerPlugin()
-		{
+        {
             Enabled = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -32,16 +30,14 @@ namespace Turbo.Plugins.Default
                 );
         }
 
-		public void PaintWorld(WorldLayer layer)
-		{
+        public void PaintWorld(WorldLayer layer)
+        {
             var markers = Hud.Game.Markers;
             foreach (var marker in markers)
-			{
+            {
                 Decorator.ToggleDecorators<GroundLabelDecorator>(!marker.FloorCoordinate.IsOnScreen()); // do not display ground labels when the marker is on the screen
                 Decorator.Paint(layer, null, marker.FloorCoordinate, marker.Name);
-			}
+            }
         }
-
     }
-
 }

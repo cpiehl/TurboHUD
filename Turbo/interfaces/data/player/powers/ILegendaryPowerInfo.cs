@@ -2,7 +2,6 @@
 
 namespace Turbo.Plugins
 {
-
     public interface ILegendaryPowerInfo
     {
         IEnumerable<IBuff> AllBuffs();
@@ -54,7 +53,7 @@ namespace Turbo.Plugins
         IBuff ButchersCarver { get; } // 246118 - ItemPassive_Unique_Axe_2H_001
         IBuff CamsRebuttal { get; } // 318358 - ItemPassive_Unique_Ring_507_x1
         IBuff CapeOfTheDarkNight { get; } // 318421 - ItemPassive_Unique_Ring_532_x1
-        IBuff Carnevil { get; } // 318758 - ItemPassive_Unique_Ring_576_x1
+        IBuff Carnevil { get; } // 483481 - P65_ItemPassive_Unique_Ring_576_x1
         IBuff CesarsMemento { get; } // 449031 - P4_ItemPassive_Unique_Ring_068
         IBuff Chaingmail { get; } // 318798 - ItemPassive_Unique_Ring_616_x1
         IBuff ChainOfShadows { get; } // 445266 - P4_ItemPassive_Unique_Ring_006
@@ -175,9 +174,11 @@ namespace Turbo.Plugins
         IBuff MarasKaleidoscope { get; } // 318719 - ItemPassive_Unique_Ring_548_x1
         IBuff MaskOfJeram { get; } // 318411 - ItemPassive_Unique_Ring_526_x1
         IBuff MaskOfScarletDeath { get; } // 476581 - P6_ItemPassive_Unique_Ring_060
+        IBuff MesserschmidtsReaver { get; } // 483522 - P66_ItemPassive_Unique_Ring_929
         IBuff MoonlightWard { get; } // 364343 - itemPassive_Unique_Amulet_003_x1
         IBuff MordullusPromise { get; } // 447029 - P4_ItemPassive_Unique_Ring_046
         IBuff MoribundGauntlets { get; } // 476589 - P6_ItemPassive_Unique_Ring_068
+        IBuff MorticksBrace { get; } // 430135 - P2_ItemPassive_Unique_Ring_032
         IBuff NayrsBlackDeath { get; } // 476587 - P6_ItemPassive_Unique_Ring_066
         IBuff NemesisBracers { get; } // 318820 - ItemPassive_Unique_Ring_638_x1
         IBuff NilfursBoast { get; } // 478554 - P61_ItemPassive_Unique_Ring_029
@@ -234,6 +235,7 @@ namespace Turbo.Plugins
         IBuff SpauldersOfZakara { get; } // 318858 - ItemPassive_Unique_Ring_663_x1
         IBuff SpearOfJairo { get; } // 475254 - P6_ItemPassive_Unique_Ring_050
         IBuff SpiritGuards { get; } // 430289 - P2_ItemPassive_Unique_Ring_034
+        IBuff SquirtsNecklace { get; } // 483552 - P66_ItemPassive_Unique_Ring_931
         IBuff StaffOfChiroptera { get; } // 478487 - P61_ItemPassive_Unique_Ring_014
         IBuff StalgardsDecimator { get; } // 318412 - ItemPassive_Unique_Ring_527_x1
         IBuff Standoff { get; } // 446592 - P4_ItemPassive_Unique_Ring_035
@@ -255,10 +257,12 @@ namespace Turbo.Plugins
         IBuff TheButchersSickle { get; } // 248484 - ItemPassive_Unique_Axe_1H_006
         IBuff TheCloakOfTheGarwulf { get; } // 318300 - ItemPassive_Unique_Ring_501_x1
         IBuff TheCrudestBoots { get; } // 409811 - p1_ItemPassive_Unique_Ring_943
-        IBuff TheDaggerOfDarts { get; } // 402447 - ItemPassive_Unique_Ring_911_x1
+        IBuff TheDaggerOfDarts { get; } // 483400 - P65_ItemPassive_Unique_Ring_911_x1
         IBuff TheDemonsDemise { get; } // 451243 - P42_ItemPassive_Unique_Ring_008
         IBuff TheEssOfJohan { get; } // 318759 - ItemPassive_Unique_Ring_577_x1
+        IBuff TheExecutioner { get; } // 483516 - P66_ItemPassive_Unique_Ring_925
         IBuff TheFistOfAzTurrasq { get; } // 318433 - ItemPassive_Unique_Ring_540_x1
+        IBuff TheFlavorOfTime { get; } // 483515 - P66_ItemPassive_Unique_Ring_924
         IBuff TheFlowOfEternity { get; } // 451162 - P41_ItemPassive_Unique_Ring_004
         IBuff TheFurnace { get; } // 318753 - ItemPassive_Unique_Ring_571_x1
         IBuff TheGavelOfJudgment { get; } // 478490 - P61_ItemPassive_Unique_Ring_017
@@ -304,11 +308,10 @@ namespace Turbo.Plugins
         IBuff WarzechianArmguards { get; } // 318771 - ItemPassive_Unique_Ring_589_x1
         IBuff WisdomOfKalan { get; } // 476686 - P6_ItemPassive_Unique_Ring_071
         IBuff Wizardspike { get; } // 364312 - ItemPassive_Unique_Dagger_010_x1
-        IBuff WojahnniAssaulter { get; } // 451165 - P41_ItemPassive_Unique_Ring_007
+        IBuff WojahnniAssaulter { get; } // 483506 - P65_ItemPassive_Unique_Ring_007
         IBuff WrapsOfClarity { get; } // 441517 - P3_ItemPassive_Unique_Ring_038
         IBuff Wyrdward { get; } // 434036 - ItemPassive_Unique_Ring_670_p2
         IBuff XephirianAmulet { get; } // 318718 - ItemPassive_Unique_Ring_547_x1
         IBuff ZoeysSecret { get; } // 446639 - P4_ItemPassive_Unique_Ring_038
     }
-
 }

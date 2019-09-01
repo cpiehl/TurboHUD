@@ -1,12 +1,10 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Turbo.Plugins.Default
 {
-
     public class ItemsPlugin : BasePlugin, IInGameWorldPainter, ILootGeneratedHandler
-	{
-
+    {
         public WorldDecoratorCollection LegendaryDecorator { get; set; }
         public WorldDecoratorCollection AncientDecorator { get; set; }
         public WorldDecoratorCollection PrimalDecorator { get; set; }
@@ -23,7 +21,7 @@ namespace Turbo.Plugins.Default
         public WorldDecoratorCollection InArmorySetDecorator { get; set; }
 
         public bool EnableCustomSpeak { get; set; }
-        public Dictionary<ISnoItem, string> CustomSpeakTable { get; private set; }
+        public Dictionary<ISnoItem, string> CustomSpeakTable { get; } = new Dictionary<ISnoItem, string>();
 
         public bool EnableSpeakLegendary { get; set; }
         public bool EnableSpeakAncient { get; set; }
@@ -33,19 +31,9 @@ namespace Turbo.Plugins.Default
         public bool EnableSpeakPrimalSet { get; set; }
 
         public ItemsPlugin()
-		{
+        {
             Enabled = true;
-
-            EnableSpeakLegendary = false;
-            EnableSpeakAncient = false;
-            EnableSpeakPrimal = false;
-            EnableSpeakSet = false;
-            EnableSpeakAncientSet = false;
-            EnableSpeakPrimalSet = false;
-
-            EnableCustomSpeak = false;
-            CustomSpeakTable = new Dictionary<ISnoItem, string>();
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -211,9 +199,11 @@ namespace Turbo.Plugins.Default
                     Brush = Hud.Render.CreateBrush(192, 200, 200, 200, -2),
                     Radius = 1.25f,
                 }
-                );
-            // disabled by default
-            NormalKeepDecorator.Enabled = false;
+                )
+            {
+                // disabled by default
+                Enabled = false
+            };
 
             MagicKeepDecorator = new WorldDecoratorCollection(
                 new GroundCircleDecorator(Hud)
@@ -221,9 +211,11 @@ namespace Turbo.Plugins.Default
                     Brush = Hud.Render.CreateBrush(192, 60, 60, 255, -2),
                     Radius = 1.25f,
                 }
-                );
-            // disabled by default
-            MagicKeepDecorator.Enabled = false;
+                )
+            {
+                // disabled by default
+                Enabled = false
+            };
 
             RareKeepDecorator = new WorldDecoratorCollection(
                 new GroundCircleDecorator(Hud)
@@ -240,16 +232,18 @@ namespace Turbo.Plugins.Default
                     Radius = 6,
                     RadiusTransformator = new StandardPingRadiusTransformator(Hud, 333),
                 }
-                );
-            // disabled by default
-            RareKeepDecorator.Enabled = false;
+                )
+            {
+                // disabled by default
+                Enabled = false
+            };
 
             LegendaryKeepDecorator = new WorldDecoratorCollection(
                 new GroundCircleDecorator(Hud)
                 {
                     Brush = Hud.Render.CreateBrush(192, 235, 120, 0, -2),
                     Radius = 1.25f,
-                    RadiusTransformator = new StandardPingRadiusTransformator (Hud, 333),
+                    RadiusTransformator = new StandardPingRadiusTransformator(Hud, 333),
                 },
                 new MapShapeDecorator(Hud)
                 {
@@ -276,7 +270,7 @@ namespace Turbo.Plugins.Default
                     Radius = 0.6f,
                     RadiusTransformator = new StandardPingRadiusTransformator(Hud, 500)
                     {
-                         RadiusMinimumMultiplier = 0.8f,
+                        RadiusMinimumMultiplier = 0.8f,
                     },
                 }
                 );
@@ -313,7 +307,7 @@ namespace Turbo.Plugins.Default
                 }
                 );
         }
-		
+
         private string GetItemName(IItem item)
         {
             var name = (item.RareName != null ? item.RareName + ", " : null) + item.FullNameLocalized;
@@ -326,12 +320,12 @@ namespace Turbo.Plugins.Default
             return name;
         }
 
-		public void PaintWorld(WorldLayer layer)
-		{
-			var items = Hud.Game.Items.Where(item => item.Location == ItemLocation.Floor);
+        public void PaintWorld(WorldLayer layer)
+        {
+            var items = Hud.Game.Items.Where(item => item.Location == ItemLocation.Floor);
 
             foreach (var item in items)
-			{
+            {
                 var inSet = Hud.Game.Me.ArmorySets.Any(set => set.ContainsItem(item));
                 if (inSet)
                 {
@@ -410,8 +404,8 @@ namespace Turbo.Plugins.Default
                         BookDecorator.Paint(layer, item, item.FloorCoordinate, GetItemName(item));
                     }
                 }
-			}
-		}
+            }
+        }
 
         private void Speak(IItem item, string customText = null)
         {
@@ -422,8 +416,10 @@ namespace Turbo.Plugins.Default
 
         public void OnLootGenerated(IItem item, bool gambled)
         {
-            if (item.LastSpeak != null) return;
-            if (!Hud.Sound.LastSpeak.TimerTest(5000)) return;
+            if (item.LastSpeak != null)
+                return;
+            if (!Hud.Sound.LastSpeak.TimerTest(5000))
+                return;
 
             if (EnableCustomSpeak && CustomSpeakTable.ContainsKey(item.SnoItem))
             {
@@ -439,11 +435,17 @@ namespace Turbo.Plugins.Default
                     switch (item.AncientRank)
                     {
                         case 1:
-                            if (EnableSpeakAncientSet) Speak(item); break;
+                            if (EnableSpeakAncientSet)
+                                Speak(item);
+                            break;
                         case 2:
-                            if (EnableSpeakPrimalSet) Speak(item); break;
+                            if (EnableSpeakPrimalSet)
+                                Speak(item);
+                            break;
                         default:
-                            if (EnableSpeakSet) Speak(item); break;
+                            if (EnableSpeakSet)
+                                Speak(item);
+                            break;
                     }
                 }
                 else
@@ -451,15 +453,20 @@ namespace Turbo.Plugins.Default
                     switch (item.AncientRank)
                     {
                         case 1:
-                            if (EnableSpeakAncient) Speak(item); break;
+                            if (EnableSpeakAncient)
+                                Speak(item);
+                            break;
                         case 2:
-                            if (EnableSpeakPrimal) Speak(item); break;
+                            if (EnableSpeakPrimal)
+                                Speak(item);
+                            break;
                         default:
-                            if (EnableSpeakLegendary) Speak(item); break;
+                            if (EnableSpeakLegendary)
+                                Speak(item);
+                            break;
                     }
                 }
             }
         }
     }
-
 }

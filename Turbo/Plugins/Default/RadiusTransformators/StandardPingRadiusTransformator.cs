@@ -1,12 +1,10 @@
-using System;
+﻿using System;
 
 namespace Turbo.Plugins.Default
 {
-
     public class StandardPingRadiusTransformator : IRadiusTransformator
     {
-
-        public IController Hud { get; private set; }
+        public IController Hud { get; }
 
         public int PingSpeed { get; set; }
         public float RadiusMinimumMultiplier { get; set; }
@@ -22,19 +20,13 @@ namespace Turbo.Plugins.Default
 
         public float TransformRadius(float radius)
         {
-            if (PingSpeed <= 0) return radius;
+            if (PingSpeed <= 0)
+                return radius;
 
             var msec = Hud.Game.CurrentRealTimeMilliseconds;
-            if ((Math.Floor((double)msec / PingSpeed)) % 2 == 1)
-            {
-                return radius * (RadiusMinimumMultiplier + (RadiusMaximumMultiplier - RadiusMinimumMultiplier) * (msec % PingSpeed) / PingSpeed);
-            }
-            else
-            {
-                return radius * (RadiusMaximumMultiplier - (RadiusMaximumMultiplier - RadiusMinimumMultiplier) * (msec % PingSpeed) / PingSpeed);
-            }
+            return Math.Floor((double)msec / PingSpeed) % 2 == 1
+                ? radius * (RadiusMinimumMultiplier + ((RadiusMaximumMultiplier - RadiusMinimumMultiplier) * (msec % PingSpeed) / PingSpeed))
+                : radius * (RadiusMaximumMultiplier - ((RadiusMaximumMultiplier - RadiusMinimumMultiplier) * (msec % PingSpeed) / PingSpeed));
         }
-
     }
-
 }

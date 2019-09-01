@@ -1,9 +1,7 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface IWitchDoctorPowerInfo
     {
-
         IPlayerSkill AcidCloud { get; } // 70455 - Acid Cloud
         IPlayerSkill BigBadVoodoo { get; } // 117402 - Big Bad Voodoo
         IPlayerSkill CorpseSpider { get; } // 69866 - Corpse Spiders
@@ -48,5 +46,4 @@
         ISnoPower VisionQuest { get; } // 209041 - Vision Quest
         ISnoPower ZombieHandler { get; } // 208563 - Zombie Handler
     }
-
 }

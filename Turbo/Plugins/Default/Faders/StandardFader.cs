@@ -1,30 +1,22 @@
 ﻿namespace Turbo.Plugins.Default
 {
-
-    public class StandardFader: IFader
+    public class StandardFader : IFader
     {
+        public IController Hud { get; }
 
-        public IController Hud { get; private set; }
-
-        public float FadeOpacity { get; set; }
-        public bool AllowFadeOut { get; set; }
-        public bool AllowFadeIn { get; set; }
-        public int FadeLength { get; set; }
-        public int FadeOutLength { get; set; }
+        public float FadeOpacity { get; set; } = 0.0f;
+        public bool AllowFadeOut { get; set; } = true;
+        public bool AllowFadeIn { get; set; } = true;
+        public int FadeLength { get; set; } = 130;
+        public int FadeOutLength { get; set; } = 130;
 
         private long _fadeDeadline = 0;
-        private ITransparentCollection _collection;
+        private readonly ITransparentCollection _collection;
 
         public StandardFader(IController hud, ITransparentCollection collection)
         {
             Hud = hud;
             _collection = collection;
-
-            AllowFadeOut = true;
-            AllowFadeIn = true;
-            FadeLength = 130;
-            FadeOutLength = 130;
-            FadeOpacity = 0.0f;
         }
 
         public bool TestVisiblity(bool visibleTestResult)
@@ -33,11 +25,12 @@
 
             if (!visibleTestResult)
             {
-                if (FadeOpacity >= 1) _fadeDeadline = currentTicks + (FadeOutLength - 1) * 10000;
+                if (FadeOpacity >= 1)
+                    _fadeDeadline = currentTicks + ((FadeOutLength - 1) * 10000);
             }
-            else
+            else if (FadeOpacity <= 0)
             {
-                if (FadeOpacity <= 0) _fadeDeadline = currentTicks + (FadeLength - 1) * 10000;
+                _fadeDeadline = currentTicks + ((FadeLength - 1) * 10000);
             }
 
             if (!visibleTestResult)
@@ -47,30 +40,27 @@
                     FadeOpacity = 0;
                     return false;
                 }
-                FadeOpacity = ((float)((_fadeDeadline - currentTicks) / 10000.0f) / FadeOutLength);
 
-                foreach (var transparentElement in _collection.GetTransparents()) transparentElement.Opacity = FadeOpacity;
+                FadeOpacity = (_fadeDeadline - currentTicks) / 10000.0f / FadeOutLength;
+
+                foreach (var transparentElement in _collection.GetTransparents())
+                    transparentElement.Opacity = FadeOpacity;
                 return true;
             }
-            else
+            if ((FadeOpacity >= 1) && !AllowFadeIn)
             {
-                if ((FadeOpacity >= 1) && !AllowFadeIn)
-                {
-                    FadeOpacity = 1;
-                    return true;
-                }
-                if (_fadeDeadline > currentTicks)
-                {
-                    FadeOpacity = 1 - ((float)((_fadeDeadline - currentTicks) / 10000.0f) / FadeLength);
-                }
-                else FadeOpacity = 1;
+                FadeOpacity = 1;
+                return true;
             }
 
-            foreach (var transparentElement in _collection.GetTransparents()) transparentElement.Opacity = FadeOpacity;
+            FadeOpacity = _fadeDeadline > currentTicks
+                ? 1 - ((_fadeDeadline - currentTicks) / 10000.0f / FadeLength)
+                : 1;
+
+            foreach (var transparentElement in _collection.GetTransparents())
+                transparentElement.Opacity = FadeOpacity;
 
             return visibleTestResult;
         }
-
     }
-
 }

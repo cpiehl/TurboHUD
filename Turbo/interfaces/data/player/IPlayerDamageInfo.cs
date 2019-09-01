@@ -1,14 +1,11 @@
 ﻿namespace Turbo.Plugins
 {
-
     public interface IPlayerDamageInfo
     {
-
         double TotalDamage { get; set; }
-        long RunDps { get; set; }
+        double RunDps { get; set; }
 
-        long CurrentDps { get; set; }
-        long MaximumDps { get; set; }
+        double CurrentDps { get; set; }
+        double MaximumDps { get; set; }
     }
-
 }

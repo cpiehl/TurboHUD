@@ -7,12 +7,13 @@ namespace Turbo.Plugins
         int AncientRank { get; }
         int CaldesannRank { get; }
         int JewelRank { get; }
-        bool AccountBound { get; }
+
+        bool AccountBound { get; } // bound to any account (current or any other player)
+        bool BoundToMyAccount { get; } // bound to current account
         bool VendorBought { get; }
 
         ISnoItem SnoItem { get; }
 
-        // both of these fields has English prefixes until I can't find a workaround for proper translation
         string FullNameLocalized { get; } // same as SnoItem.NameLocalized, but includes "Ancient Legendary", "Ancient Set" and other prefixes if necessary
         string FullNameEnglish { get; }
 

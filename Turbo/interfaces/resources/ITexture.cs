@@ -1,6 +1,6 @@
 ﻿namespace Turbo.Plugins
 {
-    public interface ITexture: ITransparent
+    public interface ITexture : ITransparent
     {
         float Height { get; }
         float Width { get; }

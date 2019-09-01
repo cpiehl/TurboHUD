@@ -1,15 +1,13 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class BannerPlugin : BasePlugin, IInGameWorldPainter
-	{
-
+    {
         public WorldDecoratorCollection Decorator { get; set; }
 
         public BannerPlugin()
-		{
+        {
             Enabled = true;
-		}
+        }
 
         public override void Load(IController hud)
         {
@@ -36,7 +34,5 @@ namespace Turbo.Plugins.Default
                 Decorator.Paint(layer, null, banner.FloorCoordinate, "BANNER");
             }
         }
-
     }
-
 }

@@ -1,9 +1,8 @@
 ﻿namespace Turbo.Plugins
 {
-
+#pragma warning disable IDE1006 // Naming Styles
     public interface ISnoQuestList
     {
-
         ISnoQuest tempDreadGhosts_331946 { get; } // [temp] Dread Ghosts
         ISnoQuest ADiversion_353085 { get; } // A Diversion
         ISnoQuest AMinersGold_30848 { get; } // A Miner's Gold
@@ -1009,5 +1008,5 @@
         ISnoQuest WestmarchStores_357001 { get; } // Westmarch Stores
         ISnoQuest Wormsign_410369 { get; } // Wormsign
     }
-
+#pragma warning restore IDE1006 // Naming Styles
 }

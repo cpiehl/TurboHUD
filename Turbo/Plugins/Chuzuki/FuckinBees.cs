@@ -30,7 +30,7 @@ namespace Turbo.Plugins.Chuzuki
 			gcd.Radius -= 0.1f;
 			if (gcd.Radius <= 0.1f)
 				gcd.Radius = Radius;
-			foreach (var bee in Hud.Game.Actors.Where(a => a.SnoActor.Sno == 5212))
+			foreach (var bee in Hud.Game.Actors.Where(a => a.SnoActor.Sno == ActorSnoEnum._sandwasp_projectile))
 			{
 				BeeDecorator.Paint(layer, bee, bee.FloorCoordinate, "O");
 			}

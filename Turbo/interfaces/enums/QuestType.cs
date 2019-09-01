@@ -1,6 +1,5 @@
 ﻿namespace Turbo.Plugins
 {
-
     public enum QuestType
     {
         MainQuest = 0,
@@ -11,5 +10,4 @@
         Unknown2 = 8,
         Unknown3 = 9,
     }
-
 }

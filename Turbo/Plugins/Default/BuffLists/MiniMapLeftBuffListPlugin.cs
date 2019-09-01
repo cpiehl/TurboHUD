@@ -1,9 +1,7 @@
-namespace Turbo.Plugins.Default
+﻿namespace Turbo.Plugins.Default
 {
-
     public class MiniMapLeftBuffListPlugin : BasePlugin, IInGameTopPainter
     {
-
         public BuffPainter BuffPainter { get; set; }
         public BuffRuleCalculator RuleCalculator { get; private set; }
 
@@ -22,8 +20,10 @@ namespace Turbo.Plugins.Default
                 TimeLeftFont = Hud.Render.CreateFont("tahoma", 5, 160, 255, 255, 255, true, false, 160, 0, 0, 0, true),
             };
 
-            RuleCalculator = new BuffRuleCalculator(Hud);
-            RuleCalculator.SizeMultiplier = 0.75f;
+            RuleCalculator = new BuffRuleCalculator(Hud)
+            {
+                SizeMultiplier = 0.75f
+            };
 
             RuleCalculator.Rules.Add(new BuffRule(263029) { MinimumIconCount = 1 }); // Conduit
             RuleCalculator.Rules.Add(new BuffRule(403404) { MinimumIconCount = 1 }); // Conduit in tiered rift
@@ -45,18 +45,19 @@ namespace Turbo.Plugins.Default
 
         public void PaintTopInGame(ClipState clipState)
         {
-            if (Hud.Render.UiHidden) return;
-            if (clipState != ClipState.BeforeClip) return;
+            if (Hud.Render.UiHidden)
+                return;
+            if (clipState != ClipState.BeforeClip)
+                return;
 
             RuleCalculator.CalculatePaintInfo(Hud.Game.Me);
-            if (RuleCalculator.PaintInfoList.Count == 0) return;
+            if (RuleCalculator.PaintInfoList.Count == 0)
+                return;
 
             var uiMinimapRect = Hud.Render.MinimapUiElement.Rectangle;
 
-            var x = uiMinimapRect.Left - RuleCalculator.StandardIconSize / 2;
+            var x = uiMinimapRect.Left - (RuleCalculator.StandardIconSize / 2);
             BuffPainter.PaintVerticalCenter(RuleCalculator.PaintInfoList, x, uiMinimapRect.Top, uiMinimapRect.Height, RuleCalculator.StandardIconSize, RuleCalculator.StandardIconSpacing);
         }
-
     }
-
 }
